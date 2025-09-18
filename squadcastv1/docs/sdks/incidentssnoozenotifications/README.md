@@ -15,14 +15,14 @@ Unsnooze Incident Notifications
 
 <!-- UsageSnippet language="python" operationID="SnoozeNotifications_unsnoozeIncidentNotifications" method="put" path="/v3/incidents/{incidentID}/unsnooze" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.incidents.snooze_notifications.unsnooze(incident_id="<id>", reassign_to={
+    res = ss_client.incidents.snooze_notifications.unsnooze(incident_id="<id>", reassign_to={
         "id": "<id>",
         "type": "<value>",
     })

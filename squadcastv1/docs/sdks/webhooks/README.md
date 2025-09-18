@@ -19,14 +19,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Webhooks_createWebhook" method="post" path="/v3/extensions/event-webhooks" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.webhooks.create(name="<value>", triggers=[], urls=[
+    res = ss_client.webhooks.create(name="<value>", triggers=[], urls=[
         {},
     ], trigger_type="<value>")
 
@@ -86,14 +86,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Webhooks_deleteWebhook" method="delete" path="/v3/extensions/event-webhooks/{eventWebhookID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.webhooks.delete(event_webhook_id="<id>")
+    res = ss_client.webhooks.delete(event_webhook_id="<id>")
 
     # Handle response
     print(res)
@@ -137,14 +137,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Webhooks_getWebhookById" method="get" path="/v3/extensions/event-webhooks/{eventWebhookID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.webhooks.get_by_id(event_webhook_id="<id>")
+    res = ss_client.webhooks.get_by_id(event_webhook_id="<id>")
 
     # Handle response
     print(res)
@@ -188,14 +188,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Webhooks_updateWebhook" method="put" path="/v3/extensions/event-webhooks/{eventWebhookID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.webhooks.update(event_webhook_id="<id>", name="<value>", triggers=[
+    res = ss_client.webhooks.update(event_webhook_id="<id>", name="<value>", triggers=[
         {
             "event_class": "<value>",
             "event_type": "<value>",

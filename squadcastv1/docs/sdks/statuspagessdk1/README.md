@@ -20,14 +20,14 @@ List Status Pages
 
 <!-- UsageSnippet language="python" operationID="StatusPages_listStatusPages" method="get" path="/v4/statuspages" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.status_pages.list(page_size="<value>", page_number="<value>", filters_is_public="<value>", team_id="<id>")
+    res = ss_client.status_pages.list(page_size="<value>", page_number="<value>", filters_is_public="<value>", team_id="<id>")
 
     # Handle response
     print(res)
@@ -73,14 +73,14 @@ Create Status Page
 
 <!-- UsageSnippet language="python" operationID="StatusPages_createStatusPage" method="post" path="/v4/statuspages" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.status_pages.create(name="<value>", domain_name="failing-convection.com", logo_url="https://snarling-season.info", timezone="Pacific/Chuuk", team_id="<id>", contact_email="<value>", owner_type="team", owner_id="<id>")
+    res = ss_client.status_pages.create(name="<value>", domain_name="failing-convection.com", logo_url="https://snarling-season.info", timezone="Pacific/Chuuk", team_id="<id>", contact_email="<value>", owner_type="team", owner_id="<id>")
 
     # Handle response
     print(res)
@@ -138,14 +138,14 @@ Delete Status Page By ID
 
 <!-- UsageSnippet language="python" operationID="StatusPages_deleteStatusPageById" method="delete" path="/v4/statuspages/{statuspageID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.status_pages.delete_by_id(statuspage_id="<id>")
+    res = ss_client.status_pages.delete_by_id(statuspage_id="<id>")
 
     # Handle response
     print(res)
@@ -188,14 +188,14 @@ Get Status Page By ID
 
 <!-- UsageSnippet language="python" operationID="StatusPages_getStatusPageById" method="get" path="/v4/statuspages/{statuspageID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.status_pages.get_by_id(statuspage_id="<id>")
+    res = ss_client.status_pages.get_by_id(statuspage_id="<id>")
 
     # Handle response
     print(res)
@@ -238,14 +238,14 @@ Update Status Page By ID
 
 <!-- UsageSnippet language="python" operationID="StatusPages_updateStatusPageById" method="put" path="/v4/statuspages/{statuspageID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.status_pages.update(statuspage_id="<id>", name="<value>", is_public=False, domain_name="blank-brief.info", team_id="<id>", theme_color={
+    res = ss_client.status_pages.update(statuspage_id="<id>", name="<value>", is_public=False, domain_name="blank-brief.info", team_id="<id>", theme_color={
         "primary": "<value>",
         "secondary": "<value>",
     }, contact_email="<value>", owner_type="<value>", owner_id="<id>")
@@ -309,14 +309,14 @@ List Status Page Statuses
 
 <!-- UsageSnippet language="python" operationID="StatusPages_listStatusPageStatuses" method="get" path="/v4/statuspages/{statuspageID}/status" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.status_pages.list_statuses(statuspage_id="<id>")
+    res = ss_client.status_pages.list_statuses(statuspage_id="<id>")
 
     # Handle response
     print(res)

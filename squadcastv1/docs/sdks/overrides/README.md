@@ -16,14 +16,14 @@ Delete Schedule Override
 
 <!-- UsageSnippet language="python" operationID="Overrides_deleteScheduleOverride" method="delete" path="/v4/schedules/{scheduleID}/overrides/{overrideID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.overrides.remove(schedule_id="<id>", override_id="<id>")
+    res = ss_client.overrides.remove(schedule_id="<id>", override_id="<id>")
 
     # Handle response
     print(res)
@@ -58,14 +58,14 @@ Get Override by ID
 
 <!-- UsageSnippet language="python" operationID="Overrides_getOverrideById" method="get" path="/v4/schedules/{scheduleID}/overrides/{overrideID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.overrides.get_by_id(schedule_id="<id>", override_id="<id>")
+    res = ss_client.overrides.get_by_id(schedule_id="<id>", override_id="<id>")
 
     # Handle response
     print(res)

@@ -19,14 +19,14 @@ Get all rules of a GER Ruleset.
 
 <!-- UsageSnippet language="python" operationID="GlobalEventRules_listRulesetRules" method="get" path="/v3/global-event-rules/{ger_id}/rulesets/{alert_source_version}/{alert_source_shortname}/rules" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.global_event_rules.rulesets.rules.list(ger_id=894010, alert_source_version="<value>", alert_source_shortname="<value>")
+    res = ss_client.global_event_rules.rulesets.rules.list(ger_id=894010, alert_source_version="<value>", alert_source_shortname="<value>")
 
     # Handle response
     print(res)
@@ -74,14 +74,14 @@ Create a GER Ruleset Rule.
 
 <!-- UsageSnippet language="python" operationID="GlobalEventRules_createRule" method="post" path="/v3/global-event-rules/{ger_id}/rulesets/{alert_source_version}/{alert_source_shortname}/rules" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.global_event_rules.rulesets.rules.create(ger_id=934313, alert_source_version="<value>", alert_source_shortname="<value>", description="ha newsprint within beside scientific", expression="<value>", action={
+    res = ss_client.global_event_rules.rulesets.rules.create(ger_id=934313, alert_source_version="<value>", alert_source_shortname="<value>", description="ha newsprint within beside scientific", expression="<value>", action={
         "route_to": "<value>",
     })
 
@@ -131,14 +131,14 @@ Get a GER Ruleset Rule by its ID.
 
 <!-- UsageSnippet language="python" operationID="GlobalEventRules_getRuleById" method="get" path="/v3/global-event-rules/{ger_id}/rulesets/{alert_source_version}/{alert_source_shortname}/rules/{rule_id}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.global_event_rules.rulesets.rules.get_by_id(ger_id=518804, alert_source_version="<value>", alert_source_shortname="<value>", rule_id="<id>")
+    res = ss_client.global_event_rules.rulesets.rules.get_by_id(ger_id=518804, alert_source_version="<value>", alert_source_shortname="<value>", rule_id="<id>")
 
     # Handle response
     print(res)
@@ -184,14 +184,14 @@ Update a GER Ruleset Rule by its ID.
 
 <!-- UsageSnippet language="python" operationID="GlobalEventRules_updateRuleById" method="patch" path="/v3/global-event-rules/{ger_id}/rulesets/{alert_source_version}/{alert_source_shortname}/rules/{rule_id}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.global_event_rules.rulesets.rules.update_by_id(ger_id=140241, alert_source_version="<value>", alert_source_shortname="<value>", rule_id="<id>")
+    res = ss_client.global_event_rules.rulesets.rules.update_by_id(ger_id=140241, alert_source_version="<value>", alert_source_shortname="<value>", rule_id="<id>")
 
     # Handle response
     print(res)
@@ -240,14 +240,14 @@ Reorder a GER Ruleset Rule by its index in the ruleset.
 
 <!-- UsageSnippet language="python" operationID="GlobalEventRules_reorderRulesetByIndex" method="patch" path="/v3/global-event-rules/{ger_id}/rulesets/{alert_source_version}/{alert_source_shortname}/rules/{rule_id}/priority" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.global_event_rules.rulesets.rules.reorder(ger_id=281260, alert_source_version="<value>", alert_source_shortname="<value>", rule_id="<id>")
+    res = ss_client.global_event_rules.rulesets.rules.reorder(ger_id=281260, alert_source_version="<value>", alert_source_shortname="<value>", rule_id="<id>")
 
     # Handle response
     print(res)

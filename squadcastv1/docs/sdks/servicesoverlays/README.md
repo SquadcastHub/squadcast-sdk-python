@@ -15,14 +15,14 @@ Render Dedup Key template
 
 <!-- UsageSnippet language="python" operationID="Overlay_renderDedupKeyTemplate" method="post" path="/v3/services/{serviceID}/overlays/dedup-key/render" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.services.overlays.render_dedup_key(service_id="<id>", overlay_template_type="<value>", template="<value>", payload="<value>")
+    res = ss_client.services.overlays.render_dedup_key(service_id="<id>", overlay_template_type="<value>", template="<value>", payload="<value>")
 
     # Handle response
     print(res)

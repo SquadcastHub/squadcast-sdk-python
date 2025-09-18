@@ -15,14 +15,14 @@ Get workflow logs
 
 <!-- UsageSnippet language="python" operationID="Workflows_getWorkflowLogs" method="get" path="/v3/workflows/{workflowID}/logs" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.workflows.logs.get(workflow_id="<id>")
+    res = ss_client.workflows.logs.get(workflow_id="<id>")
 
     # Handle response
     print(res)

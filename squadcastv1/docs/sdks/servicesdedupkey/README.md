@@ -15,14 +15,14 @@ Update Dedup Key Overlay
 
 <!-- UsageSnippet language="python" operationID="Overlay_updateDedupKeyOverlay" method="put" path="/v3/services/{serviceID}/overlays/dedup-key/{alertSource}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.services.overlays.dedup_key.update(service_id="<id>", alert_source="<value>", overlay_template_type="<value>", dedup_key_overlay={
+    res = ss_client.services.overlays.dedup_key.update(service_id="<id>", alert_source="<value>", overlay_template_type="<value>", dedup_key_overlay={
         "template": "<value>",
         "duration": 360400,
     })

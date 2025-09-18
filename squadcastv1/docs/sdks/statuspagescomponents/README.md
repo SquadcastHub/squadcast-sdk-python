@@ -15,14 +15,14 @@ Delete Component By ID
 
 <!-- UsageSnippet language="python" operationID="Components_deleteComponentById" method="delete" path="/v4/statuspages/{statuspageID}/components/{component_id}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.status_pages.components.delete_by_id(statuspage_id="<id>", component_id="<id>")
+    res = ss_client.status_pages.components.delete_by_id(statuspage_id="<id>", component_id="<id>")
 
     # Handle response
     print(res)

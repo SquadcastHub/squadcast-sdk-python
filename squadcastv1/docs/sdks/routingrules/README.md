@@ -16,14 +16,14 @@ Get Routing Rules
 
 <!-- UsageSnippet language="python" operationID="RoutingRules_getRoutingRules" method="get" path="/v3/services/{serviceID}/routing-rules" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.services.routing_rules.get(service_id="<id>")
+    res = ss_client.services.routing_rules.get(service_id="<id>")
 
     # Handle response
     print(res)
@@ -66,14 +66,14 @@ Create or Update Routing Rules
 
 <!-- UsageSnippet language="python" operationID="RoutingRules_createOrUpdateRoutingRules" method="post" path="/v3/services/{serviceID}/routing-rules" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.services.routing_rules.create_or_update(service_id="<id>", rules=[
+    res = ss_client.services.routing_rules.create_or_update(service_id="<id>", rules=[
         {
             "expression": "<value>",
             "route_to": {

@@ -20,14 +20,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="EscalationPolicies_getEscalationPolicyByTeam" method="get" path="/v3/escalation-policies" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.escalation_policies.get_by_team()
+    res = ss_client.escalation_policies.get_by_team()
 
     # Handle response
     print(res)
@@ -73,14 +73,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="EscalationPolicies_createEscalationPolicies" method="post" path="/v3/escalation-policies" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.escalation_policies.create(owner_id="<id>", name="<value>", description="properly aw gerbil address co-producer guzzle delight difficult", repetition=549305, repeat_after=226311, rules=[
+    res = ss_client.escalation_policies.create(owner_id="<id>", name="<value>", description="properly aw gerbil address co-producer guzzle delight difficult", repetition=549305, repeat_after=226311, rules=[
         {
             "escalation_time": 646220,
             "via": [
@@ -148,14 +148,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="EscalationPolicies_removeEscalationPolicy" method="delete" path="/v3/escalation-policies/{escalationPolicyID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.escalation_policies.remove(escalation_policy_id="<id>")
+    res = ss_client.escalation_policies.remove(escalation_policy_id="<id>")
 
     # Handle response
     print(res)
@@ -199,14 +199,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="EscalationPolicies_getEscalationPolicyById" method="get" path="/v3/escalation-policies/{escalationPolicyID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.escalation_policies.get_by_id(escalation_policy_id="<id>")
+    res = ss_client.escalation_policies.get_by_id(escalation_policy_id="<id>")
 
     # Handle response
     print(res)
@@ -250,14 +250,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="EscalationPolicies_updateEscalationPolicy" method="post" path="/v3/escalation-policies/{escalationPolicyID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.escalation_policies.update(escalation_policy_id="<id>", v3_escalation_policies_update_escalation_policy_request=open("example.file", "rb"))
+    res = ss_client.escalation_policies.update(escalation_policy_id="<id>", v3_escalation_policies_update_escalation_policy_request=open("example.file", "rb"))
 
     # Handle response
     print(res)

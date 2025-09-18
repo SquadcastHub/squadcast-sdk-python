@@ -24,14 +24,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Teams_getAllTeams" method="get" path="/v3/teams" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.teams.get_all()
+    res = ss_client.teams.get_all()
 
     # Handle response
     print(res)
@@ -74,14 +74,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Teams_createTeam" method="post" path="/v3/teams" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.teams.create(name="<value>", member_ids=[
+    res = ss_client.teams.create(name="<value>", member_ids=[
         "<value 1>",
         "<value 2>",
     ])
@@ -130,14 +130,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Teams_getTeamById" method="get" path="/v3/teams/{teamId}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.teams.get(team_id="<id>")
+    res = ss_client.teams.get(team_id="<id>")
 
     # Handle response
     print(res)
@@ -181,14 +181,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Teams_updateTeam" method="put" path="/v3/teams/{teamId}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.teams.update(team_id="<id>", members=[])
+    res = ss_client.teams.update(team_id="<id>", members=[])
 
     # Handle response
     print(res)
@@ -235,14 +235,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Teams_removeTeam" method="delete" path="/v3/teams/{teamId}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.teams.remove(team_id="<id>")
+    res = ss_client.teams.remove(team_id="<id>")
 
     # Handle response
     print(res)
@@ -286,14 +286,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Teams_addBulkTeamMember" method="post" path="/v3/teams/{teamId}/members/bulk" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.teams.add_bulk_member(team_id="<id>", members=[
+    res = ss_client.teams.add_bulk_member(team_id="<id>", members=[
         {
             "user_id": "<id>",
             "role_ids": [
@@ -346,14 +346,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Teams_removeTeamMember" method="delete" path="/v3/teams/{teamId}/members/{memberId}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.teams.remove_member(team_id="<id>", member_id="<id>")
+    res = ss_client.teams.remove_member(team_id="<id>", member_id="<id>")
 
     # Handle response
     print(res)
@@ -398,14 +398,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Teams_updateTeamMember" method="patch" path="/v3/teams/{teamId}/members/{memberId}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.teams.update_member(team_id="<id>", member_id="<id>")
+    res = ss_client.teams.update_member(team_id="<id>", member_id="<id>")
 
     # Handle response
     print(res)
@@ -452,14 +452,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Teams_removeTeamRole" method="delete" path="/v3/teams/{teamId}/roles/{roleId}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.teams.remove_role(team_id="<id>", role_id="<id>")
+    res = ss_client.teams.remove_role(team_id="<id>", role_id="<id>")
 
     # Handle response
     print(res)

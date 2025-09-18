@@ -18,14 +18,14 @@
 
 <!-- UsageSnippet language="python" operationID="AdditionalResponders_getAdditionalResponders" method="get" path="/v3/incidents/{incidentID}/additional-responders" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.incidents.additional_responders.list(incident_id="<id>")
+    res = ss_client.incidents.additional_responders.list(incident_id="<id>")
 
     # Handle response
     print(res)
@@ -70,14 +70,14 @@ with SquadcastSDK(
 
 <!-- UsageSnippet language="python" operationID="AdditionalResponders_addAdditionalResponders" method="put" path="/v3/incidents/{incidentID}/additional-responders" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.incidents.additional_responders.add(incident_id="<id>", additional_responders=[])
+    res = ss_client.incidents.additional_responders.add(incident_id="<id>", additional_responders=[])
 
     # Handle response
     print(res)

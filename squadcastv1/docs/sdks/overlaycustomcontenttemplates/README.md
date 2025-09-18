@@ -16,14 +16,14 @@ Get All Custom Content Template Overlay by Service
 
 <!-- UsageSnippet language="python" operationID="Overlay_getAllCustomContentTemplateOverlayByService" method="get" path="/v3/services/{serviceID}/overlays/custom-content" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.services.overlay.custom_content_templates.get_all(service_id="<id>")
+    res = ss_client.services.overlay.custom_content_templates.get_all(service_id="<id>")
 
     # Handle response
     print(res)
@@ -66,14 +66,14 @@ Create or Update Notification Template Overlay
 
 <!-- UsageSnippet language="python" operationID="Overlay_createOrUpdateNotificationTemplateOverlay" method="put" path="/v3/services/{serviceID}/overlays/custom-content/{alertSource}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.services.overlay.custom_content_templates.create_or_update(service_id="<id>", alert_source="<value>", overlay_template_type="<value>", message_overlay={
+    res = ss_client.services.overlay.custom_content_templates.create_or_update(service_id="<id>", alert_source="<value>", overlay_template_type="<value>", message_overlay={
         "template": "<value>",
     }, description_overlay={
         "template": "<value>",

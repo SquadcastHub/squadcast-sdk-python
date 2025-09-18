@@ -15,14 +15,14 @@ Reorder rules of a GER Ruleset
 
 <!-- UsageSnippet language="python" operationID="GlobalEventRules_reorderRuleset" method="patch" path="/v3/global-event-rules/{ger_id}/rulesets/{alert_source_version}/{alert_source_shortname}/priority" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.rulesets.reorder(ger_id=572014, alert_source_version="<value>", alert_source_shortname="<value>")
+    res = ss_client.rulesets.reorder(ger_id=572014, alert_source_version="<value>", alert_source_shortname="<value>")
 
     # Handle response
     print(res)

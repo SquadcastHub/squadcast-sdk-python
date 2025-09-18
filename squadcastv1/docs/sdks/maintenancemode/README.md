@@ -15,14 +15,14 @@ Get Maintenance Mode
 
 <!-- UsageSnippet language="python" operationID="MaintenanceMode_getMaintenanceMode" method="get" path="/v3/services/{serviceID}/maintenance" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.services.maintenance_mode.get(service_id="<id>")
+    res = ss_client.services.maintenance_mode.get(service_id="<id>")
 
     # Handle response
     print(res)

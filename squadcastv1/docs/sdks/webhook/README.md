@@ -15,14 +15,14 @@ Trigger a Webhook Manually
 
 <!-- UsageSnippet language="python" operationID="IncidentActions_triggerAWebhookManually" method="post" path="/v3/incidents/{incidentID}/actions/webhook/{eventWebhookID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.incidents.actions.webhook.trigger(incident_id="<id>", event_webhook_id="<id>")
+    res = ss_client.incidents.actions.webhook.trigger(incident_id="<id>", event_webhook_id="<id>")
 
     # Handle response
     print(res)

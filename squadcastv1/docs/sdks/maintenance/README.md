@@ -15,14 +15,14 @@ Create or Update Maintenance Mode
 
 <!-- UsageSnippet language="python" operationID="MaintenanceMode_createOrUpdateMaintenanceMode" method="post" path="/v3/services/{serviceID}/maintenance" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.services.maintenance.create_or_update(service_id="<id>", on_maintenance=True, service_maintenance=[
+    res = ss_client.services.maintenance.create_or_update(service_id="<id>", on_maintenance=True, service_maintenance=[
         {
             "maintenance_start_date": "<value>",
             "daily": False,

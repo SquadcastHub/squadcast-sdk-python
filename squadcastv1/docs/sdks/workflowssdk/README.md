@@ -24,14 +24,14 @@ Get a list of all Workflows
 
 <!-- UsageSnippet language="python" operationID="Workflows_listWorkflows" method="get" path="/v3/workflows" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.workflows.list(owner_id="<id>")
+    res = ss_client.workflows.list(owner_id="<id>")
 
     # Handle response
     print(res)
@@ -84,14 +84,14 @@ Create a Workflow
 
 <!-- UsageSnippet language="python" operationID="Workflows_createWorkflow" method="post" path="/v3/workflows" -->
 ```python
-from openapi import SquadcastSDK, models
+from squadcast_sdk import SquadcastSDK, models
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.workflows.create(title="<value>", owner_id="<id>", trigger="incident_acknowledged", filters=models.V3WorkflowsCreateWorkflowFilter(), actions=[
+    res = ss_client.workflows.create(title="<value>", owner_id="<id>", trigger="incident_acknowledged", filters=models.V3WorkflowsCreateWorkflowFilter(), actions=[
         {
             "name": "sq_trigger_manual_webhook",
             "data": {
@@ -150,14 +150,14 @@ Bulk enable or disable workflows
 
 <!-- UsageSnippet language="python" operationID="Workflows_bulkEnabledisableWorkflows" method="put" path="/v3/workflows/enable" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.workflows.bulk_enable_disable(owner_id="<id>", enabled=False, workflow_ids=[
+    res = ss_client.workflows.bulk_enable_disable(owner_id="<id>", enabled=False, workflow_ids=[
         124939,
     ])
 
@@ -204,14 +204,14 @@ Delete a workflow by ID
 
 <!-- UsageSnippet language="python" operationID="Workflows_deleteWorkflow" method="delete" path="/v3/workflows/{workflowID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.workflows.delete(workflow_id="<id>")
+    res = ss_client.workflows.delete(workflow_id="<id>")
 
     # Handle response
     print(res)
@@ -254,14 +254,14 @@ Get a workflow by ID
 
 <!-- UsageSnippet language="python" operationID="Workflows_getWorkflowById" method="get" path="/v3/workflows/{workflowID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.workflows.get_by_id(workflow_id="<id>")
+    res = ss_client.workflows.get_by_id(workflow_id="<id>")
 
     # Handle response
     print(res)
@@ -304,14 +304,14 @@ Update a Workflow
 
 <!-- UsageSnippet language="python" operationID="Workflows_updateWorkflow" method="patch" path="/v3/workflows/{workflowID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.workflows.update(workflow_id="<id>")
+    res = ss_client.workflows.update(workflow_id="<id>")
 
     # Handle response
     print(res)
@@ -364,14 +364,14 @@ Update action order in a workflow
 
 <!-- UsageSnippet language="python" operationID="Workflows_updateActionsOrder" method="patch" path="/v3/workflows/{workflowID}/actions/reorder" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.workflows.update_actions_order(workflow_id="<id>")
+    res = ss_client.workflows.update_actions_order(workflow_id="<id>")
 
     # Handle response
     print(res)
@@ -415,14 +415,14 @@ Delete an action by action ID
 
 <!-- UsageSnippet language="python" operationID="Workflows_deleteWorkflowAction" method="delete" path="/v3/workflows/{workflowID}/actions/{actionID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.workflows.delete_action(workflow_id="<id>", action_id="<id>")
+    res = ss_client.workflows.delete_action(workflow_id="<id>", action_id="<id>")
 
     # Handle response
     print(res)
@@ -466,14 +466,14 @@ Update an action by action ID
 
 <!-- UsageSnippet language="python" operationID="Workflows_updateWorkflowAction" method="patch" path="/v3/workflows/{workflowID}/actions/{actionID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.workflows.update_action(workflow_id="<id>", action_id="<id>", v3_workflows_action_request_update={
+    res = ss_client.workflows.update_action(workflow_id="<id>", action_id="<id>", v3_workflows_action_request_update={
         "name": "slack_message_channel",
     })
 
@@ -520,14 +520,14 @@ Enable or disable workflow by ID
 
 <!-- UsageSnippet language="python" operationID="Workflows_enabledisableWorkflow" method="patch" path="/v3/workflows/{workflowID}/enable" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.workflows.enable_disable(workflow_id="<id>")
+    res = ss_client.workflows.enable_disable(workflow_id="<id>")
 
     # Handle response
     print(res)

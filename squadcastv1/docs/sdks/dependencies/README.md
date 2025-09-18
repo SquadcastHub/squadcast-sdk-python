@@ -15,14 +15,14 @@ Create or Update Dependencies
 
 <!-- UsageSnippet language="python" operationID="Dependencies_createOrUpdateDependencies" method="post" path="/v3/services/{serviceID}/dependencies" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.services.dependencies.create_or_update(service_id="<id>", dependencies=[
+    res = ss_client.services.dependencies.create_or_update(service_id="<id>", dependencies=[
         "<value 1>",
         "<value 2>",
         "<value 3>",

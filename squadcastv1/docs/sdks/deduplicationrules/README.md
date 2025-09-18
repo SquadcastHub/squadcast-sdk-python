@@ -16,14 +16,14 @@ Get Deduplication Rules
 
 <!-- UsageSnippet language="python" operationID="DeduplicationRules_getDeduplicationRules" method="get" path="/v3/services/{serviceID}/deduplication-rules" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.services.deduplication_rules.get(service_id="<id>")
+    res = ss_client.services.deduplication_rules.get(service_id="<id>")
 
     # Handle response
     print(res)
@@ -66,14 +66,14 @@ Create or Update Deduplication Rules
 
 <!-- UsageSnippet language="python" operationID="DeduplicationRules_createOrUpdateDeduplicationRules" method="post" path="/v3/services/{serviceID}/deduplication-rules" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.services.deduplication_rules.create_or_update(service_id="<id>", rules=[])
+    res = ss_client.services.deduplication_rules.create_or_update(service_id="<id>", rules=[])
 
     # Handle response
     print(res)

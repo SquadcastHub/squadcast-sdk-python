@@ -17,14 +17,14 @@ Render Custom Content Overlay
 
 <!-- UsageSnippet language="python" operationID="Overlay_renderCustomContentOverlay" method="post" path="/v3/services/{serviceID}/overlays/custom-content/render" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.services.overlays.custom_content_templates.render(service_id="<id>", overlay_template_type="<value>", template="<value>", payload="<value>")
+    res = ss_client.services.overlays.custom_content_templates.render(service_id="<id>", overlay_template_type="<value>", template="<value>", payload="<value>")
 
     # Handle response
     print(res)
@@ -70,14 +70,14 @@ Delete Notification Template Overlay
 
 <!-- UsageSnippet language="python" operationID="Overlay_deleteNotificationTemplateOverlay" method="delete" path="/v3/services/{serviceID}/overlays/custom-content/{alertSource}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.services.overlays.custom_content_templates.delete(service_id="<id>", alert_source="<value>")
+    res = ss_client.services.overlays.custom_content_templates.delete(service_id="<id>", alert_source="<value>")
 
     # Handle response
     print(res)
@@ -121,14 +121,14 @@ Get Custom Content Template Overlay
 
 <!-- UsageSnippet language="python" operationID="Overlay_getCustomContentTemplateOverlay" method="get" path="/v3/services/{serviceID}/overlays/custom-content/{alertSource}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.services.overlays.custom_content_templates.get(service_id="<id>", alert_source="<value>")
+    res = ss_client.services.overlays.custom_content_templates.get(service_id="<id>", alert_source="<value>")
 
     # Handle response
     print(res)

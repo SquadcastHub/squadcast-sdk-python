@@ -26,14 +26,14 @@
 
 <!-- UsageSnippet language="python" operationID="Incidents_bulkAcknowledgeIncidents" method="post" path="/v3/incidents/acknowledge" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.incidents.bulk_acknowledge(incident_ids=[
+    res = ss_client.incidents.bulk_acknowledge(incident_ids=[
         "<value 1>",
         "<value 2>",
     ])
@@ -98,15 +98,15 @@ tags: filter by tags key=value
 
 <!-- UsageSnippet language="python" operationID="Incidents_incidentExport" method="get" path="/v3/incidents/export" -->
 ```python
-from openapi import SquadcastSDK
-from openapi.utils import parse_datetime
+from squadcast_sdk import SquadcastSDK
+from squadcast_sdk.utils import parse_datetime
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    squadcast_sdk.incidents.export(start_time=parse_datetime("2023-02-02T07:53:59.590Z"), end_time=parse_datetime("2023-02-03T13:28:22.839Z"), type_="csv", owner_id="<id>")
+    ss_client.incidents.export(start_time=parse_datetime("2023-02-02T07:53:59.590Z"), end_time=parse_datetime("2023-02-03T13:28:22.839Z"), type_="csv", owner_id="<id>")
 
     # Use the SDK ...
 
@@ -162,14 +162,14 @@ with SquadcastSDK(
 
 <!-- UsageSnippet language="python" operationID="Incidents_bulkIncidentsPriorityUpdate" method="put" path="/v3/incidents/priority" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.incidents.bulk_update_priority(incident_ids=[], priority="<value>")
+    res = ss_client.incidents.bulk_update_priority(incident_ids=[], priority="<value>")
 
     # Handle response
     print(res)
@@ -214,14 +214,14 @@ with SquadcastSDK(
 
 <!-- UsageSnippet language="python" operationID="Incidents_bulkResolveIncidents" method="post" path="/v3/incidents/resolve" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.incidents.bulk_resolve(incident_ids=[
+    res = ss_client.incidents.bulk_resolve(incident_ids=[
         "<value 1>",
     ])
 
@@ -267,14 +267,14 @@ with SquadcastSDK(
 
 <!-- UsageSnippet language="python" operationID="Incidents_getIncidentById" method="get" path="/v3/incidents/{incidentID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.incidents.get_by_id(incident_id="<id>")
+    res = ss_client.incidents.get_by_id(incident_id="<id>")
 
     # Handle response
     print(res)
@@ -318,14 +318,14 @@ with SquadcastSDK(
 
 <!-- UsageSnippet language="python" operationID="Incidents_acknowledgeIncident" method="post" path="/v3/incidents/{incidentID}/acknowledge" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.incidents.acknowledge(incident_id="<id>")
+    res = ss_client.incidents.acknowledge(incident_id="<id>")
 
     # Handle response
     print(res)
@@ -370,14 +370,14 @@ with SquadcastSDK(
 
 <!-- UsageSnippet language="python" operationID="Incidents_markIncidentSloFalsePositive" method="patch" path="/v3/incidents/{incidentID}/mark-slo-incident-false-postive/{value}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.incidents.mark_slo_false_positive(incident_id="<id>", value="<value>")
+    res = ss_client.incidents.mark_slo_false_positive(incident_id="<id>", value="<value>")
 
     # Handle response
     print(res)
@@ -423,14 +423,14 @@ with SquadcastSDK(
 
 <!-- UsageSnippet language="python" operationID="Incidents_incidentPriorityUpdate" method="patch" path="/v3/incidents/{incidentID}/priority" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.incidents.update_priority(incident_id="<id>")
+    res = ss_client.incidents.update_priority(incident_id="<id>")
 
     # Handle response
     print(res)
@@ -476,14 +476,14 @@ with SquadcastSDK(
 
 <!-- UsageSnippet language="python" operationID="Incidents_reassignIncident" method="post" path="/v3/incidents/{incidentID}/reassign" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.incidents.reassign(incident_id="<id>", reassign_to={
+    res = ss_client.incidents.reassign(incident_id="<id>", reassign_to={
         "id": "<id>",
         "type": "<value>",
     })
@@ -534,14 +534,14 @@ with SquadcastSDK(
 
 <!-- UsageSnippet language="python" operationID="Incidents_resolveIncident" method="post" path="/v3/incidents/{incidentID}/resolve" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.incidents.resolve(incident_id="<id>", resolution_reason={
+    res = ss_client.incidents.resolve(incident_id="<id>", resolution_reason={
         "message": "<value>",
     })
 
@@ -597,14 +597,14 @@ with SquadcastSDK(
 
 <!-- UsageSnippet language="python" operationID="Incidents_getIncidentsStatusByRequestids" method="post" path="/v3/requests/status" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.incidents.get_status_by_request_ids(request_ids=[
+    res = ss_client.incidents.get_status_by_request_ids(request_ids=[
         "<value 1>",
         "<value 2>",
         "<value 3>",

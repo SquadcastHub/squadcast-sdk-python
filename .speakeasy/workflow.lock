@@ -14,7 +14,7 @@ targets:
         sourceRevisionDigest: sha256:88def5ede3760ad0b2a5ce8f902762ce6e58bd7e700cd75a0c4182de34177ebe
         sourceBlobDigest: sha256:056f31df961d25e9bf2113033829e6e349bb125de5fcf3d4138646d3ca9ce4ea
         codeSamplesNamespace: squadcast-typescript-typescript-python-code-samples
-        codeSamplesRevisionDigest: sha256:140df2b277d4ed331e85e99e48af27162e96db56c053cce67e685307c984a1d1
+        codeSamplesRevisionDigest: sha256:4c4a2b991b05077e7705087403570aec49e5db4cfc2fa9fdd3dbbd79afe69bf1
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -34,6 +34,9 @@ workflow:
             target: python
             source: Squadcast
             output: squadcastv1
+            publish:
+                pypi:
+                    token: $pypi_token
             codeSamples:
                 registry:
                     location: registry.speakeasyapi.dev/swo/incident-response/squadcast-typescript-typescript-python-code-samples

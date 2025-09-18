@@ -17,14 +17,14 @@ Create Communication Card
 
 <!-- UsageSnippet language="python" operationID="CommunicationCards_createCommunicationCard" method="post" path="/v3/incidents/{IncidentId}/communication_cards" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.incidents.communication_cards.create(incident_id="<id>", type_="<value>", url="https://oily-injunction.info", title="<value>")
+    res = ss_client.incidents.communication_cards.create(incident_id="<id>", type_="<value>", url="https://oily-injunction.info", title="<value>")
 
     # Handle response
     print(res)
@@ -72,14 +72,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="CommunicationCards_deleteCommunicationCard" method="delete" path="/v3/incidents/{IncidentId}/communication_cards/{communicationCardId}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.incidents.communication_cards.delete(incident_id="<id>", communication_card_id="<id>")
+    res = ss_client.incidents.communication_cards.delete(incident_id="<id>", communication_card_id="<id>")
 
     # Handle response
     print(res)
@@ -123,14 +123,14 @@ Update Communication Card
 
 <!-- UsageSnippet language="python" operationID="CommunicationCards_updateCommunicationCard" method="put" path="/v3/incidents/{IncidentId}/communication_cards/{communicationCardId}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.incidents.communication_cards.update(incident_id="<id>", communication_card_id="<id>", title="<value>", type_="<value>", url="https://major-cantaloupe.com/")
+    res = ss_client.incidents.communication_cards.update(incident_id="<id>", communication_card_id="<id>", title="<value>", type_="<value>", url="https://major-cantaloupe.com/")
 
     # Handle response
     print(res)

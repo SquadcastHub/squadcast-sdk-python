@@ -17,14 +17,14 @@ List Issues
 
 <!-- UsageSnippet language="python" operationID="Issues_listIssues" method="get" path="/v4/statuspages/{statuspageID}/issues" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.status_pages.issues.list(statuspage_id="<id>")
+    res = ss_client.status_pages.issues.list(statuspage_id="<id>")
 
     # Handle response
     print(res)
@@ -67,14 +67,14 @@ Create Issue
 
 <!-- UsageSnippet language="python" operationID="Issues_createIssue" method="post" path="/v4/statuspages/{statuspageID}/issues" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.status_pages.issues.create(statuspage_id="<id>", title="<value>", components=[
+    res = ss_client.status_pages.issues.create(statuspage_id="<id>", title="<value>", components=[
         {},
     ], issues=[
         {},
@@ -125,14 +125,14 @@ Get Issue By ID
 
 <!-- UsageSnippet language="python" operationID="Issues_getIssueById" method="get" path="/v4/statuspages/{statuspageID}/issues/{issue_id}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.status_pages.issues.get_by_id(statuspage_id="<id>", issue_id="<id>")
+    res = ss_client.status_pages.issues.get_by_id(statuspage_id="<id>", issue_id="<id>")
 
     # Handle response
     print(res)

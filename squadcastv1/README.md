@@ -45,10 +45,6 @@ Developer-friendly & type-safe Python SDK specifically catered to leverage *open
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
-> [!TIP]
-> To finish publishing your SDK to PyPI you must [run your first generation action](https://www.speakeasy.com/docs/github-setup#step-by-step-guide).
-
-
 > [!NOTE]
 > **Python version upgrade policy**
 >
@@ -61,7 +57,7 @@ The SDK can be installed with *uv*, *pip*, or *poetry* package managers.
 *uv* is a fast Python package installer and resolver, designed as a drop-in replacement for pip and pip-tools. It's recommended for its speed and modern Python tooling capabilities.
 
 ```bash
-uv add git+<UNSET>.git
+uv add squadcast_sdk
 ```
 
 ### PIP
@@ -69,7 +65,7 @@ uv add git+<UNSET>.git
 *PIP* is the default package installer for Python, enabling easy installation and management of packages from PyPI via the command line.
 
 ```bash
-pip install git+<UNSET>.git
+pip install squadcast_sdk
 ```
 
 ### Poetry
@@ -77,7 +73,7 @@ pip install git+<UNSET>.git
 *Poetry* is a modern tool that simplifies dependency management and package publishing by using a single `pyproject.toml` file to handle project metadata and dependencies.
 
 ```bash
-poetry add git+<UNSET>.git
+poetry add squadcast_sdk
 ```
 
 ### Shell and script usage with `uv`
@@ -85,7 +81,7 @@ poetry add git+<UNSET>.git
 You can use this SDK in a Python shell with [uv](https://docs.astral.sh/uv/) and the `uvx` command that comes with it like so:
 
 ```shell
-uvx --from openapi python
+uvx --from squadcast_sdk python
 ```
 
 It's also possible to write a standalone Python script without needing to set up a whole project like so:
@@ -95,11 +91,11 @@ It's also possible to write a standalone Python script without needing to set up
 # /// script
 # requires-python = ">=3.9"
 # dependencies = [
-#     "openapi",
+#     "squadcast_sdk",
 # ]
 # ///
 
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 sdk = SquadcastSDK(
   # SDK arguments
@@ -129,14 +125,14 @@ Generally, the SDK will work well with most IDEs out of the box. However, when u
 
 ```python
 # Synchronous Example
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.analytics.get_org_analytics(from_="<value>", to="<value>")
+    res = ss_client.analytics.get_org_analytics(from_="<value>", to="<value>")
 
     # Handle response
     print(res)
@@ -148,15 +144,15 @@ The same SDK client can also be used to make asynchronous requests by importing 
 ```python
 # Asynchronous Example
 import asyncio
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 async def main():
 
     async with SquadcastSDK(
         bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-    ) as squadcast_sdk:
+    ) as ss_client:
 
-        res = await squadcast_sdk.analytics.get_org_analytics_async(from_="<value>", to="<value>")
+        res = await ss_client.analytics.get_org_analytics_async(from_="<value>", to="<value>")
 
         # Handle response
         print(res)
@@ -178,14 +174,14 @@ This SDK supports the following security scheme globally:
 
 To authenticate with the API the `bearer_auth` parameter must be set when initializing the SDK client instance. For example:
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.analytics.get_org_analytics(from_="<value>", to="<value>")
+    res = ss_client.analytics.get_org_analytics(from_="<value>", to="<value>")
 
     # Handle response
     print(res)
@@ -701,14 +697,14 @@ Certain SDK methods accept file objects as part of a request body or multi-part 
 >
 
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.escalation_policies.update(escalation_policy_id="<id>", v3_escalation_policies_update_escalation_policy_request=open("example.file", "rb"))
+    res = ss_client.escalation_policies.update(escalation_policy_id="<id>", v3_escalation_policies_update_escalation_policy_request=open("example.file", "rb"))
 
     # Handle response
     print(res)
@@ -723,15 +719,15 @@ Some of the endpoints in this SDK support retries. If you use the SDK without an
 
 To change the default retry strategy for a single API call, simply provide a `RetryConfig` object to the call:
 ```python
-from openapi import SquadcastSDK
-from openapi.utils import BackoffStrategy, RetryConfig
+from squadcast_sdk import SquadcastSDK
+from squadcast_sdk.utils import BackoffStrategy, RetryConfig
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.analytics.get_org_analytics(from_="<value>", to="<value>",
+    res = ss_client.analytics.get_org_analytics(from_="<value>", to="<value>",
         RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
     # Handle response
@@ -741,16 +737,16 @@ with SquadcastSDK(
 
 If you'd like to override the default retry strategy for all operations that support retries, you can use the `retry_config` optional parameter when initializing the SDK:
 ```python
-from openapi import SquadcastSDK
-from openapi.utils import BackoffStrategy, RetryConfig
+from squadcast_sdk import SquadcastSDK
+from squadcast_sdk.utils import BackoffStrategy, RetryConfig
 
 
 with SquadcastSDK(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.analytics.get_org_analytics(from_="<value>", to="<value>")
+    res = ss_client.analytics.get_org_analytics(from_="<value>", to="<value>")
 
     # Handle response
     print(res)
@@ -761,7 +757,7 @@ with SquadcastSDK(
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-[`SquadcastSDKError`](./src/openapi/errors/squadcastsdkerror.py) is the base class for all HTTP error responses. It has the following properties:
+[`SquadcastSDKError`](./src/squadcast_sdk/errors/squadcastsdkerror.py) is the base class for all HTTP error responses. It has the following properties:
 
 | Property           | Type             | Description                                                                             |
 | ------------------ | ---------------- | --------------------------------------------------------------------------------------- |
@@ -774,16 +770,16 @@ with SquadcastSDK(
 
 ### Example
 ```python
-from openapi import SquadcastSDK, errors
+from squadcast_sdk import SquadcastSDK, errors
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
     res = None
     try:
 
-        res = squadcast_sdk.analytics.get_org_analytics(from_="<value>", to="<value>")
+        res = ss_client.analytics.get_org_analytics(from_="<value>", to="<value>")
 
         # Handle response
         print(res)
@@ -804,18 +800,18 @@ with SquadcastSDK(
 
 ### Error Classes
 **Primary errors:**
-* [`SquadcastSDKError`](./src/openapi/errors/squadcastsdkerror.py): The base class for HTTP error responses.
-  * [`PaymentRequiredError`](./src/openapi/errors/paymentrequirederror.py): Client error. Status code `402`. *
-  * [`ForbiddenError`](./src/openapi/errors/forbiddenerror.py): Access is forbidden. Status code `403`. *
-  * [`NotFoundError`](./src/openapi/errors/notfounderror.py): The server cannot find the requested resource. Status code `404`. *
-  * [`ConflictError`](./src/openapi/errors/conflicterror.py): The request conflicts with the current state of the server. Status code `409`. *
-  * [`UnprocessableEntityError`](./src/openapi/errors/unprocessableentityerror.py): Client error. Status code `422`. *
-  * [`InternalServerError`](./src/openapi/errors/internalservererror.py): Server error. Status code `500`. *
-  * [`BadGatewayError`](./src/openapi/errors/badgatewayerror.py): Server error. Status code `502`. *
-  * [`ServiceUnavailableError`](./src/openapi/errors/serviceunavailableerror.py): Service unavailable. Status code `503`. *
-  * [`GatewayTimeoutError`](./src/openapi/errors/gatewaytimeouterror.py): Server error. Status code `504`. *
-  * [`UnauthorizedError`](./src/openapi/errors/unauthorizederror.py): Access is unauthorized. Status code `401`. *
-  * [`BadRequestError`](./src/openapi/errors/badrequesterror.py): The server could not understand the request due to invalid syntax. Status code `400`. *
+* [`SquadcastSDKError`](./src/squadcast_sdk/errors/squadcastsdkerror.py): The base class for HTTP error responses.
+  * [`PaymentRequiredError`](./src/squadcast_sdk/errors/paymentrequirederror.py): Client error. Status code `402`. *
+  * [`ForbiddenError`](./src/squadcast_sdk/errors/forbiddenerror.py): Access is forbidden. Status code `403`. *
+  * [`NotFoundError`](./src/squadcast_sdk/errors/notfounderror.py): The server cannot find the requested resource. Status code `404`. *
+  * [`ConflictError`](./src/squadcast_sdk/errors/conflicterror.py): The request conflicts with the current state of the server. Status code `409`. *
+  * [`UnprocessableEntityError`](./src/squadcast_sdk/errors/unprocessableentityerror.py): Client error. Status code `422`. *
+  * [`InternalServerError`](./src/squadcast_sdk/errors/internalservererror.py): Server error. Status code `500`. *
+  * [`BadGatewayError`](./src/squadcast_sdk/errors/badgatewayerror.py): Server error. Status code `502`. *
+  * [`ServiceUnavailableError`](./src/squadcast_sdk/errors/serviceunavailableerror.py): Service unavailable. Status code `503`. *
+  * [`GatewayTimeoutError`](./src/squadcast_sdk/errors/gatewaytimeouterror.py): Server error. Status code `504`. *
+  * [`UnauthorizedError`](./src/squadcast_sdk/errors/unauthorizederror.py): Access is unauthorized. Status code `401`. *
+  * [`BadRequestError`](./src/squadcast_sdk/errors/badrequesterror.py): The server could not understand the request due to invalid syntax. Status code `400`. *
 
 <details><summary>Less common errors (8)</summary>
 
@@ -827,11 +823,11 @@ with SquadcastSDK(
     * [`httpx.TimeoutException`](https://www.python-httpx.org/exceptions/#httpx.TimeoutException): HTTP request timed out.
 
 
-**Inherit from [`SquadcastSDKError`](./src/openapi/errors/squadcastsdkerror.py)**:
-* [`CommonV4Error`](./src/openapi/errors/commonv4error.py): The server could not understand the request due to invalid syntax. Applicable to 31 of 229 methods.*
-* [`ResponseBodyError1`](./src/openapi/errors/responsebodyerror1.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 229 methods.*
-* [`ResponseBodyError2`](./src/openapi/errors/responsebodyerror2.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 229 methods.*
-* [`ResponseValidationError`](./src/openapi/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
+**Inherit from [`SquadcastSDKError`](./src/squadcast_sdk/errors/squadcastsdkerror.py)**:
+* [`CommonV4Error`](./src/squadcast_sdk/errors/commonv4error.py): The server could not understand the request due to invalid syntax. Applicable to 31 of 229 methods.*
+* [`ResponseBodyError1`](./src/squadcast_sdk/errors/responsebodyerror1.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 229 methods.*
+* [`ResponseBodyError2`](./src/squadcast_sdk/errors/responsebodyerror2.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 229 methods.*
+* [`ResponseValidationError`](./src/squadcast_sdk/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>
 
@@ -845,15 +841,15 @@ with SquadcastSDK(
 
 The default server can be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     server_url="https://api.squadcast.tech",
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.analytics.get_org_analytics(from_="<value>", to="<value>")
+    res = ss_client.analytics.get_org_analytics(from_="<value>", to="<value>")
 
     # Handle response
     print(res)
@@ -870,7 +866,7 @@ This allows you to wrap the client with your own custom logic, such as adding cu
 
 For example, you could specify a header for every request that this sdk makes as follows:
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 import httpx
 
 http_client = httpx.Client(headers={"x-custom-header": "someValue"})
@@ -879,8 +875,8 @@ s = SquadcastSDK(client=http_client)
 
 or you could wrap the client with your own custom logic:
 ```python
-from openapi import SquadcastSDK
-from openapi.httpclient import AsyncHttpClient
+from squadcast_sdk import SquadcastSDK
+from squadcast_sdk.httpclient import AsyncHttpClient
 import httpx
 
 class CustomClient(AsyncHttpClient):
@@ -950,12 +946,12 @@ The `SquadcastSDK` class implements the context manager protocol and registers a
 [context-manager]: https://docs.python.org/3/reference/datamodel.html#context-managers
 
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 def main():
 
     with SquadcastSDK(
         bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-    ) as squadcast_sdk:
+    ) as ss_client:
         # Rest of application here...
 
 
@@ -964,7 +960,7 @@ async def amain():
 
     async with SquadcastSDK(
         bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-    ) as squadcast_sdk:
+    ) as ss_client:
         # Rest of application here...
 ```
 <!-- End Resource Management [resource-management] -->
@@ -976,11 +972,11 @@ You can setup your SDK to emit debug logs for SDK requests and responses.
 
 You can pass your own logger class directly into your SDK.
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 import logging
 
 logging.basicConfig(level=logging.DEBUG)
-s = SquadcastSDK(debug_logger=logging.getLogger("openapi"))
+s = SquadcastSDK(debug_logger=logging.getLogger("squadcast_sdk"))
 ```
 <!-- End Debugging [debug] -->
 

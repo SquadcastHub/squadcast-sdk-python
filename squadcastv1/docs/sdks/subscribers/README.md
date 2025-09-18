@@ -15,14 +15,14 @@ List Subscribers
 
 <!-- UsageSnippet language="python" operationID="StatusPages_listSubscribers" method="get" path="/v4/statuspages/{statuspageID}/subscribers" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.subscribers.list(statuspage_id="<id>")
+    res = ss_client.subscribers.list(statuspage_id="<id>")
 
     # Handle response
     print(res)

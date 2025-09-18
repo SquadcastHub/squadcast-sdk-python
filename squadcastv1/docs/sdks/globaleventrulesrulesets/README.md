@@ -18,14 +18,14 @@ Create a GER Ruleset.
 
 <!-- UsageSnippet language="python" operationID="GlobalEventRules_createRuleset" method="post" path="/v3/global-event-rules/{ger_id}/rulesets" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.global_event_rules.rulesets.create(ger_id=216762, alert_source_shortname="<value>", alert_source_version="<value>")
+    res = ss_client.global_event_rules.rulesets.create(ger_id=216762, alert_source_shortname="<value>", alert_source_version="<value>")
 
     # Handle response
     print(res)
@@ -71,14 +71,14 @@ Delete a GER Ruleset
 
 <!-- UsageSnippet language="python" operationID="GlobalEventRules_deleteGerRuleset" method="delete" path="/v3/global-event-rules/{ger_id}/rulesets/{alert_source_version}/{alert_source_shortname}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.global_event_rules.rulesets.delete(ger_id=198518, alert_source_version="<value>", alert_source_shortname="<value>")
+    res = ss_client.global_event_rules.rulesets.delete(ger_id=198518, alert_source_version="<value>", alert_source_shortname="<value>")
 
     # Handle response
     print(res)
@@ -123,14 +123,14 @@ Get a GER Ruleset
 
 <!-- UsageSnippet language="python" operationID="GlobalEventRules_getRuleset" method="get" path="/v3/global-event-rules/{ger_id}/rulesets/{alert_source_version}/{alert_source_shortname}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.global_event_rules.rulesets.get(ger_id=294223, alert_source_version="<value>", alert_source_shortname="<value>")
+    res = ss_client.global_event_rules.rulesets.get(ger_id=294223, alert_source_version="<value>", alert_source_shortname="<value>")
 
     # Handle response
     print(res)
@@ -175,14 +175,14 @@ Update a GER Ruleset
 
 <!-- UsageSnippet language="python" operationID="GlobalEventRules_updateRuleset" method="patch" path="/v3/global-event-rules/{ger_id}/rulesets/{alert_source_version}/{alert_source_shortname}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.global_event_rules.rulesets.update(ger_id=489958, alert_source_version="<value>", alert_source_shortname="<value>")
+    res = ss_client.global_event_rules.rulesets.update(ger_id=489958, alert_source_version="<value>", alert_source_shortname="<value>")
 
     # Handle response
     print(res)

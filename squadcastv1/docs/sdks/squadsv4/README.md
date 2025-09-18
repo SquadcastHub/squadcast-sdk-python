@@ -19,14 +19,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Squads_createSquadV4" method="post" path="/v4/squads" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.squads_v4.create(owner_id="<id>", name="<value>", members=[
+    res = ss_client.squads_v4.create(owner_id="<id>", name="<value>", members=[
         {
             "user_id": "<id>",
         },
@@ -67,14 +67,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Squads_updateSquadName" method="put" path="/v4/squads/{squadID}/name" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.squads_v4.update_name(squad_id="<id>", name="<value>")
+    res = ss_client.squads_v4.update_name(squad_id="<id>", name="<value>")
 
     # Handle response
     print(res)

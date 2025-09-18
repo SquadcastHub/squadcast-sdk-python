@@ -16,14 +16,14 @@ List Maintenances
 
 <!-- UsageSnippet language="python" operationID="Maintenances_listMaintenances" method="get" path="/v4/statuspages/{statuspageID}/maintenance" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.status_pages.maintenances.list(statuspage_id="<id>", start_time="<value>", end_time="<value>")
+    res = ss_client.status_pages.maintenances.list(statuspage_id="<id>", start_time="<value>", end_time="<value>")
 
     # Handle response
     print(res)
@@ -68,15 +68,15 @@ Create Maintenance
 
 <!-- UsageSnippet language="python" operationID="Maintenances_createMaintenance" method="post" path="/v4/statuspages/{statuspageID}/maintenance" -->
 ```python
-from openapi import SquadcastSDK
-from openapi.utils import parse_datetime
+from squadcast_sdk import SquadcastSDK
+from squadcast_sdk.utils import parse_datetime
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.status_pages.maintenances.create(statuspage_id="<id>", title="<value>", note="<value>", components=[
+    res = ss_client.status_pages.maintenances.create(statuspage_id="<id>", title="<value>", note="<value>", components=[
         191583,
         227211,
         362920,

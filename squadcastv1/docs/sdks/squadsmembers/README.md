@@ -19,14 +19,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Squads_updateSquadMember" method="put" path="/v4/squads/{squadID}/members/{memberID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.squads.members.update(squad_id="<id>", member_id="<id>", replace_with="<value>", role="<value>")
+    res = ss_client.squads.members.update(squad_id="<id>", member_id="<id>", replace_with="<value>", role="<value>")
 
     # Handle response
     print(res)

@@ -16,14 +16,14 @@ Create an Action for a workflow
 
 <!-- UsageSnippet language="python" operationID="Workflows_createAction" method="post" path="/v3/workflows/{workflowID}/actions" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.workflows.actions.create(workflow_id="<id>", v3_workflows_action_request={
+    res = ss_client.workflows.actions.create(workflow_id="<id>", v3_workflows_action_request={
         "name": "sq_add_status_page_issue",
         "data": {
             "component_and_impact": [],
@@ -85,14 +85,14 @@ Get workflow action by ID
 
 <!-- UsageSnippet language="python" operationID="Workflows_getWorkflowActionById" method="get" path="/v3/workflows/{workflowID}/actions/{actionID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.workflows.actions.get_by_id(workflow_id="<id>", action_id="<id>")
+    res = ss_client.workflows.actions.get_by_id(workflow_id="<id>", action_id="<id>")
 
     # Handle response
     print(res)

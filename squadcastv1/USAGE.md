@@ -1,14 +1,14 @@
 <!-- Start SDK Example Usage [usage] -->
 ```python
 # Synchronous Example
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.analytics.get_org_analytics(from_="<value>", to="<value>")
+    res = ss_client.analytics.get_org_analytics(from_="<value>", to="<value>")
 
     # Handle response
     print(res)
@@ -20,15 +20,15 @@ The same SDK client can also be used to make asynchronous requests by importing 
 ```python
 # Asynchronous Example
 import asyncio
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 async def main():
 
     async with SquadcastSDK(
         bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-    ) as squadcast_sdk:
+    ) as ss_client:
 
-        res = await squadcast_sdk.analytics.get_org_analytics_async(from_="<value>", to="<value>")
+        res = await ss_client.analytics.get_org_analytics_async(from_="<value>", to="<value>")
 
         # Handle response
         print(res)

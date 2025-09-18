@@ -15,14 +15,14 @@ Delete ICal Link
 
 <!-- UsageSnippet language="python" operationID="Export_deleteIcalLink" method="delete" path="/v4/schedules/{scheduleID}/ical-link" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.schedules.export.delete_ical_link(schedule_id="<id>", my_on_call=True)
+    res = ss_client.schedules.export.delete_ical_link(schedule_id="<id>", my_on_call=True)
 
     # Handle response
     print(res)

@@ -25,7 +25,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 python:
-  version: 0.1.0
+  version: 0.1.2
   additionalDependencies:
     dev: {}
     main: {}
@@ -56,11 +56,12 @@ python:
       webhooks: ""
   inputModelSuffix: input
   maxMethodParams: 999
+  mdoulename: squadcast_sdk
   methodArguments: infer-optional-args
   moduleName: ""
   outputModelSuffix: output
   packageManager: uv
-  packageName: openapi
+  packageName: squadcast_sdk
   pytestFilterWarnings: []
   pytestTimeout: 0
   responseFormat: flat

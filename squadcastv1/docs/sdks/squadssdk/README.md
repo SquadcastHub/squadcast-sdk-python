@@ -23,14 +23,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Squads_getSquadByTeam" method="get" path="/v3/squads" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.squads.get_by_team(owner_id="<id>")
+    res = ss_client.squads.get_by_team(owner_id="<id>")
 
     # Handle response
     print(res)
@@ -74,14 +74,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Squads_deleteSquad" method="delete" path="/v3/squads/{squadID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.squads.delete(squad_id="<id>")
+    res = ss_client.squads.delete(squad_id="<id>")
 
     # Handle response
     print(res)
@@ -125,14 +125,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Squads_getSquadById" method="get" path="/v3/squads/{squadID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.squads.get(squad_id="<id>")
+    res = ss_client.squads.get(squad_id="<id>")
 
     # Handle response
     print(res)
@@ -176,14 +176,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Squads_updateSquad" method="put" path="/v3/squads/{squadID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.squads.update(squad_id="<id>")
+    res = ss_client.squads.update(squad_id="<id>")
 
     # Handle response
     print(res)
@@ -229,14 +229,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Squads_getAllSquads" method="get" path="/v4/squads" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.squads.list()
+    res = ss_client.squads.list()
 
     # Handle response
     print(res)
@@ -270,14 +270,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Squads_getSquadByIdV4" method="get" path="/v4/squads/{squadID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.squads.get_by_id(squad_id="<id>")
+    res = ss_client.squads.get_by_id(squad_id="<id>")
 
     # Handle response
     print(res)
@@ -314,14 +314,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Squads_updateSquadV4" method="put" path="/v4/squads/{squadID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.squads.update_v4(squad_id="<id>")
+    res = ss_client.squads.update_v4(squad_id="<id>")
 
     # Handle response
     print(res)
@@ -361,14 +361,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Squads_removeSquadMember" method="delete" path="/v4/squads/{squadID}/members/{memberID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.squads.remove_member(squad_id="<id>", member_id="<id>", replace_with="<value>")
+    res = ss_client.squads.remove_member(squad_id="<id>", member_id="<id>", replace_with="<value>")
 
     # Handle response
     print(res)

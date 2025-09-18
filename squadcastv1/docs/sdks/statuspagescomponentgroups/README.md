@@ -17,14 +17,14 @@ List Component Groups
 
 <!-- UsageSnippet language="python" operationID="ComponentGroups_listComponentGroups" method="get" path="/v4/statuspages/{statuspageID}/groups" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.status_pages.component_groups.list(statuspage_id="<id>")
+    res = ss_client.status_pages.component_groups.list(statuspage_id="<id>")
 
     # Handle response
     print(res)
@@ -67,14 +67,14 @@ Delete Component Group By ID
 
 <!-- UsageSnippet language="python" operationID="ComponentGroups_deleteComponentGroupById" method="delete" path="/v4/statuspages/{statuspageID}/groups/{group_id}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.status_pages.component_groups.remove_by_id(statuspage_id="<id>", group_id="<id>")
+    res = ss_client.status_pages.component_groups.remove_by_id(statuspage_id="<id>", group_id="<id>")
 
     # Handle response
     print(res)
@@ -118,14 +118,14 @@ Get Component Group By ID
 
 <!-- UsageSnippet language="python" operationID="ComponentGroups_getComponentGroupById" method="get" path="/v4/statuspages/{statuspageID}/groups/{group_id}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.status_pages.component_groups.get_by_id(statuspage_id="<id>", group_id="<id>")
+    res = ss_client.status_pages.component_groups.get_by_id(statuspage_id="<id>", group_id="<id>")
 
     # Handle response
     print(res)

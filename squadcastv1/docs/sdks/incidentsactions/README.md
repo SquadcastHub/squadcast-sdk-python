@@ -15,14 +15,14 @@ Rebuild a Project In CircleCI
 
 <!-- UsageSnippet language="python" operationID="IncidentActions_rebuildAProjectInCircleci" method="post" path="/v3/incidents/{incidentID}/actions/circleci/rebuild/{buildNumber}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.incidents.actions.rebuild_circleci_project(incident_id="<id>", build_number="<value>", vcs_type="<value>", username="Dora.Waelchi", reponame="<value>")
+    res = ss_client.incidents.actions.rebuild_circleci_project(incident_id="<id>", build_number="<value>", vcs_type="<value>", username="Dora.Waelchi", reponame="<value>")
 
     # Handle response
     print(res)

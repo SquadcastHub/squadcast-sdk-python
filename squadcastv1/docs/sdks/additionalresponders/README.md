@@ -17,14 +17,14 @@
 
 <!-- UsageSnippet language="python" operationID="AdditionalResponders_removeAdditionalResponders" method="delete" path="/v3/incidents/{incidentID}/additional-responders/{responderID}" -->
 ```python
-from openapi import SquadcastSDK
+from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as squadcast_sdk:
+) as ss_client:
 
-    res = squadcast_sdk.additional_responders.remove(incident_id="<id>", responder_id="<id>")
+    res = ss_client.additional_responders.remove(incident_id="<id>", responder_id="<id>")
 
     # Handle response
     print(res)
