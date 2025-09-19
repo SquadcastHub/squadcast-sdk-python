@@ -373,7 +373,7 @@ actions:
       type: method-name
   - target: $["paths"]["/v3/incidents/export"]["get"]
     update:
-      x-speakeasy-name-override: export
+      x-speakeasy-name-override: export_incidents
     x-speakeasy-metadata:
       after: sdk.incidents.export()
       before: sdk.Incidents.Incidents_incidentExport()
