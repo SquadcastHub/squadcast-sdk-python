@@ -6,7 +6,7 @@
 ### Available Operations
 
 * [bulk_acknowledge](#bulk_acknowledge) - Bulk Acknowledge Incidents
-* [export](#export) - Incident Export
+* [export_incidents](#export_incidents) - Incident Export
 * [bulk_update_priority](#bulk_update_priority) - Bulk Incidents Priority Update
 * [bulk_resolve](#bulk_resolve) - Bulk Resolve Incidents
 * [get_by_id](#get_by_id) - Get Incident by ID
@@ -71,7 +71,7 @@ with SquadcastSDK(
 | errors.GatewayTimeoutError      | 504                             | application/json                |
 | errors.SDKDefaultError          | 4XX, 5XX                        | \*/\*                           |
 
-## export
+## export_incidents
 
 - This endpoint is used to export the incident details into a `csv` or `json` file.
 - Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header.
@@ -106,7 +106,7 @@ with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
 ) as ss_client:
 
-    ss_client.incidents.export(start_time=parse_datetime("2023-02-02T07:53:59.590Z"), end_time=parse_datetime("2023-02-03T13:28:22.839Z"), type_="csv", owner_id="<id>")
+    ss_client.incidents.export_incidents(start_time=parse_datetime("2023-02-02T07:53:59.590Z"), end_time=parse_datetime("2023-02-03T13:28:22.839Z"), type_="csv", owner_id="<id>")
 
     # Use the SDK ...
 

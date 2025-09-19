@@ -288,7 +288,7 @@ with SquadcastSDK(
 ### [incidents](docs/sdks/incidents/README.md)
 
 * [bulk_acknowledge](docs/sdks/incidents/README.md#bulk_acknowledge) - Bulk Acknowledge Incidents
-* [export](docs/sdks/incidents/README.md#export) - Incident Export
+* [export_incidents](docs/sdks/incidents/README.md#export_incidents) - Incident Export
 * [bulk_update_priority](docs/sdks/incidents/README.md#bulk_update_priority) - Bulk Incidents Priority Update
 * [bulk_resolve](docs/sdks/incidents/README.md#bulk_resolve) - Bulk Resolve Incidents
 * [get_by_id](docs/sdks/incidents/README.md#get_by_id) - Get Incident by ID

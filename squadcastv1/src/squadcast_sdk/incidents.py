@@ -377,7 +377,7 @@ class Incidents(BaseSDK):
 
         raise errors.SDKDefaultError("Unexpected response received", http_res)
 
-    def export(
+    def export_incidents(
         self,
         *,
         start_time: datetime,
@@ -589,7 +589,7 @@ class Incidents(BaseSDK):
 
         raise errors.SDKDefaultError("Unexpected response received", http_res)
 
-    async def export_async(
+    async def export_incidents_async(
         self,
         *,
         start_time: datetime,
