@@ -5526,7 +5526,7 @@ paths:
                   - "meta"
       tags:
         - "Incidents"
-      x-speakeasy-name-override: "export"
+      x-speakeasy-name-override: "export_incidents"
   "/v3/incidents/export/async":
     post:
       operationId: "Incidents_incidentExportAsync"
