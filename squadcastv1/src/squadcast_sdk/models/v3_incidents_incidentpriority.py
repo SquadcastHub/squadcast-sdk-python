@@ -4,5 +4,11 @@ from __future__ import annotations
 from typing import Literal
 
 
-V3IncidentsIncidentPriority = Literal["P1", "P2", "P3", "P4", "P5"]
+V3IncidentsIncidentPriority = Literal[
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+]
 r"""Represents the priority of an incident."""

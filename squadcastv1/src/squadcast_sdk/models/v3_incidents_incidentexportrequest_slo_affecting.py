@@ -4,4 +4,8 @@ from __future__ import annotations
 from typing import Literal
 
 
-V3IncidentsIncidentExportRequestSloAffecting = Literal["yes", "no", ""]
+V3IncidentsIncidentExportRequestSloAffecting = Literal[
+    "yes",
+    "no",
+    "",
+]

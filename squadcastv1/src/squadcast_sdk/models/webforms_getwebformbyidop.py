@@ -8,13 +8,12 @@ from .v3_webforms_webformresponse import (
 import pydantic
 from squadcast_sdk.types import BaseModel
 from squadcast_sdk.utils import FieldMetadata, PathParamMetadata, QueryParamMetadata
-from typing import Optional
-from typing_extensions import Annotated, NotRequired, TypedDict
+from typing_extensions import Annotated, TypedDict
 
 
 class WebformsGetWebformByIDRequestTypedDict(TypedDict):
     webform_id: int
-    owner_id: NotRequired[str]
+    owner_id: str
 
 
 class WebformsGetWebformByIDRequest(BaseModel):
@@ -25,9 +24,8 @@ class WebformsGetWebformByIDRequest(BaseModel):
     ]
 
     owner_id: Annotated[
-        Optional[str],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=False)),
-    ] = None
+        str, FieldMetadata(query=QueryParamMetadata(style="form", explode=False))
+    ]
 
 
 class WebformsGetWebformByIDResponseTypedDict(TypedDict):

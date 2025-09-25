@@ -7,7 +7,7 @@ from typing_extensions import NotRequired, TypedDict
 
 
 V3WorkflowsSqMarkIncidentSLOAffectingUpdateName = Literal[
-    "sq_mark_incident_slo_affecting"
+    "sq_mark_incident_slo_affecting",
 ]
 
 

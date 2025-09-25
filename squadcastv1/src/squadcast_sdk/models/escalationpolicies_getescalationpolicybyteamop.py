@@ -12,7 +12,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class EscalationPoliciesGetEscalationPolicyByTeamRequestTypedDict(TypedDict):
-    owner_id: NotRequired[str]
+    owner_id: str
     r"""here owner_id represents team_id, if  team_id is not provided, it will return escalation policies of all teams."""
     page_number: NotRequired[str]
     page_size: NotRequired[str]
@@ -20,9 +20,8 @@ class EscalationPoliciesGetEscalationPolicyByTeamRequestTypedDict(TypedDict):
 
 class EscalationPoliciesGetEscalationPolicyByTeamRequest(BaseModel):
     owner_id: Annotated[
-        Optional[str],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = None
+        str, FieldMetadata(query=QueryParamMetadata(style="form", explode=True))
+    ]
     r"""here owner_id represents team_id, if  team_id is not provided, it will return escalation policies of all teams."""
 
     page_number: Annotated[

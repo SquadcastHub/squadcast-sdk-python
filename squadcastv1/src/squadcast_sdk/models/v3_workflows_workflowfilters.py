@@ -6,7 +6,10 @@ from typing import List, Literal, Optional
 from typing_extensions import NotRequired, TypedDict
 
 
-Condition = Literal["and", "or"]
+Condition = Literal[
+    "and",
+    "or",
+]
 
 
 class V3WorkflowsWorkflowFiltersTypedDict(TypedDict):

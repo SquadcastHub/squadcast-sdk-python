@@ -11,7 +11,10 @@ from typing import List, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-V4StatusPagesNewStatusPageComponentListType = Literal["component", "group"]
+V4StatusPagesNewStatusPageComponentListType = Literal[
+    "component",
+    "group",
+]
 
 
 class V4StatusPagesNewStatusPageComponentListTypedDict(TypedDict):

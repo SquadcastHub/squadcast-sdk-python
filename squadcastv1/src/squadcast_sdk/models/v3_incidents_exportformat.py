@@ -4,5 +4,8 @@ from __future__ import annotations
 from typing import Literal
 
 
-V3IncidentsExportFormat = Literal["json", "csv"]
+V3IncidentsExportFormat = Literal[
+    "json",
+    "csv",
+]
 r"""Defines the format of the export."""

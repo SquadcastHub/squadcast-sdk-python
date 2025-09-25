@@ -6,7 +6,10 @@ from typing import Literal
 from typing_extensions import TypedDict
 
 
-V3ServicesServiceMaintainerType = Literal["user", "squad"]
+V3ServicesServiceMaintainerType = Literal[
+    "user",
+    "squad",
+]
 
 
 class V3ServicesServiceMaintainerTypedDict(TypedDict):

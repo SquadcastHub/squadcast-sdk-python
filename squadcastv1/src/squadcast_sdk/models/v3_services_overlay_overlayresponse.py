@@ -12,7 +12,7 @@ from typing import Literal
 from typing_extensions import TypedDict
 
 
-V3ServicesOverlayOverlayResponseOverlayTemplateType = Literal["dedup_key"]
+V3ServicesOverlayOverlayResponseOverlayTemplateType = Literal["dedup_key",]
 
 
 class V3ServicesOverlayOverlayResponseTypedDict(TypedDict):

@@ -11,7 +11,8 @@ from typing_extensions import NotRequired, TypedDict
 
 
 V3ServicesDeduplicationRulesDeduplicationRuleResponseTimeUnit = Literal[
-    "minute", "hour"
+    "minute",
+    "hour",
 ]
 
 

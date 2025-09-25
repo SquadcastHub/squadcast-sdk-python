@@ -4,4 +4,7 @@ from __future__ import annotations
 from typing import Literal
 
 
-V3IncidentsIncidentExportRequestSortBy = Literal["time", "priority"]
+V3IncidentsIncidentExportRequestSortBy = Literal[
+    "time",
+    "priority",
+]

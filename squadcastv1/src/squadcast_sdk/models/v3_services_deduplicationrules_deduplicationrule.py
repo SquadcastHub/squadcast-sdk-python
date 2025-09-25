@@ -10,7 +10,10 @@ from typing import List, Literal, Optional
 from typing_extensions import NotRequired, TypedDict
 
 
-V3ServicesDeduplicationRulesDeduplicationRuleTimeUnit = Literal["minute", "hour"]
+V3ServicesDeduplicationRulesDeduplicationRuleTimeUnit = Literal[
+    "minute",
+    "hour",
+]
 
 
 class V3ServicesDeduplicationRulesDeduplicationRuleTypedDict(TypedDict):

@@ -13,7 +13,7 @@ class EscalationPoliciesSDK(BaseSDK):
     def get_by_team(
         self,
         *,
-        owner_id: Optional[str] = None,
+        owner_id: str,
         page_number: Optional[str] = None,
         page_size: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -167,7 +167,7 @@ class EscalationPoliciesSDK(BaseSDK):
     async def get_by_team_async(
         self,
         *,
-        owner_id: Optional[str] = None,
+        owner_id: str,
         page_number: Optional[str] = None,
         page_size: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,

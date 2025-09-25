@@ -20,7 +20,10 @@ from typing import List, Literal, Optional
 from typing_extensions import NotRequired, TypedDict
 
 
-V3WorkflowsCreateWorkflowRequestOwnerType = Literal["user", "squad"]
+V3WorkflowsCreateWorkflowRequestOwnerType = Literal[
+    "user",
+    "squad",
+]
 
 
 class V3WorkflowsCreateWorkflowRequestTypedDict(TypedDict):

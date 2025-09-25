@@ -74,7 +74,7 @@ from typing import Any, List, Literal, Union
 from typing_extensions import TypeAliasType, TypedDict
 
 
-V3WorkflowsActionResponseName = Literal["sq_attach_runbooks"]
+V3WorkflowsActionResponseName = Literal["sq_attach_runbooks",]
 
 
 class V3WorkflowsActionResponseDataTypedDict(TypedDict):

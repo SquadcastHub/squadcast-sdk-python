@@ -45,7 +45,7 @@ class SchedulesSDK(BaseSDK):
         escalation_policies: Optional[List[str]] = None,
         without_escalation_policy: Optional[bool] = None,
         page_size: Optional[int] = None,
-        page_number: Optional[int] = None,
+        cursor: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -65,7 +65,7 @@ class SchedulesSDK(BaseSDK):
         :param escalation_policies:
         :param without_escalation_policy:
         :param page_size:
-        :param page_number:
+        :param cursor:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -82,6 +82,7 @@ class SchedulesSDK(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.SchedulesListSchedulesRequest(
+            team_id=team_id,
             schedule_i_ds=schedule_i_ds,
             participants=participants,
             schedule_name=schedule_name,
@@ -93,8 +94,7 @@ class SchedulesSDK(BaseSDK):
             escalation_policies=escalation_policies,
             without_escalation_policy=without_escalation_policy,
             page_size=page_size,
-            page_number=page_number,
-            team_id=team_id,
+            cursor=cursor,
         )
 
         req = self._build_request(
@@ -189,7 +189,7 @@ class SchedulesSDK(BaseSDK):
         escalation_policies: Optional[List[str]] = None,
         without_escalation_policy: Optional[bool] = None,
         page_size: Optional[int] = None,
-        page_number: Optional[int] = None,
+        cursor: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -209,7 +209,7 @@ class SchedulesSDK(BaseSDK):
         :param escalation_policies:
         :param without_escalation_policy:
         :param page_size:
-        :param page_number:
+        :param cursor:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -226,6 +226,7 @@ class SchedulesSDK(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.SchedulesListSchedulesRequest(
+            team_id=team_id,
             schedule_i_ds=schedule_i_ds,
             participants=participants,
             schedule_name=schedule_name,
@@ -237,8 +238,7 @@ class SchedulesSDK(BaseSDK):
             escalation_policies=escalation_policies,
             without_escalation_policy=without_escalation_policy,
             page_size=page_size,
-            page_number=page_number,
-            team_id=team_id,
+            cursor=cursor,
         )
 
         req = self._build_request_async(

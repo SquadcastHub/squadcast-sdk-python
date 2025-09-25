@@ -12,16 +12,15 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class ServicesGetServicesRequestTypedDict(TypedDict):
-    owner_id: NotRequired[str]
+    owner_id: str
     entity_owner: NotRequired[str]
     name: NotRequired[str]
 
 
 class ServicesGetServicesRequest(BaseModel):
     owner_id: Annotated[
-        Optional[str],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=False)),
-    ] = None
+        str, FieldMetadata(query=QueryParamMetadata(style="form", explode=False))
+    ]
 
     entity_owner: Annotated[
         Optional[str],

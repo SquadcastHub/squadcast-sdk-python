@@ -15,7 +15,11 @@ from typing import List, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-V4StatusPagesCreateStatusPageRequestOwnerType = Literal["team", "user", "squad"]
+V4StatusPagesCreateStatusPageRequestOwnerType = Literal[
+    "team",
+    "user",
+    "squad",
+]
 
 
 class V4StatusPagesCreateStatusPageRequestTypedDict(TypedDict):

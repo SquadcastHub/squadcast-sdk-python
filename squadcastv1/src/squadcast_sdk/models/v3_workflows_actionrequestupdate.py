@@ -70,7 +70,7 @@ from typing import Any, List, Literal, Optional, Union
 from typing_extensions import NotRequired, TypeAliasType, TypedDict
 
 
-V3WorkflowsActionRequestUpdateName = Literal["sq_attach_runbooks"]
+V3WorkflowsActionRequestUpdateName = Literal["sq_attach_runbooks",]
 
 
 class V3WorkflowsActionRequestUpdateDataTypedDict(TypedDict):

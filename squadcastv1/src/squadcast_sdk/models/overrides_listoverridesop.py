@@ -15,8 +15,8 @@ class OverridesListOverridesRequestTypedDict(TypedDict):
     start_time: str
     end_time: str
     participant_id: NotRequired[str]
-    page_number: NotRequired[int]
     page_size: NotRequired[int]
+    cursor: NotRequired[str]
 
 
 class OverridesListOverridesRequest(BaseModel):
@@ -44,15 +44,14 @@ class OverridesListOverridesRequest(BaseModel):
         FieldMetadata(query=QueryParamMetadata(style="form", explode=False)),
     ] = None
 
-    page_number: Annotated[
-        Optional[int],
-        pydantic.Field(alias="pageNumber"),
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=False)),
-    ] = None
-
     page_size: Annotated[
         Optional[int],
         pydantic.Field(alias="pageSize"),
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=False)),
+    ] = None
+
+    cursor: Annotated[
+        Optional[str],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=False)),
     ] = None
 

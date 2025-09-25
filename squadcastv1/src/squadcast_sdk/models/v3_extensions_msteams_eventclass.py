@@ -19,6 +19,7 @@ V3ExtensionsMSTeamsEventClassEnum = Literal[
     "incident_delayed_notifications_resumed",
 ]
 
+
 V3ExtensionsMSTeamsEventClassTypedDict = TypeAliasType(
     "V3ExtensionsMSTeamsEventClassTypedDict",
     Union[str, V3ExtensionsMSTeamsEventClassEnum],

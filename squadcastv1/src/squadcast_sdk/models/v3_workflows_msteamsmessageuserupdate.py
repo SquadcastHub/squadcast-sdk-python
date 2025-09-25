@@ -6,7 +6,7 @@ from typing import Literal, Optional
 from typing_extensions import NotRequired, TypedDict
 
 
-V3WorkflowsMsTeamsMessageUserUpdateName = Literal["msteams_message_user"]
+V3WorkflowsMsTeamsMessageUserUpdateName = Literal["msteams_message_user",]
 
 
 class V3WorkflowsMsTeamsMessageUserUpdateDataTypedDict(TypedDict):
