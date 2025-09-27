@@ -25,7 +25,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 python:
-  version: 0.1.3
+  version: 0.2.0
   additionalDependencies:
     dev: {}
     main: {}
@@ -33,6 +33,7 @@ python:
     - id
     - object
     - input
+  asyncMode: both
   authors:
     - Speakeasy
   baseErrorName: SquadcastSDKError
@@ -55,6 +56,7 @@ python:
       shared: ""
       webhooks: ""
   inputModelSuffix: input
+  legacyPyright: true
   maxMethodParams: 999
   mdoulename: squadcast_sdk
   methodArguments: infer-optional-args

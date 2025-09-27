@@ -42,7 +42,6 @@ if TYPE_CHECKING:
     from squadcast_sdk.slos_sdk import SlosSDK
     from squadcast_sdk.snoozenotifications import SnoozeNotifications
     from squadcast_sdk.squads_sdk import SquadsSDK
-    from squadcast_sdk.squadsv3 import SquadsV3
     from squadcast_sdk.squadsv4 import SquadsV4
     from squadcast_sdk.statuspages_sdk_1 import StatusPagesSDK1
     from squadcast_sdk.statuspages_sdk_2 import StatuspagesSDK2
@@ -75,8 +74,6 @@ class SquadcastSDK(BaseSDK):
     dedup_keys: "DedupKeys"
     overlays: "Overlays"
     slos: "SlosSDK"
-    squads: "SquadsSDK"
-    squads_v3: "SquadsV3"
     teams: "Teams"
     webforms: "WebformsSDK"
     workflows: "WorkflowsSDK"
@@ -84,6 +81,7 @@ class SquadcastSDK(BaseSDK):
     export_schedule: "ExportSchedule"
     overrides: "Overrides"
     rotations: "Rotations"
+    squads: "SquadsSDK"
     squads_v4: "SquadsV4"
     status_pages: "StatusPagesSDK1"
     components: "Components"
@@ -128,8 +126,6 @@ class SquadcastSDK(BaseSDK):
         "dedup_keys": ("squadcast_sdk.dedupkeys", "DedupKeys"),
         "overlays": ("squadcast_sdk.overlays", "Overlays"),
         "slos": ("squadcast_sdk.slos_sdk", "SlosSDK"),
-        "squads": ("squadcast_sdk.squads_sdk", "SquadsSDK"),
-        "squads_v3": ("squadcast_sdk.squadsv3", "SquadsV3"),
         "teams": ("squadcast_sdk.teams", "Teams"),
         "webforms": ("squadcast_sdk.webforms_sdk", "WebformsSDK"),
         "workflows": ("squadcast_sdk.workflows_sdk", "WorkflowsSDK"),
@@ -137,6 +133,7 @@ class SquadcastSDK(BaseSDK):
         "export_schedule": ("squadcast_sdk.exportschedule", "ExportSchedule"),
         "overrides": ("squadcast_sdk.overrides", "Overrides"),
         "rotations": ("squadcast_sdk.rotations", "Rotations"),
+        "squads": ("squadcast_sdk.squads_sdk", "SquadsSDK"),
         "squads_v4": ("squadcast_sdk.squadsv4", "SquadsV4"),
         "status_pages": ("squadcast_sdk.statuspages_sdk_1", "StatusPagesSDK1"),
         "components": ("squadcast_sdk.components", "Components"),
@@ -172,7 +169,7 @@ class SquadcastSDK(BaseSDK):
         """
         client_supplied = True
         if client is None:
-            client = httpx.Client()
+            client = httpx.Client(follow_redirects=True)
             client_supplied = False
 
         assert issubclass(
@@ -181,7 +178,7 @@ class SquadcastSDK(BaseSDK):
 
         async_client_supplied = True
         if async_client is None:
-            async_client = httpx.AsyncClient()
+            async_client = httpx.AsyncClient(follow_redirects=True)
             async_client_supplied = False
 
         if debug_logger is None:

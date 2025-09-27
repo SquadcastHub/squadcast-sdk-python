@@ -4,4 +4,7 @@ from __future__ import annotations
 from typing import Literal
 
 
-V3SLOTimeIntervalType = Literal["fixed", "rolling"]
+V3SLOTimeIntervalType = Literal[
+    "fixed",
+    "rolling",
+]

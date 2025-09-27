@@ -14,7 +14,7 @@ from typing import List, Literal, Optional
 from typing_extensions import NotRequired, TypedDict
 
 
-V3WorkflowsSqCreateStatusPageIssueUpdateName = Literal["sq_add_status_page_issue"]
+V3WorkflowsSqCreateStatusPageIssueUpdateName = Literal["sq_add_status_page_issue",]
 
 
 class V3WorkflowsSqCreateStatusPageIssueUpdateDataTypedDict(TypedDict):

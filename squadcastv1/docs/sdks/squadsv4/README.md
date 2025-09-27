@@ -17,7 +17,7 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="Squads_createSquadV4" method="post" path="/v4/squads" -->
+<!-- UsageSnippet language="python" operationID="Squads_createSquad" method="post" path="/v4/squads" -->
 ```python
 from squadcast_sdk import SquadcastSDK
 
@@ -48,7 +48,7 @@ with SquadcastSDK(
 
 ### Response
 
-**[models.SquadsCreateSquadV4Response](../../models/squadscreatesquadv4response.md)**
+**[models.SquadsCreateSquadResponse](../../models/squadscreatesquadresponse.md)**
 
 ### Errors
 

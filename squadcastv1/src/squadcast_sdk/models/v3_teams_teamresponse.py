@@ -8,13 +8,13 @@ from typing import List
 from typing_extensions import TypedDict
 
 
-class V3TeamsTeamResponseOrganizationTypedDict(TypedDict):
+class OrganizationTypedDict(TypedDict):
     id: str
     name: str
     slug: str
 
 
-class V3TeamsTeamResponseOrganization(BaseModel):
+class Organization(BaseModel):
     id: str
 
     name: str
@@ -34,7 +34,7 @@ class V3TeamsTeamResponseTypedDict(TypedDict):
     members: List[V3TeamsTeamMemberTypedDict]
     roles: List[V3TeamsTeamRoleTypedDict]
     default: bool
-    organization: V3TeamsTeamResponseOrganizationTypedDict
+    organization: OrganizationTypedDict
 
 
 class V3TeamsTeamResponse(BaseModel):
@@ -60,4 +60,4 @@ class V3TeamsTeamResponse(BaseModel):
 
     default: bool
 
-    organization: V3TeamsTeamResponseOrganization
+    organization: Organization

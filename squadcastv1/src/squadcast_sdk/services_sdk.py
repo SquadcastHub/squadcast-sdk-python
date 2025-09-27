@@ -71,7 +71,7 @@ class ServicesSDK(BaseSDK):
     def get_all(
         self,
         *,
-        owner_id: Optional[str] = None,
+        owner_id: str,
         entity_owner: Optional[str] = None,
         name: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -220,7 +220,7 @@ class ServicesSDK(BaseSDK):
     async def get_all_async(
         self,
         *,
-        owner_id: Optional[str] = None,
+        owner_id: str,
         entity_owner: Optional[str] = None,
         name: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,

@@ -6,10 +6,16 @@ from typing import Literal, Optional
 from typing_extensions import NotRequired, TypedDict
 
 
-V3WorkflowsUpdateIncidentPriorityUpdateName = Literal["sq_update_incident_priority"]
+V3WorkflowsUpdateIncidentPriorityUpdateName = Literal["sq_update_incident_priority",]
+
 
 V3WorkflowsUpdateIncidentPriorityUpdatePriority = Literal[
-    "P1", "P2", "P3", "P4", "P5", "UNSET"
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+    "UNSET",
 ]
 
 

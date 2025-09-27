@@ -6,7 +6,7 @@ from typing import Literal
 from typing_extensions import TypedDict
 
 
-V3WorkflowsMsTeamsCreateMeetingLinkUpdateName = Literal["msteams_create_meeting_link"]
+V3WorkflowsMsTeamsCreateMeetingLinkUpdateName = Literal["msteams_create_meeting_link",]
 
 
 class V3WorkflowsMsTeamsCreateMeetingLinkUpdateTypedDict(TypedDict):

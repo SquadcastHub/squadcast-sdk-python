@@ -27,7 +27,7 @@ with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
 ) as ss_client:
 
-    res = ss_client.escalation_policies.get_by_team()
+    res = ss_client.escalation_policies.get_by_team(owner_id="<id>")
 
     # Handle response
     print(res)
@@ -38,7 +38,7 @@ with SquadcastSDK(
 
 | Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
 | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `owner_id`                                                                                                      | *Optional[str]*                                                                                                 | :heavy_minus_sign:                                                                                              | here owner_id represents team_id, if  team_id is not provided, it will return escalation policies of all teams. |
+| `owner_id`                                                                                                      | *str*                                                                                                           | :heavy_check_mark:                                                                                              | here owner_id represents team_id, if  team_id is not provided, it will return escalation policies of all teams. |
 | `page_number`                                                                                                   | *Optional[str]*                                                                                                 | :heavy_minus_sign:                                                                                              | N/A                                                                                                             |
 | `page_size`                                                                                                     | *Optional[str]*                                                                                                 | :heavy_minus_sign:                                                                                              | N/A                                                                                                             |
 | `retries`                                                                                                       | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                | :heavy_minus_sign:                                                                                              | Configuration to override the default retry behavior of the client.                                             |

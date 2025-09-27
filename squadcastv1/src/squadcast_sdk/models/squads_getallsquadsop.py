@@ -8,8 +8,19 @@ from .v4_squads_squadresponse import (
 )
 import pydantic
 from squadcast_sdk.types import BaseModel
+from squadcast_sdk.utils import FieldMetadata, QueryParamMetadata
 from typing import List
 from typing_extensions import Annotated, TypedDict
+
+
+class SquadsGetAllSquadsRequestTypedDict(TypedDict):
+    owner_id: str
+
+
+class SquadsGetAllSquadsRequest(BaseModel):
+    owner_id: Annotated[
+        str, FieldMetadata(query=QueryParamMetadata(style="form", explode=True))
+    ]
 
 
 class SquadsGetAllSquadsResponseTypedDict(TypedDict):

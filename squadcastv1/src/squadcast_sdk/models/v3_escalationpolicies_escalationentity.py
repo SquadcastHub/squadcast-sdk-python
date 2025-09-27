@@ -7,7 +7,10 @@ from typing_extensions import NotRequired, TypedDict
 
 
 V3EscalationPoliciesEscalationEntityType = Literal[
-    "user", "squad", "schedule", "schedulev2"
+    "user",
+    "squad",
+    "schedule",
+    "schedulev2",
 ]
 r"""The type of the entity."""
 

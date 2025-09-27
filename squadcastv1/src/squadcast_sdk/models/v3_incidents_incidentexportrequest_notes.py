@@ -4,4 +4,7 @@ from __future__ import annotations
 from typing import Literal
 
 
-V3IncidentsIncidentExportRequestNotes = Literal["present", "absent"]
+V3IncidentsIncidentExportRequestNotes = Literal[
+    "present",
+    "absent",
+]

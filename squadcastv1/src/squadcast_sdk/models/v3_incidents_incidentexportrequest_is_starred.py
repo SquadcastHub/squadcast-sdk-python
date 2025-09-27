@@ -4,4 +4,7 @@ from __future__ import annotations
 from typing import Literal
 
 
-V3IncidentsIncidentExportRequestIsStarred = Literal["yes", "no"]
+V3IncidentsIncidentExportRequestIsStarred = Literal[
+    "yes",
+    "no",
+]

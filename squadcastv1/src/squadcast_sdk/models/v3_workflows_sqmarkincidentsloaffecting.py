@@ -6,7 +6,7 @@ from typing import List, Literal
 from typing_extensions import TypedDict
 
 
-V3WorkflowsSqMarkIncidentSLOAffectingName = Literal["sq_mark_incident_slo_affecting"]
+V3WorkflowsSqMarkIncidentSLOAffectingName = Literal["sq_mark_incident_slo_affecting",]
 
 
 class V3WorkflowsSqMarkIncidentSLOAffectingDataTypedDict(TypedDict):

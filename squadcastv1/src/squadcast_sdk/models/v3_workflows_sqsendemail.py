@@ -6,7 +6,7 @@ from typing import List, Literal
 from typing_extensions import TypedDict
 
 
-V3WorkflowsSqSendEmailName = Literal["sq_send_email"]
+V3WorkflowsSqSendEmailName = Literal["sq_send_email",]
 
 
 class V3WorkflowsSqSendEmailDataTypedDict(TypedDict):

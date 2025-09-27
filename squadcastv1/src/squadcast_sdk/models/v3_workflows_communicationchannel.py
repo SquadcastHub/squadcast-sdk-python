@@ -6,7 +6,11 @@ from typing import Literal
 from typing_extensions import TypedDict
 
 
-V3WorkflowsCommunicationChannelType = Literal["chat_room", "video_conference", "other"]
+V3WorkflowsCommunicationChannelType = Literal[
+    "chat_room",
+    "video_conference",
+    "other",
+]
 
 
 class V3WorkflowsCommunicationChannelTypedDict(TypedDict):

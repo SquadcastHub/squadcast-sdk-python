@@ -4,13 +4,12 @@ from __future__ import annotations
 import pydantic
 from squadcast_sdk.types import BaseModel
 from squadcast_sdk.utils import FieldMetadata, PathParamMetadata, QueryParamMetadata
-from typing import Optional
-from typing_extensions import Annotated, NotRequired, TypedDict
+from typing_extensions import Annotated, TypedDict
 
 
 class WebformsRemoveWebformRequestTypedDict(TypedDict):
     webform_id: int
-    owner_id: NotRequired[str]
+    owner_id: str
 
 
 class WebformsRemoveWebformRequest(BaseModel):
@@ -21,9 +20,8 @@ class WebformsRemoveWebformRequest(BaseModel):
     ]
 
     owner_id: Annotated[
-        Optional[str],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=False)),
-    ] = None
+        str, FieldMetadata(query=QueryParamMetadata(style="form", explode=False))
+    ]
 
 
 class WebformsRemoveWebformResponseTypedDict(TypedDict):

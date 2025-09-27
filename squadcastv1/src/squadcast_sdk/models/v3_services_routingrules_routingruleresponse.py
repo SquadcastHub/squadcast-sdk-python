@@ -11,7 +11,9 @@ from typing_extensions import NotRequired, TypedDict
 
 
 V3ServicesRoutingRulesRoutingRuleResponseEntityType = Literal[
-    "user", "squad", "escalation_policy"
+    "user",
+    "squad",
+    "escalation_policy",
 ]
 
 

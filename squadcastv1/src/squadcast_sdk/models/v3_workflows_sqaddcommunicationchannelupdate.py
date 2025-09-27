@@ -10,7 +10,9 @@ from typing import List, Literal, Optional
 from typing_extensions import NotRequired, TypedDict
 
 
-V3WorkflowsSqAddCommunicationChannelUpdateName = Literal["sq_add_communication_channel"]
+V3WorkflowsSqAddCommunicationChannelUpdateName = Literal[
+    "sq_add_communication_channel",
+]
 
 
 class V3WorkflowsSqAddCommunicationChannelUpdateDataTypedDict(TypedDict):

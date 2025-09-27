@@ -6,7 +6,7 @@ from typing import Literal, Optional
 from typing_extensions import NotRequired, TypedDict
 
 
-V3WorkflowsSqAddIncidentNoteUpdateName = Literal["sq_add_incident_note"]
+V3WorkflowsSqAddIncidentNoteUpdateName = Literal["sq_add_incident_note",]
 
 
 class V3WorkflowsSqAddIncidentNoteUpdateDataTypedDict(TypedDict):

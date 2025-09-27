@@ -6,7 +6,7 @@ from typing import Literal, Optional
 from typing_extensions import NotRequired, TypedDict
 
 
-V3WorkflowsSlackCreateIncidentChannelName = Literal["slack_create_incident_channel"]
+V3WorkflowsSlackCreateIncidentChannelName = Literal["slack_create_incident_channel",]
 
 
 class V3WorkflowsSlackCreateIncidentChannelDataTypedDict(TypedDict):

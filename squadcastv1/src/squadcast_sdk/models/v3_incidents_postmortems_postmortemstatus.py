@@ -5,6 +5,8 @@ from typing import Literal
 
 
 V3IncidentsPostmortemsPostmortemStatus = Literal[
-    "in_progress", "under_review", "published"
+    "in_progress",
+    "under_review",
+    "published",
 ]
 r"""Represents the status of a postmortem."""

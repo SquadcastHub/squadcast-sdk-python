@@ -84,7 +84,7 @@ class SquadsV4(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="Squads_createSquadV4",
+                operation_id="Squads_createSquad",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
             ),
@@ -109,7 +109,7 @@ class SquadsV4(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/json"):
-            return unmarshal_json_response(models.SquadsCreateSquadV4Response, http_res)
+            return unmarshal_json_response(models.SquadsCreateSquadResponse, http_res)
         if utils.match_response(
             http_res,
             ["400", "401", "402", "403", "404", "409", "422"],
@@ -206,7 +206,7 @@ class SquadsV4(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="Squads_createSquadV4",
+                operation_id="Squads_createSquad",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
             ),
@@ -231,7 +231,7 @@ class SquadsV4(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/json"):
-            return unmarshal_json_response(models.SquadsCreateSquadV4Response, http_res)
+            return unmarshal_json_response(models.SquadsCreateSquadResponse, http_res)
         if utils.match_response(
             http_res,
             ["400", "401", "402", "403", "404", "409", "422"],

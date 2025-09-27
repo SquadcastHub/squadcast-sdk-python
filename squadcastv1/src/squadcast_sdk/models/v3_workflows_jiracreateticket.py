@@ -6,7 +6,7 @@ from typing import Literal
 from typing_extensions import TypedDict
 
 
-V3WorkflowsJiraCreateTicketName = Literal["jira_create_ticket"]
+V3WorkflowsJiraCreateTicketName = Literal["jira_create_ticket",]
 
 
 class V3WorkflowsJiraCreateTicketDataTypedDict(TypedDict):

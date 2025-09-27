@@ -9,7 +9,10 @@ from typing import List, Literal
 from typing_extensions import Annotated, TypedDict
 
 
-V4ScheduleResponseOwnerType = Literal["user", "squad"]
+V4ScheduleResponseOwnerType = Literal[
+    "user",
+    "squad",
+]
 
 
 class V4ScheduleResponseTypedDict(TypedDict):
