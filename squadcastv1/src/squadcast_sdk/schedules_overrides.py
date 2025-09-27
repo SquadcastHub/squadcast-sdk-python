@@ -16,8 +16,8 @@ class SchedulesOverrides(BaseSDK):
         start_time: str,
         end_time: str,
         participant_id: Optional[str] = None,
-        page_number: Optional[int] = None,
         page_size: Optional[int] = None,
+        cursor: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -29,8 +29,8 @@ class SchedulesOverrides(BaseSDK):
         :param start_time:
         :param end_time:
         :param participant_id:
-        :param page_number:
         :param page_size:
+        :param cursor:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -51,8 +51,8 @@ class SchedulesOverrides(BaseSDK):
             start_time=start_time,
             end_time=end_time,
             participant_id=participant_id,
-            page_number=page_number,
             page_size=page_size,
+            cursor=cursor,
         )
 
         req = self._build_request(
@@ -139,8 +139,8 @@ class SchedulesOverrides(BaseSDK):
         start_time: str,
         end_time: str,
         participant_id: Optional[str] = None,
-        page_number: Optional[int] = None,
         page_size: Optional[int] = None,
+        cursor: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -152,8 +152,8 @@ class SchedulesOverrides(BaseSDK):
         :param start_time:
         :param end_time:
         :param participant_id:
-        :param page_number:
         :param page_size:
+        :param cursor:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -174,8 +174,8 @@ class SchedulesOverrides(BaseSDK):
             start_time=start_time,
             end_time=end_time,
             participant_id=participant_id,
-            page_number=page_number,
             page_size=page_size,
+            cursor=cursor,
         )
 
         req = self._build_request_async(

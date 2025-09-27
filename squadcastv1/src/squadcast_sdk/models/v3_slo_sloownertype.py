@@ -4,4 +4,7 @@ from __future__ import annotations
 from typing import Literal
 
 
-V3SLOSLOOwnerType = Literal["user", "squad"]
+V3SLOSLOOwnerType = Literal[
+    "user",
+    "squad",
+]

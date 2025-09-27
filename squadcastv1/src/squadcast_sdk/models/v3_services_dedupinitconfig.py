@@ -6,7 +6,10 @@ from typing import Literal
 from typing_extensions import TypedDict
 
 
-V3ServicesDedupInitConfigTimeUnit = Literal["minute", "hour"]
+V3ServicesDedupInitConfigTimeUnit = Literal[
+    "minute",
+    "hour",
+]
 
 
 class V3ServicesDedupInitConfigTypedDict(TypedDict):

@@ -9,9 +9,11 @@ from typing_extensions import NotRequired, TypedDict
 class V4SquadsSquadMemberTypedDict(TypedDict):
     user_id: str
     role: NotRequired[str]
+    r"""this field is required if you are using OBAC permission model"""
 
 
 class V4SquadsSquadMember(BaseModel):
     user_id: str
 
     role: Optional[str] = None
+    r"""this field is required if you are using OBAC permission model"""

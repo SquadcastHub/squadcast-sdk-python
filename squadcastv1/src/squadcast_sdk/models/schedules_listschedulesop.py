@@ -23,7 +23,7 @@ class SchedulesListSchedulesRequestTypedDict(TypedDict):
     escalation_policies: NotRequired[List[str]]
     without_escalation_policy: NotRequired[bool]
     page_size: NotRequired[int]
-    page_number: NotRequired[int]
+    cursor: NotRequired[str]
 
 
 class SchedulesListSchedulesRequest(BaseModel):
@@ -97,9 +97,8 @@ class SchedulesListSchedulesRequest(BaseModel):
         FieldMetadata(query=QueryParamMetadata(style="form", explode=False)),
     ] = None
 
-    page_number: Annotated[
-        Optional[int],
-        pydantic.Field(alias="pageNumber"),
+    cursor: Annotated[
+        Optional[str],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=False)),
     ] = None
 

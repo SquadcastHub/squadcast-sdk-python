@@ -141,6 +141,7 @@ with SquadcastSDK(
 </br>
 
 The same SDK client can also be used to make asynchronous requests by importing asyncio.
+
 ```python
 # Asynchronous Example
 import asyncio
@@ -540,22 +541,15 @@ with SquadcastSDK(
 
 ### [squads](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadssdk/README.md)
 
-* [get_by_team](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadssdk/README.md#get_by_team) - Get Squad By team
-* [delete](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadssdk/README.md#delete) - Delete Squad
-* [get](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadssdk/README.md#get) - Get Squad By ID
-* [update](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadssdk/README.md#update) - Update Squad
 * [list](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadssdk/README.md#list) - Get All Squads
 * [get_by_id](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadssdk/README.md#get_by_id) - Get Squad By ID
 * [update_v4](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadssdk/README.md#update_v4) - Update Squad
 * [remove_member](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadssdk/README.md#remove_member) - Remove Squad Member
+* [squads_delete_squad](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadssdk/README.md#squads_delete_squad) - Delete Squad
 
 #### [squads.members](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadsmembers/README.md)
 
 * [update](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadsmembers/README.md#update) - Update Squad Member
-
-### [squads_v3](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadsv3/README.md)
-
-* [create](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadsv3/README.md#create) - Create Squad
 
 ### [squads_v4](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadsv4/README.md)
 
@@ -824,9 +818,9 @@ with SquadcastSDK(
 
 
 **Inherit from [`SquadcastSDKError`](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/./src/squadcast_sdk/errors/squadcastsdkerror.py)**:
-* [`CommonV4Error`](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/./src/squadcast_sdk/errors/commonv4error.py): The server could not understand the request due to invalid syntax. Applicable to 31 of 229 methods.*
-* [`ResponseBodyError1`](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/./src/squadcast_sdk/errors/responsebodyerror1.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 229 methods.*
-* [`ResponseBodyError2`](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/./src/squadcast_sdk/errors/responsebodyerror2.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 229 methods.*
+* [`CommonV4Error`](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/./src/squadcast_sdk/errors/commonv4error.py): The server could not understand the request due to invalid syntax. Applicable to 32 of 225 methods.*
+* [`ResponseBodyError1`](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/./src/squadcast_sdk/errors/responsebodyerror1.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 225 methods.*
+* [`ResponseBodyError2`](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/./src/squadcast_sdk/errors/responsebodyerror2.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 225 methods.*
 * [`ResponseValidationError`](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/./src/squadcast_sdk/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>
@@ -845,7 +839,7 @@ from squadcast_sdk import SquadcastSDK
 
 
 with SquadcastSDK(
-    server_url="https://api.squadcast.tech",
+    server_url="https://api.squadcast.com",
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
 ) as ss_client:
 

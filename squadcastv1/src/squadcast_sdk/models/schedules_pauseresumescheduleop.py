@@ -12,7 +12,10 @@ from typing import Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-Action = Literal["pause", "resume"]
+Action = Literal[
+    "pause",
+    "resume",
+]
 
 
 class SchedulesPauseresumeScheduleRequestBodyTypedDict(TypedDict):

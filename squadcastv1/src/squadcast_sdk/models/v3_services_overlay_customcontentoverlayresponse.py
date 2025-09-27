@@ -13,7 +13,8 @@ from typing_extensions import TypedDict
 
 
 V3ServicesOverlayCustomContentOverlayResponseOverlayTemplateType = Literal[
-    "message", "description"
+    "message",
+    "description",
 ]
 
 

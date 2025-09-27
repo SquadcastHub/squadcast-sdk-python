@@ -4,4 +4,8 @@ from __future__ import annotations
 from typing import Literal
 
 
-V3SLOSLOActionType = Literal["SERVICE", "USER", "SQUAD"]
+V3SLOSLOActionType = Literal[
+    "SERVICE",
+    "USER",
+    "SQUAD",
+]

@@ -6,7 +6,11 @@ from typing import Literal
 from typing_extensions import TypedDict
 
 
-V3GlobalEventRulesEntityOwnerType = Literal["team", "user", "squad"]
+V3GlobalEventRulesEntityOwnerType = Literal[
+    "team",
+    "user",
+    "squad",
+]
 
 
 class V3GlobalEventRulesEntityOwnerTypedDict(TypedDict):

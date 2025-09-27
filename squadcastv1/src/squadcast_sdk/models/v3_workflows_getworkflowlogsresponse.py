@@ -6,7 +6,13 @@ from typing import List, Literal
 from typing_extensions import TypedDict
 
 
-StatusEnum = Literal["queued", "running", "successful", "partial", "failed"]
+StatusEnum = Literal[
+    "queued",
+    "running",
+    "successful",
+    "partial",
+    "failed",
+]
 
 
 class V3WorkflowsGetWorkflowLogsResponseDataTypedDict(TypedDict):

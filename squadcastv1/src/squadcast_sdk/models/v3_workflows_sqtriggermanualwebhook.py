@@ -6,7 +6,7 @@ from typing import Literal
 from typing_extensions import TypedDict
 
 
-V3WorkflowsSqTriggerManualWebhookName = Literal["sq_trigger_manual_webhook"]
+V3WorkflowsSqTriggerManualWebhookName = Literal["sq_trigger_manual_webhook",]
 
 
 class V3WorkflowsSqTriggerManualWebhookDataTypedDict(TypedDict):

@@ -6,7 +6,11 @@ from typing import Literal
 from typing_extensions import TypedDict
 
 
-V3UsersAddUserRequestRole = Literal["account_owner", "user", "stakeholder"]
+V3UsersAddUserRequestRole = Literal[
+    "account_owner",
+    "user",
+    "stakeholder",
+]
 
 
 class V3UsersAddUserRequestTypedDict(TypedDict):

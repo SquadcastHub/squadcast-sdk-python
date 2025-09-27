@@ -6,9 +6,16 @@ from typing import List, Literal, Optional
 from typing_extensions import NotRequired, TypedDict
 
 
-V3WorkflowsSqMakeHTTPCallUpdateName = Literal["sq_make_http_call"]
+V3WorkflowsSqMakeHTTPCallUpdateName = Literal["sq_make_http_call",]
 
-V3WorkflowsSqMakeHTTPCallUpdateMethod = Literal["GET", "POST", "PUT", "PATCH", "DELETE"]
+
+V3WorkflowsSqMakeHTTPCallUpdateMethod = Literal[
+    "GET",
+    "POST",
+    "PUT",
+    "PATCH",
+    "DELETE",
+]
 
 
 class V3WorkflowsSqMakeHTTPCallUpdateHeaderTypedDict(TypedDict):

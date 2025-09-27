@@ -6,7 +6,7 @@ from typing import Literal
 from typing_extensions import TypedDict
 
 
-V3WorkflowsSlackArchiveChannelName = Literal["slack_archive_channel"]
+V3WorkflowsSlackArchiveChannelName = Literal["slack_archive_channel",]
 
 
 class V3WorkflowsSlackArchiveChannelTypedDict(TypedDict):

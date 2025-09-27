@@ -6,7 +6,7 @@ from typing import Literal
 from typing_extensions import TypedDict
 
 
-CommonV3RBACOwnerType = Literal["team"]
+CommonV3RBACOwnerType = Literal["team",]
 r"""The type of the owner."""
 
 
