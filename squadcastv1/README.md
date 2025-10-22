@@ -29,6 +29,7 @@ Developer-friendly & type-safe Python SDK specifically catered to leverage *open
   * [SDK Example Usage](#sdk-example-usage)
   * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
+  * [Pagination](#pagination)
   * [File uploads](#file-uploads)
   * [Retries](#retries)
   * [Error Handling](#error-handling)
@@ -241,9 +242,6 @@ with SquadcastSDK(
 
 * [get_details](docs/sdks/exports/README.md#get_details) - Get Export Details
 
-### [extensions](docs/sdks/extensions/README.md)
-
-
 #### [extensions.ms_teams](docs/sdks/msteams1/README.md)
 
 * [get_config](docs/sdks/msteams1/README.md#get_config) - Get MSTeams Config
@@ -381,9 +379,6 @@ with SquadcastSDK(
 
 * [delete](docs/sdks/maintenances/README.md#delete) - Delete Maintenance By ID
 * [update_by_id](docs/sdks/maintenances/README.md#update_by_id) - Update Maintenance By ID
-
-### [overlays](docs/sdks/overlays/README.md)
-
 
 #### [overlays.dedup_key](docs/sdks/dedupkey/README.md)
 
@@ -538,7 +533,6 @@ with SquadcastSDK(
 
 * [snooze](docs/sdks/snoozenotifications/README.md#snooze) - Snooze Incident Notifications
 
-
 ### [squads](docs/sdks/squadssdk/README.md)
 
 * [list](docs/sdks/squadssdk/README.md#list) - Get All Squads
@@ -585,9 +579,6 @@ with SquadcastSDK(
 
 * [list](docs/sdks/statuspagesmaintenances1/README.md#list) - List Maintenances
 * [create](docs/sdks/statuspagesmaintenances1/README.md#create) - Create Maintenance
-
-### [statuspages](docs/sdks/statuspagessdk2/README.md)
-
 
 #### [statuspages.maintenances](docs/sdks/statuspagesmaintenances2/README.md)
 
@@ -679,6 +670,32 @@ with SquadcastSDK(
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
+
+<!-- Start Pagination [pagination] -->
+## Pagination
+
+Some of the endpoints in this SDK support pagination. To use pagination, you make your SDK calls as usual, but the
+returned response object will have a `Next` method that can be called to pull down the next group of results. If the
+return value of `Next` is `None`, then there are no more pages to be fetched.
+
+Here's an example of one such pagination call:
+```python
+from squadcast_sdk import SquadcastSDK
+
+
+with SquadcastSDK(
+    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+) as ss_client:
+
+    res = ss_client.escalation_policies.get_by_team(owner_id="<id>")
+
+    while res is not None:
+        # Handle items
+
+        res = res.next()
+
+```
+<!-- End Pagination [pagination] -->
 
 <!-- Start File uploads [file-upload] -->
 ## File uploads

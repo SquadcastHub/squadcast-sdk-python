@@ -6,7 +6,7 @@ from .v4_scheduleresponse import V4ScheduleResponse, V4ScheduleResponseTypedDict
 import pydantic
 from squadcast_sdk.types import BaseModel
 from squadcast_sdk.utils import FieldMetadata, QueryParamMetadata
-from typing import List, Optional
+from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -103,16 +103,26 @@ class SchedulesListSchedulesRequest(BaseModel):
     ] = None
 
 
-class SchedulesListSchedulesResponseTypedDict(TypedDict):
+class SchedulesListSchedulesResponseBodyTypedDict(TypedDict):
     r"""The request has succeeded."""
 
     data: List[V4ScheduleResponseTypedDict]
     page_info: CommonV4PageInfoTypedDict
 
 
-class SchedulesListSchedulesResponse(BaseModel):
+class SchedulesListSchedulesResponseBody(BaseModel):
     r"""The request has succeeded."""
 
     data: List[V4ScheduleResponse]
 
     page_info: Annotated[CommonV4PageInfo, pydantic.Field(alias="pageInfo")]
+
+
+class SchedulesListSchedulesResponseTypedDict(TypedDict):
+    result: SchedulesListSchedulesResponseBodyTypedDict
+
+
+class SchedulesListSchedulesResponse(BaseModel):
+    next: Callable[[], Optional[SchedulesListSchedulesResponse]]
+
+    result: SchedulesListSchedulesResponseBody

@@ -28,8 +28,10 @@ with SquadcastSDK(
 
     res = ss_client.global_event_rules.rulesets.rules.list(ger_id=894010, alert_source_version="<value>", alert_source_shortname="<value>")
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 
@@ -40,8 +42,8 @@ with SquadcastSDK(
 | `ger_id`                                                            | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `alert_source_version`                                              | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `alert_source_shortname`                                            | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
-| `page_size`                                                         | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `page_number`                                                       | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `page_size`                                                         | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `page_number`                                                       | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `filters_search`                                                    | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 

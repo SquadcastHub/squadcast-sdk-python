@@ -29,6 +29,7 @@ Developer-friendly & type-safe Python SDK specifically catered to leverage *open
   * [SDK Example Usage](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/#sdk-example-usage)
   * [Authentication](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/#authentication)
   * [Available Resources and Operations](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/#available-resources-and-operations)
+  * [Pagination](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/#pagination)
   * [File uploads](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/#file-uploads)
   * [Retries](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/#retries)
   * [Error Handling](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/#error-handling)
@@ -241,9 +242,6 @@ with SquadcastSDK(
 
 * [get_details](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/exports/README.md#get_details) - Get Export Details
 
-### [extensions](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/extensions/README.md)
-
-
 #### [extensions.ms_teams](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/msteams1/README.md)
 
 * [get_config](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/msteams1/README.md#get_config) - Get MSTeams Config
@@ -381,9 +379,6 @@ with SquadcastSDK(
 
 * [delete](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/maintenances/README.md#delete) - Delete Maintenance By ID
 * [update_by_id](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/maintenances/README.md#update_by_id) - Update Maintenance By ID
-
-### [overlays](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/overlays/README.md)
-
 
 #### [overlays.dedup_key](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/dedupkey/README.md)
 
@@ -538,7 +533,6 @@ with SquadcastSDK(
 
 * [snooze](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/snoozenotifications/README.md#snooze) - Snooze Incident Notifications
 
-
 ### [squads](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadssdk/README.md)
 
 * [list](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadssdk/README.md#list) - Get All Squads
@@ -585,9 +579,6 @@ with SquadcastSDK(
 
 * [list](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/statuspagesmaintenances1/README.md#list) - List Maintenances
 * [create](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/statuspagesmaintenances1/README.md#create) - Create Maintenance
-
-### [statuspages](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/statuspagessdk2/README.md)
-
 
 #### [statuspages.maintenances](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/statuspagesmaintenances2/README.md)
 
@@ -679,6 +670,32 @@ with SquadcastSDK(
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
+
+<!-- Start Pagination [pagination] -->
+## Pagination
+
+Some of the endpoints in this SDK support pagination. To use pagination, you make your SDK calls as usual, but the
+returned response object will have a `Next` method that can be called to pull down the next group of results. If the
+return value of `Next` is `None`, then there are no more pages to be fetched.
+
+Here's an example of one such pagination call:
+```python
+from squadcast_sdk import SquadcastSDK
+
+
+with SquadcastSDK(
+    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+) as ss_client:
+
+    res = ss_client.escalation_policies.get_by_team(owner_id="<id>")
+
+    while res is not None:
+        # Handle items
+
+        res = res.next()
+
+```
+<!-- End Pagination [pagination] -->
 
 <!-- Start File uploads [file-upload] -->
 ## File uploads
