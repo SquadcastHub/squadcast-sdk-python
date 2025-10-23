@@ -9,7 +9,7 @@ from squadcast_sdk.errors import SquadcastSDKError
 MAX_MESSAGE_LEN = 10_000
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class SDKDefaultError(SquadcastSDKError):
     """The fallback error class if no more specific error class is matched."""
 

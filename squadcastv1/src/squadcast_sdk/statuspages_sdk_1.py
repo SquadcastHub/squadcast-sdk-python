@@ -2,6 +2,7 @@
 
 from .basesdk import BaseSDK
 from .sdkconfiguration import SDKConfiguration
+from jsonpath import JSONPath
 from squadcast_sdk import errors, models, utils
 from squadcast_sdk._hooks import HookContext
 from squadcast_sdk.statuspages_componentgroups import StatusPagesComponentGroups
@@ -10,7 +11,7 @@ from squadcast_sdk.statuspages_issues import StatusPagesIssues
 from squadcast_sdk.statuspages_maintenances_1 import StatusPagesMaintenances1
 from squadcast_sdk.types import OptionalNullable, UNSET
 from squadcast_sdk.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional, Union
+from typing import Any, Dict, List, Mapping, Optional, Union
 
 
 class StatusPagesSDK1(BaseSDK):
@@ -43,15 +44,15 @@ class StatusPagesSDK1(BaseSDK):
     def list(
         self,
         *,
-        page_size: str,
-        page_number: str,
+        page_size: int,
+        page_number: int,
         filters_is_public: str,
         team_id: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V4StatusPagesStatusPage]:
+    ) -> Optional[models.StatusPagesListStatusPagesResponse]:
         r"""List Status Pages
 
         :param page_size:
@@ -109,7 +110,7 @@ class StatusPagesSDK1(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="StatusPages_listStatusPages",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -131,10 +132,35 @@ class StatusPagesSDK1(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> Optional[models.StatusPagesListStatusPagesResponse]:
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            page = request.page_number
+            next_page = page + 1
+
+            if not http_res.text:
+                return None
+            results = JSONPath("$.data").parse(body)
+            if len(results) == 0 or len(results[0]) == 0:
+                return None
+            limit = request.page_size
+            if len(results[0]) < limit:
+                return None
+
+            return self.list(
+                page_size=page_size,
+                page_number=next_page,
+                filters_is_public=filters_is_public,
+                team_id=team_id,
+                retries=retries,
+            )
+
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.V4StatusPagesListStatusPagesResponse, http_res
+            return models.StatusPagesListStatusPagesResponse(
+                result=unmarshal_json_response(
+                    models.V4StatusPagesListStatusPagesResponse, http_res
+                ),
+                next=next_func,
             )
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(
@@ -197,15 +223,15 @@ class StatusPagesSDK1(BaseSDK):
     async def list_async(
         self,
         *,
-        page_size: str,
-        page_number: str,
+        page_size: int,
+        page_number: int,
         filters_is_public: str,
         team_id: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V4StatusPagesStatusPage]:
+    ) -> Optional[models.StatusPagesListStatusPagesResponse]:
         r"""List Status Pages
 
         :param page_size:
@@ -263,7 +289,7 @@ class StatusPagesSDK1(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="StatusPages_listStatusPages",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -285,10 +311,35 @@ class StatusPagesSDK1(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> Optional[models.StatusPagesListStatusPagesResponse]:
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            page = request.page_number
+            next_page = page + 1
+
+            if not http_res.text:
+                return None
+            results = JSONPath("$.data").parse(body)
+            if len(results) == 0 or len(results[0]) == 0:
+                return None
+            limit = request.page_size
+            if len(results[0]) < limit:
+                return None
+
+            return self.list(
+                page_size=page_size,
+                page_number=next_page,
+                filters_is_public=filters_is_public,
+                team_id=team_id,
+                retries=retries,
+            )
+
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.V4StatusPagesListStatusPagesResponse, http_res
+            return models.StatusPagesListStatusPagesResponse(
+                result=unmarshal_json_response(
+                    models.V4StatusPagesListStatusPagesResponse, http_res
+                ),
+                next=next_func,
             )
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(
@@ -475,7 +526,7 @@ class StatusPagesSDK1(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="StatusPages_createStatusPage",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -687,7 +738,7 @@ class StatusPagesSDK1(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="StatusPages_createStatusPage",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -832,7 +883,7 @@ class StatusPagesSDK1(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="StatusPages_deleteStatusPageById",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -977,7 +1028,7 @@ class StatusPagesSDK1(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="StatusPages_deleteStatusPageById",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1122,7 +1173,7 @@ class StatusPagesSDK1(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="StatusPages_getStatusPageById",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1267,7 +1318,7 @@ class StatusPagesSDK1(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="StatusPages_getStatusPageById",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1493,7 +1544,7 @@ class StatusPagesSDK1(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="StatusPages_updateStatusPageById",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1719,7 +1770,7 @@ class StatusPagesSDK1(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="StatusPages_updateStatusPageById",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1864,7 +1915,7 @@ class StatusPagesSDK1(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="StatusPages_listStatusPageStatuses",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -2009,7 +2060,7 @@ class StatusPagesSDK1(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="StatusPages_listStatusPageStatuses",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,

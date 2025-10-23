@@ -2,12 +2,13 @@
 
 from .basesdk import BaseSDK
 from .sdkconfiguration import SDKConfiguration
+from jsonpath import JSONPath
 from squadcast_sdk import errors, models, utils
 from squadcast_sdk._hooks import HookContext
 from squadcast_sdk.globaleventrules_rulesets import GlobalEventRulesRulesets
 from squadcast_sdk.types import OptionalNullable, UNSET
 from squadcast_sdk.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional, Union
+from typing import Any, Dict, List, Mapping, Optional, Union
 
 
 class GlobalEventRules(BaseSDK):
@@ -29,15 +30,15 @@ class GlobalEventRules(BaseSDK):
         self,
         *,
         owner_id: str,
-        page_size: Optional[str] = None,
-        page_number: Optional[str] = None,
+        page_size: Optional[int] = None,
+        page_number: Optional[int] = None,
         filters_owner_id: Optional[List[str]] = None,
         filters_search: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3GlobalEventRulesGlobalEventRuleInList]:
+    ) -> Optional[models.GlobalEventRulesListGlobalEventRulesResponse]:
         r"""List Global Event Rules
 
         Get a list of all GERs
@@ -99,7 +100,7 @@ class GlobalEventRules(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="GlobalEventRules_listGlobalEventRules",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -121,10 +122,38 @@ class GlobalEventRules(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> (
+            Optional[models.GlobalEventRulesListGlobalEventRulesResponse]
+        ):
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            page = request.page_number if not request.page_number is None else 1
+            next_page = page + 1
+
+            if not http_res.text:
+                return None
+            results = JSONPath("$.data").parse(body)
+            if len(results) == 0 or len(results[0]) == 0:
+                return None
+            limit = request.page_size if not request.page_size is None else 0
+            if len(results[0]) < limit:
+                return None
+
+            return self.list(
+                owner_id=owner_id,
+                page_size=page_size,
+                page_number=next_page,
+                filters_owner_id=filters_owner_id,
+                filters_search=filters_search,
+                retries=retries,
+            )
+
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.GlobalEventRulesListGlobalEventRulesResponse, http_res
+            return models.GlobalEventRulesListGlobalEventRulesResponse(
+                result=unmarshal_json_response(
+                    models.GlobalEventRulesListGlobalEventRulesResponseBody, http_res
+                ),
+                next=next_func,
             )
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(
@@ -188,15 +217,15 @@ class GlobalEventRules(BaseSDK):
         self,
         *,
         owner_id: str,
-        page_size: Optional[str] = None,
-        page_number: Optional[str] = None,
+        page_size: Optional[int] = None,
+        page_number: Optional[int] = None,
         filters_owner_id: Optional[List[str]] = None,
         filters_search: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3GlobalEventRulesGlobalEventRuleInList]:
+    ) -> Optional[models.GlobalEventRulesListGlobalEventRulesResponse]:
         r"""List Global Event Rules
 
         Get a list of all GERs
@@ -258,7 +287,7 @@ class GlobalEventRules(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="GlobalEventRules_listGlobalEventRules",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -280,10 +309,38 @@ class GlobalEventRules(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> (
+            Optional[models.GlobalEventRulesListGlobalEventRulesResponse]
+        ):
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            page = request.page_number if not request.page_number is None else 1
+            next_page = page + 1
+
+            if not http_res.text:
+                return None
+            results = JSONPath("$.data").parse(body)
+            if len(results) == 0 or len(results[0]) == 0:
+                return None
+            limit = request.page_size if not request.page_size is None else 0
+            if len(results[0]) < limit:
+                return None
+
+            return self.list(
+                owner_id=owner_id,
+                page_size=page_size,
+                page_number=next_page,
+                filters_owner_id=filters_owner_id,
+                filters_search=filters_search,
+                retries=retries,
+            )
+
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.GlobalEventRulesListGlobalEventRulesResponse, http_res
+            return models.GlobalEventRulesListGlobalEventRulesResponse(
+                result=unmarshal_json_response(
+                    models.GlobalEventRulesListGlobalEventRulesResponseBody, http_res
+                ),
+                next=next_func,
             )
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(
@@ -426,7 +483,7 @@ class GlobalEventRules(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="GlobalEventRules_createGlobalEventRule",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -594,7 +651,7 @@ class GlobalEventRules(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="GlobalEventRules_createGlobalEventRule",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -741,7 +798,7 @@ class GlobalEventRules(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="GlobalEventRules_deleteGlobalEventRuleById",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -887,7 +944,7 @@ class GlobalEventRules(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="GlobalEventRules_deleteGlobalEventRuleById",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1033,7 +1090,7 @@ class GlobalEventRules(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="GlobalEventRules_getGlobalEventRuleById",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1180,7 +1237,7 @@ class GlobalEventRules(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="GlobalEventRules_getGlobalEventRuleById",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1352,7 +1409,7 @@ class GlobalEventRules(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="GlobalEventRules_updateGlobalEventRuleById",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1524,7 +1581,7 @@ class GlobalEventRules(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="GlobalEventRules_updateGlobalEventRuleById",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,

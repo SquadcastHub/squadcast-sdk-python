@@ -33,8 +33,10 @@ with SquadcastSDK(
 
     res = ss_client.schedules.list(team_id="<id>")
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 

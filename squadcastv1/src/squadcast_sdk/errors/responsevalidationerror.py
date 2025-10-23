@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from squadcast_sdk.errors import SquadcastSDKError
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class ResponseValidationError(SquadcastSDKError):
     """Error raised when there is a type mismatch between the response data and the expected Pydantic model."""
 

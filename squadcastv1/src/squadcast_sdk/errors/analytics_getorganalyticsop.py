@@ -18,7 +18,7 @@ class GatewayTimeoutErrorData(BaseModel):
     r"""Represents a single response containing data of type T."""
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class GatewayTimeoutError(SquadcastSDKError):
     r"""Server error"""
 
@@ -40,7 +40,7 @@ class ServiceUnavailableErrorData(BaseModel):
     r"""Represents a single response containing data of type T."""
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class ServiceUnavailableError(SquadcastSDKError):
     r"""Service unavailable."""
 
@@ -62,7 +62,7 @@ class BadGatewayErrorData(BaseModel):
     r"""Represents a single response containing data of type T."""
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class BadGatewayError(SquadcastSDKError):
     r"""Server error"""
 
@@ -84,7 +84,7 @@ class InternalServerErrorData(BaseModel):
     r"""Represents a single response containing data of type T."""
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class InternalServerError(SquadcastSDKError):
     r"""Server error"""
 
@@ -106,7 +106,7 @@ class UnprocessableEntityErrorData(BaseModel):
     r"""Represents a single response containing data of type T."""
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class UnprocessableEntityError(SquadcastSDKError):
     r"""Client error"""
 
@@ -128,7 +128,7 @@ class ConflictErrorData(BaseModel):
     r"""Represents a single response containing data of type T."""
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class ConflictError(SquadcastSDKError):
     r"""The request conflicts with the current state of the server."""
 
@@ -150,7 +150,7 @@ class NotFoundErrorData(BaseModel):
     r"""Represents a single response containing data of type T."""
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class NotFoundError(SquadcastSDKError):
     r"""The server cannot find the requested resource."""
 
@@ -172,7 +172,7 @@ class ForbiddenErrorData(BaseModel):
     r"""Represents a single response containing data of type T."""
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class ForbiddenError(SquadcastSDKError):
     r"""Access is forbidden."""
 
@@ -194,7 +194,7 @@ class PaymentRequiredErrorData(BaseModel):
     r"""Represents a single response containing data of type T."""
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class PaymentRequiredError(SquadcastSDKError):
     r"""Client error"""
 
@@ -216,7 +216,7 @@ class UnauthorizedErrorData(BaseModel):
     r"""Represents a single response containing data of type T."""
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class UnauthorizedError(SquadcastSDKError):
     r"""Access is unauthorized."""
 
@@ -238,7 +238,7 @@ class BadRequestErrorData(BaseModel):
     r"""Represents a single response containing data of type T."""
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class BadRequestError(SquadcastSDKError):
     r"""The server could not understand the request due to invalid syntax."""
 
@@ -260,7 +260,7 @@ class ResponseBodyError2Data(BaseModel):
     r"""Represents a single response containing data of type T."""
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class ResponseBodyError2(SquadcastSDKError):
     data: ResponseBodyError2Data = field(hash=False)
 
@@ -280,7 +280,7 @@ class ResponseBodyError1Data(BaseModel):
     r"""Represents the metadata for a CircleCI error response."""
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class ResponseBodyError1(SquadcastSDKError):
     data: ResponseBodyError1Data = field(hash=False)
 
@@ -301,7 +301,7 @@ BadRequestUnion = TypeAliasType(
 r"""Represents a CircleCI error response for a 400 status code."""
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class BadRequest(SquadcastSDKError):
     r"""Represents a CircleCI error response for a 400 status code."""
 
