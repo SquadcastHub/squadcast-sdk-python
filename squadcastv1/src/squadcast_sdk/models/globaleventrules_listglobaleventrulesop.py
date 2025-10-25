@@ -8,14 +8,14 @@ from .v3_globaleventrules_globaleventruleinlist import (
 import pydantic
 from squadcast_sdk.types import BaseModel
 from squadcast_sdk.utils import FieldMetadata, QueryParamMetadata
-from typing import List, Optional
+from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class GlobalEventRulesListGlobalEventRulesRequestTypedDict(TypedDict):
     owner_id: str
-    page_size: NotRequired[str]
-    page_number: NotRequired[str]
+    page_size: NotRequired[int]
+    page_number: NotRequired[int]
     filters_owner_id: NotRequired[List[str]]
     filters_search: NotRequired[str]
 
@@ -26,12 +26,12 @@ class GlobalEventRulesListGlobalEventRulesRequest(BaseModel):
     ]
 
     page_size: Annotated[
-        Optional[str],
+        Optional[int],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
 
     page_number: Annotated[
-        Optional[str],
+        Optional[int],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
 
@@ -56,16 +56,26 @@ class GlobalEventRulesListGlobalEventRulesMeta(BaseModel):
     total_count: int
 
 
-class GlobalEventRulesListGlobalEventRulesResponseTypedDict(TypedDict):
+class GlobalEventRulesListGlobalEventRulesResponseBodyTypedDict(TypedDict):
     r"""The request has succeeded."""
 
     data: List[V3GlobalEventRulesGlobalEventRuleInListTypedDict]
     meta: GlobalEventRulesListGlobalEventRulesMetaTypedDict
 
 
-class GlobalEventRulesListGlobalEventRulesResponse(BaseModel):
+class GlobalEventRulesListGlobalEventRulesResponseBody(BaseModel):
     r"""The request has succeeded."""
 
     data: List[V3GlobalEventRulesGlobalEventRuleInList]
 
     meta: GlobalEventRulesListGlobalEventRulesMeta
+
+
+class GlobalEventRulesListGlobalEventRulesResponseTypedDict(TypedDict):
+    result: GlobalEventRulesListGlobalEventRulesResponseBodyTypedDict
+
+
+class GlobalEventRulesListGlobalEventRulesResponse(BaseModel):
+    next: Callable[[], Optional[GlobalEventRulesListGlobalEventRulesResponse]]
+
+    result: GlobalEventRulesListGlobalEventRulesResponseBody
