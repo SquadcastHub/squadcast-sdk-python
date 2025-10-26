@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.639.3
   generationVersion: 2.730.5
-  releaseVersion: 0.3.0
-  configChecksum: 5a44c7db5a7566a2f1772178a94b608a
+  releaseVersion: 0.3.1
+  configChecksum: bc054a4caeb848e40157c656017018f7
   repoURL: https://github.com/SquadcastHub/squadcast-sdk-python.git
   repoSubDirectory: squadcastv1
   installationURL: https://github.com/SquadcastHub/squadcast-sdk-python.git#subdirectory=squadcastv1
@@ -7590,8 +7590,8 @@ examples:
     speakeasy-default-status-pages-list-status-pages:
       parameters:
         query:
-          pageSize: null
-          pageNumber: null
+          pageSize: 301790
+          pageNumber: 172386
           filters.isPublic: "<value>"
           teamID: "<id>"
       responses:
@@ -8429,12 +8429,3 @@ examples:
         "504":
           application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Python SDK Changes Detected:
-  * `squadcast_sdk.escalation_policies.get_by_team()`:  `request` **Changed** **Breaking** :warning:
-  * `squadcast_sdk.global_event_rules.list()`:  `request` **Changed** **Breaking** :warning:
-  * `squadcast_sdk.global_event_rules.rulesets.rules.list()`:  `request` **Changed** **Breaking** :warning:
-  * `squadcast_sdk.webforms.list()`:  `request` **Changed** **Breaking** :warning:
-  * `squadcast_sdk.workflows.list()`:  `request` **Changed** **Breaking** :warning:
-  * `squadcast_sdk.workflows.logs.get()`:  `request` **Changed** **Breaking** :warning:
-  * `squadcast_sdk.status_pages.list()`:  `request` **Changed** **Breaking** :warning:
