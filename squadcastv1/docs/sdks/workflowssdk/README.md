@@ -33,8 +33,10 @@ with SquadcastSDK(
 
     res = ss_client.workflows.list(owner_id="<id>")
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 
@@ -43,8 +45,8 @@ with SquadcastSDK(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `owner_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
-| `page_size`                                                         | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `page_number`                                                       | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `page_size`                                                         | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `page_number`                                                       | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `search`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `event`                                                             | List[*str*]                                                         | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `actions`                                                           | List[*str*]                                                         | :heavy_minus_sign:                                                  | N/A                                                                 |
@@ -57,7 +59,7 @@ with SquadcastSDK(
 
 ### Response
 
-**[models.V3WorkflowsListWorkflowAPIResponse](../../models/v3workflowslistworkflowapiresponse.md)**
+**[models.WorkflowsListWorkflowsResponse](../../models/workflowslistworkflowsresponse.md)**
 
 ### Errors
 

@@ -7,15 +7,15 @@ from .v3_escalationpolicies_escalationpolicyresponse import (
 )
 from squadcast_sdk.types import BaseModel
 from squadcast_sdk.utils import FieldMetadata, QueryParamMetadata
-from typing import List, Optional
+from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class EscalationPoliciesGetEscalationPolicyByTeamRequestTypedDict(TypedDict):
     owner_id: str
     r"""here owner_id represents team_id, if  team_id is not provided, it will return escalation policies of all teams."""
-    page_number: NotRequired[str]
-    page_size: NotRequired[str]
+    page_number: NotRequired[int]
+    page_size: NotRequired[int]
 
 
 class EscalationPoliciesGetEscalationPolicyByTeamRequest(BaseModel):
@@ -25,12 +25,12 @@ class EscalationPoliciesGetEscalationPolicyByTeamRequest(BaseModel):
     r"""here owner_id represents team_id, if  team_id is not provided, it will return escalation policies of all teams."""
 
     page_number: Annotated[
-        Optional[str],
+        Optional[int],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
 
     page_size: Annotated[
-        Optional[str],
+        Optional[int],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
 
@@ -43,16 +43,26 @@ class EscalationPoliciesGetEscalationPolicyByTeamMeta(BaseModel):
     total_count: int
 
 
-class EscalationPoliciesGetEscalationPolicyByTeamResponseTypedDict(TypedDict):
+class EscalationPoliciesGetEscalationPolicyByTeamResponseBodyTypedDict(TypedDict):
     r"""The request has succeeded."""
 
     data: List[V3EscalationPoliciesEscalationPolicyResponseTypedDict]
     meta: EscalationPoliciesGetEscalationPolicyByTeamMetaTypedDict
 
 
-class EscalationPoliciesGetEscalationPolicyByTeamResponse(BaseModel):
+class EscalationPoliciesGetEscalationPolicyByTeamResponseBody(BaseModel):
     r"""The request has succeeded."""
 
     data: List[V3EscalationPoliciesEscalationPolicyResponse]
 
     meta: EscalationPoliciesGetEscalationPolicyByTeamMeta
+
+
+class EscalationPoliciesGetEscalationPolicyByTeamResponseTypedDict(TypedDict):
+    result: EscalationPoliciesGetEscalationPolicyByTeamResponseBodyTypedDict
+
+
+class EscalationPoliciesGetEscalationPolicyByTeamResponse(BaseModel):
+    next: Callable[[], Optional[EscalationPoliciesGetEscalationPolicyByTeamResponse]]
+
+    result: EscalationPoliciesGetEscalationPolicyByTeamResponseBody
