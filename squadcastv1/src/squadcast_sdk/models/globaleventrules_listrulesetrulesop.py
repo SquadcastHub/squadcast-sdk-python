@@ -8,7 +8,7 @@ from .v3_globaleventrules_rulesetruleresponse import (
 import pydantic
 from squadcast_sdk.types import BaseModel
 from squadcast_sdk.utils import FieldMetadata, PathParamMetadata, QueryParamMetadata
-from typing import List, Optional
+from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -16,8 +16,8 @@ class GlobalEventRulesListRulesetRulesRequestTypedDict(TypedDict):
     ger_id: int
     alert_source_version: str
     alert_source_shortname: str
-    page_size: NotRequired[str]
-    page_number: NotRequired[str]
+    page_size: NotRequired[int]
+    page_number: NotRequired[int]
     filters_search: NotRequired[str]
 
 
@@ -35,12 +35,12 @@ class GlobalEventRulesListRulesetRulesRequest(BaseModel):
     ]
 
     page_size: Annotated[
-        Optional[str],
+        Optional[int],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
 
     page_number: Annotated[
-        Optional[str],
+        Optional[int],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
 
@@ -59,16 +59,26 @@ class GlobalEventRulesListRulesetRulesMeta(BaseModel):
     total_count: int
 
 
-class GlobalEventRulesListRulesetRulesResponseTypedDict(TypedDict):
+class GlobalEventRulesListRulesetRulesResponseBodyTypedDict(TypedDict):
     r"""The request has succeeded."""
 
     data: List[V3GlobalEventRulesRulesetRuleResponseTypedDict]
     meta: GlobalEventRulesListRulesetRulesMetaTypedDict
 
 
-class GlobalEventRulesListRulesetRulesResponse(BaseModel):
+class GlobalEventRulesListRulesetRulesResponseBody(BaseModel):
     r"""The request has succeeded."""
 
     data: List[V3GlobalEventRulesRulesetRuleResponse]
 
     meta: GlobalEventRulesListRulesetRulesMeta
+
+
+class GlobalEventRulesListRulesetRulesResponseTypedDict(TypedDict):
+    result: GlobalEventRulesListRulesetRulesResponseBodyTypedDict
+
+
+class GlobalEventRulesListRulesetRulesResponse(BaseModel):
+    next: Callable[[], Optional[GlobalEventRulesListRulesetRulesResponse]]
+
+    result: GlobalEventRulesListRulesetRulesResponseBody

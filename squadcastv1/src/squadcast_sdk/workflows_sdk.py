@@ -2,13 +2,14 @@
 
 from .basesdk import BaseSDK
 from .sdkconfiguration import SDKConfiguration
+from jsonpath import JSONPath
 from squadcast_sdk import errors, models, utils
 from squadcast_sdk._hooks import HookContext
 from squadcast_sdk.logs import Logs
 from squadcast_sdk.types import OptionalNullable, UNSET
 from squadcast_sdk.utils.unmarshal_json_response import unmarshal_json_response
 from squadcast_sdk.workflows_actions import WorkflowsActions
-from typing import Any, List, Mapping, Optional, Union
+from typing import Any, Dict, List, Mapping, Optional, Union
 
 
 class WorkflowsSDK(BaseSDK):
@@ -32,8 +33,8 @@ class WorkflowsSDK(BaseSDK):
         self,
         *,
         owner_id: str,
-        page_size: Optional[str] = None,
-        page_number: Optional[str] = None,
+        page_size: Optional[int] = None,
+        page_number: Optional[int] = None,
         search: Optional[str] = None,
         event: Optional[List[str]] = None,
         actions: Optional[List[str]] = None,
@@ -46,7 +47,7 @@ class WorkflowsSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3WorkflowsWorkflowAPIResponse]:
+    ) -> Optional[models.WorkflowsListWorkflowsResponse]:
         r"""List Workflows
 
         Get a list of all Workflows
@@ -120,7 +121,7 @@ class WorkflowsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Workflows_listWorkflows",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -142,10 +143,42 @@ class WorkflowsSDK(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> Optional[models.WorkflowsListWorkflowsResponse]:
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            page = request.page_number if not request.page_number is None else 1
+            next_page = page + 1
+
+            if not http_res.text:
+                return None
+            results = JSONPath("$.data").parse(body)
+            if len(results) == 0 or len(results[0]) == 0:
+                return None
+            limit = request.page_size if not request.page_size is None else 0
+            if len(results[0]) < limit:
+                return None
+
+            return self.list(
+                owner_id=owner_id,
+                page_size=page_size,
+                page_number=next_page,
+                search=search,
+                event=event,
+                actions=actions,
+                tags=tags,
+                owner=owner,
+                created_by=created_by,
+                updated_by=updated_by,
+                enabled=enabled,
+                retries=retries,
+            )
+
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.V3WorkflowsListWorkflowAPIResponse, http_res
+            return models.WorkflowsListWorkflowsResponse(
+                result=unmarshal_json_response(
+                    models.V3WorkflowsListWorkflowAPIResponse, http_res
+                ),
+                next=next_func,
             )
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(
@@ -209,8 +242,8 @@ class WorkflowsSDK(BaseSDK):
         self,
         *,
         owner_id: str,
-        page_size: Optional[str] = None,
-        page_number: Optional[str] = None,
+        page_size: Optional[int] = None,
+        page_number: Optional[int] = None,
         search: Optional[str] = None,
         event: Optional[List[str]] = None,
         actions: Optional[List[str]] = None,
@@ -223,7 +256,7 @@ class WorkflowsSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3WorkflowsWorkflowAPIResponse]:
+    ) -> Optional[models.WorkflowsListWorkflowsResponse]:
         r"""List Workflows
 
         Get a list of all Workflows
@@ -297,7 +330,7 @@ class WorkflowsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Workflows_listWorkflows",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -319,10 +352,42 @@ class WorkflowsSDK(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> Optional[models.WorkflowsListWorkflowsResponse]:
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            page = request.page_number if not request.page_number is None else 1
+            next_page = page + 1
+
+            if not http_res.text:
+                return None
+            results = JSONPath("$.data").parse(body)
+            if len(results) == 0 or len(results[0]) == 0:
+                return None
+            limit = request.page_size if not request.page_size is None else 0
+            if len(results[0]) < limit:
+                return None
+
+            return self.list(
+                owner_id=owner_id,
+                page_size=page_size,
+                page_number=next_page,
+                search=search,
+                event=event,
+                actions=actions,
+                tags=tags,
+                owner=owner,
+                created_by=created_by,
+                updated_by=updated_by,
+                enabled=enabled,
+                retries=retries,
+            )
+
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.V3WorkflowsListWorkflowAPIResponse, http_res
+            return models.WorkflowsListWorkflowsResponse(
+                result=unmarshal_json_response(
+                    models.V3WorkflowsListWorkflowAPIResponse, http_res
+                ),
+                next=next_func,
             )
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(
@@ -490,7 +555,7 @@ class WorkflowsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Workflows_createWorkflow",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -683,7 +748,7 @@ class WorkflowsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Workflows_createWorkflow",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -843,7 +908,7 @@ class WorkflowsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Workflows_bulkEnabledisableWorkflows",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1002,7 +1067,7 @@ class WorkflowsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Workflows_bulkEnabledisableWorkflows",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1148,7 +1213,7 @@ class WorkflowsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Workflows_deleteWorkflow",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1294,7 +1359,7 @@ class WorkflowsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Workflows_deleteWorkflow",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1440,7 +1505,7 @@ class WorkflowsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Workflows_getWorkflowById",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1587,7 +1652,7 @@ class WorkflowsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Workflows_getWorkflowById",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1800,7 +1865,7 @@ class WorkflowsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Workflows_updateWorkflow",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -2013,7 +2078,7 @@ class WorkflowsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Workflows_updateWorkflow",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -2172,7 +2237,7 @@ class WorkflowsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Workflows_updateActionsOrder",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -2331,7 +2396,7 @@ class WorkflowsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Workflows_updateActionsOrder",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -2481,7 +2546,7 @@ class WorkflowsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Workflows_deleteWorkflowAction",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -2630,7 +2695,7 @@ class WorkflowsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Workflows_deleteWorkflowAction",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -2795,7 +2860,7 @@ class WorkflowsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Workflows_updateWorkflowAction",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -2959,7 +3024,7 @@ class WorkflowsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Workflows_updateWorkflowAction",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -3116,7 +3181,7 @@ class WorkflowsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Workflows_enabledisableWorkflow",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -3274,7 +3339,7 @@ class WorkflowsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Workflows_enabledisableWorkflow",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 03cdd445-0210-4c34-8201-e581ca90c83e
 management:
-  docChecksum: d61109c6126f6c25f71aad7247d229ca
+  docChecksum: 17927a6d5e470b48f54456d75296b792
   docVersion: 1.0.0
-  speakeasyVersion: 1.631.0
-  generationVersion: 2.716.10
-  releaseVersion: 0.2.0
-  configChecksum: 484e194698b9822da224771c99f27a61
+  speakeasyVersion: 1.645.2
+  generationVersion: 2.735.1
+  releaseVersion: 0.3.0
+  configChecksum: 5a44c7db5a7566a2f1772178a94b608a
   repoURL: https://github.com/SquadcastHub/squadcast-sdk-python.git
   repoSubDirectory: squadcastv1
   installationURL: https://github.com/SquadcastHub/squadcast-sdk-python.git#subdirectory=squadcastv1
@@ -14,7 +14,7 @@ management:
 features:
   python:
     additionalDependencies: 1.0.0
-    core: 5.22.0
+    core: 5.23.2
     defaultEnabledRetries: 0.2.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.3.2
@@ -24,15 +24,16 @@ features:
     globalSecurity: 3.0.4
     globalSecurityCallbacks: 1.0.0
     globalSecurityFlattening: 1.0.0
-    globalServerURLs: 3.1.1
-    groups: 3.0.0
+    globalServerURLs: 3.2.0
+    groups: 3.0.1
     methodArguments: 1.0.2
     nameOverrides: 3.0.1
     nullables: 1.0.1
+    pagination: 3.0.7
     responseFormat: 1.0.1
     retries: 3.0.2
     sdkHooks: 1.1.0
-    unions: 3.0.5
+    unions: 3.1.0
     uploadStreams: 1.0.0
 generatedFiles:
   - .gitattributes
@@ -131,6 +132,7 @@ generatedFiles:
   - docs/models/escalationpoliciesgetescalationpolicybyteammeta.md
   - docs/models/escalationpoliciesgetescalationpolicybyteamrequest.md
   - docs/models/escalationpoliciesgetescalationpolicybyteamresponse.md
+  - docs/models/escalationpoliciesgetescalationpolicybyteamresponsebody.md
   - docs/models/escalationpoliciesremoveescalationpolicyrequest.md
   - docs/models/escalationpoliciesremoveescalationpolicyresponsebody.md
   - docs/models/escalationpoliciesupdateescalationpolicyrequest.md
@@ -170,9 +172,11 @@ generatedFiles:
   - docs/models/globaleventruleslistglobaleventrulesmeta.md
   - docs/models/globaleventruleslistglobaleventrulesrequest.md
   - docs/models/globaleventruleslistglobaleventrulesresponse.md
+  - docs/models/globaleventruleslistglobaleventrulesresponsebody.md
   - docs/models/globaleventruleslistrulesetrulesmeta.md
   - docs/models/globaleventruleslistrulesetrulesrequest.md
   - docs/models/globaleventruleslistrulesetrulesresponse.md
+  - docs/models/globaleventruleslistrulesetrulesresponsebody.md
   - docs/models/globaleventrulesreorderrulesetbyindexrequest.md
   - docs/models/globaleventrulesreorderrulesetbyindexresponse.md
   - docs/models/globaleventrulesreorderrulesetrequest.md
@@ -366,6 +370,7 @@ generatedFiles:
   - docs/models/schedulesgetschedulebyidresponse.md
   - docs/models/scheduleslistschedulesrequest.md
   - docs/models/scheduleslistschedulesresponse.md
+  - docs/models/scheduleslistschedulesresponsebody.md
   - docs/models/schedulespauseresumeschedulerequest.md
   - docs/models/schedulespauseresumeschedulerequestbody.md
   - docs/models/schedulespauseresumescheduleresponse.md
@@ -444,6 +449,7 @@ generatedFiles:
   - docs/models/statuspagesgetstatuspagebyidrequest.md
   - docs/models/statuspagesgetstatuspagebyidresponse.md
   - docs/models/statuspagesliststatuspagesrequest.md
+  - docs/models/statuspagesliststatuspagesresponse.md
   - docs/models/statuspagesliststatuspagestatusesrequest.md
   - docs/models/statuspagesliststatuspagestatusesresponse.md
   - docs/models/statuspageslistsubscribersrequest.md
@@ -1049,6 +1055,7 @@ generatedFiles:
   - docs/models/webformsgetallwebformsmeta.md
   - docs/models/webformsgetallwebformsrequest.md
   - docs/models/webformsgetallwebformsresponse.md
+  - docs/models/webformsgetallwebformsresponsebody.md
   - docs/models/webformsgetwebformbyidrequest.md
   - docs/models/webformsgetwebformbyidresponse.md
   - docs/models/webformsremovewebformrequest.md
@@ -1079,7 +1086,9 @@ generatedFiles:
   - docs/models/workflowsgetworkflowactionbyidresponse.md
   - docs/models/workflowsgetworkflowbyidrequest.md
   - docs/models/workflowsgetworkflowlogsrequest.md
+  - docs/models/workflowsgetworkflowlogsresponse.md
   - docs/models/workflowslistworkflowsrequest.md
+  - docs/models/workflowslistworkflowsresponse.md
   - docs/models/workflowsupdateactionsorderrequest.md
   - docs/models/workflowsupdateworkflowactionrequest.md
   - docs/models/workflowsupdateworkflowrequest.md
@@ -1101,7 +1110,6 @@ generatedFiles:
   - docs/sdks/events/README.md
   - docs/sdks/exports/README.md
   - docs/sdks/exportschedule/README.md
-  - docs/sdks/extensions/README.md
   - docs/sdks/extensionswebhooks/README.md
   - docs/sdks/falsepositive/README.md
   - docs/sdks/globaleventrules/README.md
@@ -1127,7 +1135,6 @@ generatedFiles:
   - docs/sdks/notes/README.md
   - docs/sdks/overlay/README.md
   - docs/sdks/overlaycustomcontenttemplates/README.md
-  - docs/sdks/overlays/README.md
   - docs/sdks/overlayscustomcontenttemplates/README.md
   - docs/sdks/overrides/README.md
   - docs/sdks/postmortemssdk/README.md
@@ -1148,7 +1155,6 @@ generatedFiles:
   - docs/sdks/servicessdk/README.md
   - docs/sdks/slossdk/README.md
   - docs/sdks/snoozenotifications/README.md
-  - docs/sdks/squadcastsdk/README.md
   - docs/sdks/squadsmembers/README.md
   - docs/sdks/squadssdk/README.md
   - docs/sdks/squadsv4/README.md
@@ -1158,7 +1164,6 @@ generatedFiles:
   - docs/sdks/statuspagesmaintenances1/README.md
   - docs/sdks/statuspagesmaintenances2/README.md
   - docs/sdks/statuspagessdk1/README.md
-  - docs/sdks/statuspagessdk2/README.md
   - docs/sdks/subscribers/README.md
   - docs/sdks/suppressionrules/README.md
   - docs/sdks/taggingrules/README.md
@@ -7585,8 +7590,8 @@ examples:
     speakeasy-default-status-pages-list-status-pages:
       parameters:
         query:
-          pageSize: "<value>"
-          pageNumber: "<value>"
+          pageSize: null
+          pageNumber: null
           filters.isPublic: "<value>"
           teamID: "<id>"
       responses:
@@ -8426,17 +8431,10 @@ examples:
 examplesVersion: 1.0.2
 releaseNotes: |
   ## Python SDK Changes Detected:
-  * `squadcast_sdk.webforms.remove()`:  `request.owner_id` **Changed** **Breaking** :warning:
-  * `squadcast_sdk.webforms.get_by_id()`:  `request.owner_id` **Changed** **Breaking** :warning:
-  * `squadcast_sdk.rotations.list_by_schedule()`:  `response.page_info` **Removed** **Breaking** :warning:
-  * `squadcast_sdk.services.get_all()`:  `request.owner_id` **Changed** **Breaking** :warning:
-  * `squadcast_sdk.schedules.list()`:  `request` **Changed** **Breaking** :warning:
-  * `squadcast_sdk.escalation_policies.get_by_team()`:  `request.owner_id` **Changed** **Breaking** :warning:
-  * `squadcast_sdk.squads.list()`:  `request.owner_id` **Added** **Breaking** :warning:
-  * `squadcast_sdk.schedules.overrides.list()`:  `request` **Changed** **Breaking** :warning:
-  * `squadcast_sdk.squads.get_by_team()`: **Deleted** **Breaking** :warning:
-  * `squadcast_sdk.squads.squads_delete_squad()`: **Added**
-  * `squadcast_sdk.squads_v3.create()`: **Deleted** **Breaking** :warning:
-  * `squadcast_sdk.squads.update()`: **Deleted** **Breaking** :warning:
-  * `squadcast_sdk.squads.get()`: **Deleted** **Breaking** :warning:
-  * `squadcast_sdk.squads.delete()`: **Deleted** **Breaking** :warning:
+  * `squadcast_sdk.escalation_policies.get_by_team()`:  `request` **Changed** **Breaking** :warning:
+  * `squadcast_sdk.global_event_rules.list()`:  `request` **Changed** **Breaking** :warning:
+  * `squadcast_sdk.global_event_rules.rulesets.rules.list()`:  `request` **Changed** **Breaking** :warning:
+  * `squadcast_sdk.webforms.list()`:  `request` **Changed** **Breaking** :warning:
+  * `squadcast_sdk.workflows.list()`:  `request` **Changed** **Breaking** :warning:
+  * `squadcast_sdk.workflows.logs.get()`:  `request` **Changed** **Breaking** :warning:
+  * `squadcast_sdk.status_pages.list()`:  `request` **Changed** **Breaking** :warning:

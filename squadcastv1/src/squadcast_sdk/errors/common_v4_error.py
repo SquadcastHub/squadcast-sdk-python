@@ -13,7 +13,7 @@ class CommonV4ErrorData(BaseModel):
     error: models_common_v4_error.Error
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class CommonV4Error(SquadcastSDKError):
     data: CommonV4ErrorData = field(hash=False)
 
