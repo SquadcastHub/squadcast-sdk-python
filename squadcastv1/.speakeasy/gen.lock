@@ -3,10 +3,10 @@ id: 03cdd445-0210-4c34-8201-e581ca90c83e
 management:
   docChecksum: 17927a6d5e470b48f54456d75296b792
   docVersion: 1.0.0
-  speakeasyVersion: 1.645.2
-  generationVersion: 2.735.1
-  releaseVersion: 0.3.0
-  configChecksum: 5a44c7db5a7566a2f1772178a94b608a
+  speakeasyVersion: 1.648.0
+  generationVersion: 2.737.0
+  releaseVersion: 0.3.1
+  configChecksum: bc054a4caeb848e40157c656017018f7
   repoURL: https://github.com/SquadcastHub/squadcast-sdk-python.git
   repoSubDirectory: squadcastv1
   installationURL: https://github.com/SquadcastHub/squadcast-sdk-python.git#subdirectory=squadcastv1
@@ -14,7 +14,7 @@ management:
 features:
   python:
     additionalDependencies: 1.0.0
-    core: 5.23.2
+    core: 5.23.4
     defaultEnabledRetries: 0.2.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.3.2
@@ -7590,8 +7590,8 @@ examples:
     speakeasy-default-status-pages-list-status-pages:
       parameters:
         query:
-          pageSize: null
-          pageNumber: null
+          pageSize: 301790
+          pageNumber: 172386
           filters.isPublic: "<value>"
           teamID: "<id>"
       responses:
@@ -8429,12 +8429,3 @@ examples:
         "504":
           application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Python SDK Changes Detected:
-  * `squadcast_sdk.escalation_policies.get_by_team()`:  `request` **Changed** **Breaking** :warning:
-  * `squadcast_sdk.global_event_rules.list()`:  `request` **Changed** **Breaking** :warning:
-  * `squadcast_sdk.global_event_rules.rulesets.rules.list()`:  `request` **Changed** **Breaking** :warning:
-  * `squadcast_sdk.webforms.list()`:  `request` **Changed** **Breaking** :warning:
-  * `squadcast_sdk.workflows.list()`:  `request` **Changed** **Breaking** :warning:
-  * `squadcast_sdk.workflows.logs.get()`:  `request` **Changed** **Breaking** :warning:
-  * `squadcast_sdk.status_pages.list()`:  `request` **Changed** **Breaking** :warning:
