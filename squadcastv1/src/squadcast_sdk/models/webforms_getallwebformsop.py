@@ -7,14 +7,14 @@ from .v3_webforms_webformresponse import (
 )
 from squadcast_sdk.types import BaseModel
 from squadcast_sdk.utils import FieldMetadata, QueryParamMetadata
-from typing import List, Optional
+from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class WebformsGetAllWebformsRequestTypedDict(TypedDict):
     owner_id: str
-    page_number: NotRequired[str]
-    page_size: NotRequired[str]
+    page_number: NotRequired[int]
+    page_size: NotRequired[int]
 
 
 class WebformsGetAllWebformsRequest(BaseModel):
@@ -23,12 +23,12 @@ class WebformsGetAllWebformsRequest(BaseModel):
     ]
 
     page_number: Annotated[
-        Optional[str],
+        Optional[int],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
 
     page_size: Annotated[
-        Optional[str],
+        Optional[int],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
 
@@ -41,16 +41,26 @@ class WebformsGetAllWebformsMeta(BaseModel):
     total_count: int
 
 
-class WebformsGetAllWebformsResponseTypedDict(TypedDict):
+class WebformsGetAllWebformsResponseBodyTypedDict(TypedDict):
     r"""The request has succeeded."""
 
     data: List[V3WebformsWebformResponseTypedDict]
     meta: WebformsGetAllWebformsMetaTypedDict
 
 
-class WebformsGetAllWebformsResponse(BaseModel):
+class WebformsGetAllWebformsResponseBody(BaseModel):
     r"""The request has succeeded."""
 
     data: List[V3WebformsWebformResponse]
 
     meta: WebformsGetAllWebformsMeta
+
+
+class WebformsGetAllWebformsResponseTypedDict(TypedDict):
+    result: WebformsGetAllWebformsResponseBodyTypedDict
+
+
+class WebformsGetAllWebformsResponse(BaseModel):
+    next: Callable[[], Optional[WebformsGetAllWebformsResponse]]
+
+    result: WebformsGetAllWebformsResponseBody

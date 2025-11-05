@@ -2,13 +2,14 @@
 
 from .basesdk import BaseSDK
 from .sdkconfiguration import SDKConfiguration
+from jsonpath import JSONPath
 from squadcast_sdk import errors, models, utils
 from squadcast_sdk._hooks import HookContext
 from squadcast_sdk.schedules_export import SchedulesExport
 from squadcast_sdk.schedules_overrides import SchedulesOverrides
 from squadcast_sdk.types import OptionalNullable, UNSET
 from squadcast_sdk.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional, Union
+from typing import Any, Dict, List, Mapping, Optional, Union
 
 
 class SchedulesSDK(BaseSDK):
@@ -50,7 +51,7 @@ class SchedulesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V4ScheduleResponse]:
+    ) -> Optional[models.SchedulesListSchedulesResponse]:
         r"""List Schedules
 
         :param team_id:
@@ -126,7 +127,7 @@ class SchedulesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Schedules_listSchedules",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -148,10 +149,47 @@ class SchedulesSDK(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> Optional[models.SchedulesListSchedulesResponse]:
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            next_cursor = JSONPath("$.pageInfo.nextCursor").parse(body)
+
+            if len(next_cursor) == 0:
+                return None
+
+            next_cursor = next_cursor[0]
+            if next_cursor is None or str(next_cursor).strip() == "":
+                return None
+            results = JSONPath("$.data").parse(body)
+            if len(results) == 0 or len(results[0]) == 0:
+                return None
+            limit = request.page_size if not request.page_size is None else 0
+            if len(results[0]) < limit:
+                return None
+
+            return self.list(
+                team_id=team_id,
+                schedule_i_ds=schedule_i_ds,
+                participants=participants,
+                schedule_name=schedule_name,
+                my_on_call=my_on_call,
+                you_and_your_squads=you_and_your_squads,
+                search=search,
+                hide_paused=hide_paused,
+                owner_id=owner_id,
+                escalation_policies=escalation_policies,
+                without_escalation_policy=without_escalation_policy,
+                page_size=page_size,
+                cursor=next_cursor,
+                retries=retries,
+            )
+
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.SchedulesListSchedulesResponse, http_res
+            return models.SchedulesListSchedulesResponse(
+                result=unmarshal_json_response(
+                    models.SchedulesListSchedulesResponseBody, http_res
+                ),
+                next=next_func,
             )
         if utils.match_response(
             http_res,
@@ -194,7 +232,7 @@ class SchedulesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V4ScheduleResponse]:
+    ) -> Optional[models.SchedulesListSchedulesResponse]:
         r"""List Schedules
 
         :param team_id:
@@ -270,7 +308,7 @@ class SchedulesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Schedules_listSchedules",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -292,10 +330,47 @@ class SchedulesSDK(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> Optional[models.SchedulesListSchedulesResponse]:
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            next_cursor = JSONPath("$.pageInfo.nextCursor").parse(body)
+
+            if len(next_cursor) == 0:
+                return None
+
+            next_cursor = next_cursor[0]
+            if next_cursor is None or str(next_cursor).strip() == "":
+                return None
+            results = JSONPath("$.data").parse(body)
+            if len(results) == 0 or len(results[0]) == 0:
+                return None
+            limit = request.page_size if not request.page_size is None else 0
+            if len(results[0]) < limit:
+                return None
+
+            return self.list(
+                team_id=team_id,
+                schedule_i_ds=schedule_i_ds,
+                participants=participants,
+                schedule_name=schedule_name,
+                my_on_call=my_on_call,
+                you_and_your_squads=you_and_your_squads,
+                search=search,
+                hide_paused=hide_paused,
+                owner_id=owner_id,
+                escalation_policies=escalation_policies,
+                without_escalation_policy=without_escalation_policy,
+                page_size=page_size,
+                cursor=next_cursor,
+                retries=retries,
+            )
+
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.SchedulesListSchedulesResponse, http_res
+            return models.SchedulesListSchedulesResponse(
+                result=unmarshal_json_response(
+                    models.SchedulesListSchedulesResponseBody, http_res
+                ),
+                next=next_func,
             )
         if utils.match_response(
             http_res,
@@ -399,7 +474,7 @@ class SchedulesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Schedules_createSchedule",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -528,7 +603,7 @@ class SchedulesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Schedules_createSchedule",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -636,7 +711,7 @@ class SchedulesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Schedules_deleteSchedule",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -743,7 +818,7 @@ class SchedulesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Schedules_deleteSchedule",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -850,7 +925,7 @@ class SchedulesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Schedules_getScheduleById",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -958,7 +1033,7 @@ class SchedulesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Schedules_getScheduleById",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1090,7 +1165,7 @@ class SchedulesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Schedules_updateSchedule",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1222,7 +1297,7 @@ class SchedulesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Schedules_updateSchedule",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1342,7 +1417,7 @@ class SchedulesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Schedules_pauseresumeSchedule",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1462,7 +1537,7 @@ class SchedulesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Schedules_pauseresumeSchedule",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1582,7 +1657,7 @@ class SchedulesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Schedules_changeTimezone",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1702,7 +1777,7 @@ class SchedulesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Schedules_changeTimezone",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1825,7 +1900,7 @@ class SchedulesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Schedules_cloneSchedule",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1948,7 +2023,7 @@ class SchedulesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Schedules_cloneSchedule",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -2059,7 +2134,7 @@ class SchedulesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Export_getScheduleIcalLink",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -2170,7 +2245,7 @@ class SchedulesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Export_getScheduleIcalLink",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -2296,7 +2371,7 @@ class SchedulesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Export_createScheduleIcalLink",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -2422,7 +2497,7 @@ class SchedulesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="Export_createScheduleIcalLink",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
