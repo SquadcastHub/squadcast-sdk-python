@@ -27,10 +27,12 @@ with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
 ) as ss_client:
 
-    res = ss_client.status_pages.list(page_size="<value>", page_number="<value>", filters_is_public="<value>", team_id="<id>")
+    res = ss_client.status_pages.list(page_size=301790, page_number=172386, filters_is_public="<value>", team_id="<id>")
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 
@@ -38,15 +40,15 @@ with SquadcastSDK(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `page_size`                                                         | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
-| `page_number`                                                       | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `page_size`                                                         | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `page_number`                                                       | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `filters_is_public`                                                 | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `team_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 
-**[models.V4StatusPagesListStatusPagesResponse](../../models/v4statuspagesliststatuspagesresponse.md)**
+**[models.StatusPagesListStatusPagesResponse](../../models/statuspagesliststatuspagesresponse.md)**
 
 ### Errors
 

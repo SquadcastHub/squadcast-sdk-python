@@ -2,11 +2,12 @@
 
 from .basesdk import BaseSDK
 import io
+from jsonpath import JSONPath
 from squadcast_sdk import errors, models, utils
 from squadcast_sdk._hooks import HookContext
 from squadcast_sdk.types import OptionalNullable, UNSET
 from squadcast_sdk.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, IO, List, Mapping, Optional, Union
+from typing import Any, Dict, IO, List, Mapping, Optional, Union
 
 
 class EscalationPoliciesSDK(BaseSDK):
@@ -14,13 +15,13 @@ class EscalationPoliciesSDK(BaseSDK):
         self,
         *,
         owner_id: str,
-        page_number: Optional[str] = None,
-        page_size: Optional[str] = None,
+        page_number: Optional[int] = None,
+        page_size: Optional[int] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3EscalationPoliciesEscalationPolicyResponse]:
+    ) -> Optional[models.EscalationPoliciesGetEscalationPolicyByTeamResponse]:
         r"""Get Escalation Policy By team
 
         Returns all escalation policy details of the given `ownerID` (teamId) in the request param.
@@ -79,7 +80,7 @@ class EscalationPoliciesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="EscalationPolicies_getEscalationPolicyByTeam",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -101,10 +102,37 @@ class EscalationPoliciesSDK(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> (
+            Optional[models.EscalationPoliciesGetEscalationPolicyByTeamResponse]
+        ):
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            page = request.page_number if not request.page_number is None else 1
+            next_page = page + 1
+
+            if not http_res.text:
+                return None
+            results = JSONPath("$.data").parse(body)
+            if len(results) == 0 or len(results[0]) == 0:
+                return None
+            limit = request.page_size if not request.page_size is None else 0
+            if len(results[0]) < limit:
+                return None
+
+            return self.get_by_team(
+                owner_id=owner_id,
+                page_number=next_page,
+                page_size=page_size,
+                retries=retries,
+            )
+
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.EscalationPoliciesGetEscalationPolicyByTeamResponse, http_res
+            return models.EscalationPoliciesGetEscalationPolicyByTeamResponse(
+                result=unmarshal_json_response(
+                    models.EscalationPoliciesGetEscalationPolicyByTeamResponseBody,
+                    http_res,
+                ),
+                next=next_func,
             )
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(
@@ -168,13 +196,13 @@ class EscalationPoliciesSDK(BaseSDK):
         self,
         *,
         owner_id: str,
-        page_number: Optional[str] = None,
-        page_size: Optional[str] = None,
+        page_number: Optional[int] = None,
+        page_size: Optional[int] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3EscalationPoliciesEscalationPolicyResponse]:
+    ) -> Optional[models.EscalationPoliciesGetEscalationPolicyByTeamResponse]:
         r"""Get Escalation Policy By team
 
         Returns all escalation policy details of the given `ownerID` (teamId) in the request param.
@@ -233,7 +261,7 @@ class EscalationPoliciesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="EscalationPolicies_getEscalationPolicyByTeam",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -255,10 +283,37 @@ class EscalationPoliciesSDK(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> (
+            Optional[models.EscalationPoliciesGetEscalationPolicyByTeamResponse]
+        ):
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            page = request.page_number if not request.page_number is None else 1
+            next_page = page + 1
+
+            if not http_res.text:
+                return None
+            results = JSONPath("$.data").parse(body)
+            if len(results) == 0 or len(results[0]) == 0:
+                return None
+            limit = request.page_size if not request.page_size is None else 0
+            if len(results[0]) < limit:
+                return None
+
+            return self.get_by_team(
+                owner_id=owner_id,
+                page_number=next_page,
+                page_size=page_size,
+                retries=retries,
+            )
+
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.EscalationPoliciesGetEscalationPolicyByTeamResponse, http_res
+            return models.EscalationPoliciesGetEscalationPolicyByTeamResponse(
+                result=unmarshal_json_response(
+                    models.EscalationPoliciesGetEscalationPolicyByTeamResponseBody,
+                    http_res,
+                ),
+                next=next_func,
             )
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(
@@ -433,7 +488,7 @@ class EscalationPoliciesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="EscalationPolicies_createEscalationPolicies",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -633,7 +688,7 @@ class EscalationPoliciesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="EscalationPolicies_createEscalationPolicies",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -781,7 +836,7 @@ class EscalationPoliciesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="EscalationPolicies_removeEscalationPolicy",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -928,7 +983,7 @@ class EscalationPoliciesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="EscalationPolicies_removeEscalationPolicy",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1075,7 +1130,7 @@ class EscalationPoliciesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="EscalationPolicies_getEscalationPolicyById",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1223,7 +1278,7 @@ class EscalationPoliciesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="EscalationPolicies_getEscalationPolicyById",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1383,7 +1438,7 @@ class EscalationPoliciesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="EscalationPolicies_updateEscalationPolicy",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
@@ -1543,7 +1598,7 @@ class EscalationPoliciesSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="EscalationPolicies_updateEscalationPolicy",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
