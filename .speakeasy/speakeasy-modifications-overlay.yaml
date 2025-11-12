@@ -2,7 +2,7 @@ overlay: 1.0.0
 x-speakeasy-jsonpath: rfc9535
 info:
   title: Speakeasy Modifications
-  version: 0.0.2
+  version: 0.0.4
   x-speakeasy-metadata:
     after: ""
     before: ""
@@ -2236,4 +2236,63 @@ actions:
       before: sdk.Incidents/Postmortems.Postmortems_getAllPostmortems()
       created_at: 1758178073850
       reviewed_at: 1758178125902
+      type: method-name
+  - target: $["paths"]["/v3/audit-logs/export/history"]["get"]
+    update:
+      x-speakeasy-group: auditLogs
+      x-speakeasy-name-override: listExportHistory
+    x-speakeasy-metadata:
+      after: sdk.auditLogs.listExportHistory()
+      before: sdk.Audit Logs.AuditLogs_listAuditLogsExportHistory()
+      created_at: 1762929290570
+      reviewed_at: 1762929301240
+      type: method-name
+  - target: $["paths"]["/v3/audit-logs/export/history/{id}"]["get"]
+    update:
+      x-speakeasy-group: auditLogs
+      x-speakeasy-name-override: getExportHistoryById
+    x-speakeasy-metadata:
+      after: sdk.auditLogs.getExportHistoryById()
+      before: sdk.Audit Logs.AuditLogs_getAuditLogsExportHistoryById()
+      created_at: 1762929290570
+      reviewed_at: 1762929301240
+      type: method-name
+  - target: $["paths"]["/v3/audit-logs/{id}"]["get"]
+    update:
+      x-speakeasy-group: auditLogs
+      x-speakeasy-name-override: getById
+    x-speakeasy-metadata:
+      after: sdk.auditLogs.getById()
+      before: sdk.Audit Logs.AuditLogs_getAuditLogById()
+      created_at: 1762929290570
+      reviewed_at: 1762929301240
+      type: method-name
+  - target: $["paths"]["/v4/squads/{squadID}"]["delete"]
+    update:
+      x-speakeasy-name-override: delete
+    x-speakeasy-metadata:
+      after: sdk.squads.delete()
+      before: sdk.Squads.Squads_deleteSquad()
+      created_at: 1762929290570
+      reviewed_at: 1762929301240
+      type: method-name
+  - target: $["paths"]["/v3/audit-logs"]["get"]
+    update:
+      x-speakeasy-group: auditLogs
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.auditLogs.list()
+      before: sdk.Audit Logs.AuditLogs_listAuditLogs()
+      created_at: 1762929290570
+      reviewed_at: 1762929301240
+      type: method-name
+  - target: $["paths"]["/v3/audit-logs/export"]["post"]
+    update:
+      x-speakeasy-group: auditLogs
+      x-speakeasy-name-override: export
+    x-speakeasy-metadata:
+      after: sdk.auditLogs.export()
+      before: sdk.Audit Logs.AuditLogs_exportAuditLogs()
+      created_at: 1762929290570
+      reviewed_at: 1762929301240
       type: method-name

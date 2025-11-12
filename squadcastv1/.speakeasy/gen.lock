@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 03cdd445-0210-4c34-8201-e581ca90c83e
 management:
-  docChecksum: 17927a6d5e470b48f54456d75296b792
+  docChecksum: 4ce3734b86a7569bd86c935dfd943f73
   docVersion: 1.0.0
-  speakeasyVersion: 1.648.1
-  generationVersion: 2.739.1
-  releaseVersion: 0.3.0
-  configChecksum: 5a44c7db5a7566a2f1772178a94b608a
+  speakeasyVersion: 1.654.0
+  generationVersion: 2.750.0
+  releaseVersion: 0.3.3
+  configChecksum: 486fa250d226d7676e09fca277f36aa6
   repoURL: https://github.com/SquadcastHub/squadcast-sdk-python.git
   repoSubDirectory: squadcastv1
   installationURL: https://github.com/SquadcastHub/squadcast-sdk-python.git#subdirectory=squadcastv1
@@ -14,7 +14,7 @@ management:
 features:
   python:
     additionalDependencies: 1.0.0
-    core: 5.23.4
+    core: 5.23.5
     defaultEnabledRetries: 0.2.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.3.2
@@ -72,8 +72,15 @@ generatedFiles:
   - docs/models/aptamarkasnottransientresponse.md
   - docs/models/aptamarkastransientrequest.md
   - docs/models/aptamarkastransientresponse.md
+  - docs/models/auditlogsgetauditlogbyidrequest.md
+  - docs/models/auditlogsgetauditlogsexporthistorybyidrequest.md
+  - docs/models/auditlogslistauditlogsexporthistoryrequest.md
+  - docs/models/auditlogslistauditlogsexporthistoryresponse.md
+  - docs/models/auditlogslistauditlogsrequest.md
+  - docs/models/auditlogslistauditlogsresponse.md
   - docs/models/buildparameters.md
   - docs/models/circleciresponse.md
+  - docs/models/client.md
   - docs/models/commonv3entityowner.md
   - docs/models/commonv3errormeta.md
   - docs/models/commonv3rbacentitypermission.md
@@ -149,8 +156,10 @@ generatedFiles:
   - docs/models/exportrefreshscheduleicallinkrequest.md
   - docs/models/exportrefreshscheduleicallinkrequestbody.md
   - docs/models/exportrefreshscheduleicallinkresponse.md
+  - docs/models/exporttype.md
   - docs/models/extensionsupdateslackextensionrequest.md
   - docs/models/extensionsupdateslackextensionresponse.md
+  - docs/models/filters.md
   - docs/models/ger.md
   - docs/models/globaleventrulescreateglobaleventruleresponse.md
   - docs/models/globaleventrulescreaterulerequest.md
@@ -522,6 +531,22 @@ generatedFiles:
   - docs/models/usersupdateuserbyidresponse.md
   - docs/models/utils/retryconfig.md
   - docs/models/v3analyticsanalyticsresponse.md
+  - docs/models/v3auditlogsactor.md
+  - docs/models/v3auditlogsauditlogidresponse.md
+  - docs/models/v3auditlogsauditlogidresponsemeta.md
+  - docs/models/v3auditlogsauditlogresponse.md
+  - docs/models/v3auditlogsauditlogsexporthistoryresponse.md
+  - docs/models/v3auditlogsexportauditlogsrequest.md
+  - docs/models/v3auditlogsexportauditlogsresponse.md
+  - docs/models/v3auditlogsexportauditlogsresponsedata.md
+  - docs/models/v3auditlogsfilters.md
+  - docs/models/v3auditlogsgetauditlogbyidresponse.md
+  - docs/models/v3auditlogsgetauditlogexporthistorybyidresponse.md
+  - docs/models/v3auditlogslistauditlogsexporthistoryresponse.md
+  - docs/models/v3auditlogslistauditlogsexporthistoryresponsemetadata.md
+  - docs/models/v3auditlogslistauditlogsresponse.md
+  - docs/models/v3auditlogslistauditlogsresponsemetadata.md
+  - docs/models/v3auditlogsteam.md
   - docs/models/v3escalationpoliciescreateescalationpolicyrequest.md
   - docs/models/v3escalationpoliciesescalationentity.md
   - docs/models/v3escalationpoliciesescalationentitytype.md
@@ -1097,6 +1122,7 @@ generatedFiles:
   - docs/sdks/analytics/README.md
   - docs/sdks/apitoken/README.md
   - docs/sdks/apitokens/README.md
+  - docs/sdks/auditlogs/README.md
   - docs/sdks/autopausetransientalerts/README.md
   - docs/sdks/communicationcard/README.md
   - docs/sdks/communicationcards/README.md
@@ -1189,6 +1215,7 @@ generatedFiles:
   - src/squadcast_sdk/analytics.py
   - src/squadcast_sdk/apitoken.py
   - src/squadcast_sdk/apitokens.py
+  - src/squadcast_sdk/auditlogs.py
   - src/squadcast_sdk/autopausetransientalerts.py
   - src/squadcast_sdk/basesdk.py
   - src/squadcast_sdk/communicationcard.py
@@ -1240,6 +1267,10 @@ generatedFiles:
   - src/squadcast_sdk/models/analytics_getteamanalyticsop.py
   - src/squadcast_sdk/models/apta_markasnottransientop.py
   - src/squadcast_sdk/models/apta_markastransientop.py
+  - src/squadcast_sdk/models/auditlogs_getauditlogbyidop.py
+  - src/squadcast_sdk/models/auditlogs_getauditlogsexporthistorybyidop.py
+  - src/squadcast_sdk/models/auditlogs_listauditlogsexporthistoryop.py
+  - src/squadcast_sdk/models/auditlogs_listauditlogsop.py
   - src/squadcast_sdk/models/common_v3_entityowner.py
   - src/squadcast_sdk/models/common_v3_errormeta.py
   - src/squadcast_sdk/models/common_v3_rbacentitypermission.py
@@ -1443,6 +1474,18 @@ generatedFiles:
   - src/squadcast_sdk/models/users_updateorglevelpermissionsop.py
   - src/squadcast_sdk/models/users_updateuserbyidop.py
   - src/squadcast_sdk/models/v3_analytics_analyticsresponse.py
+  - src/squadcast_sdk/models/v3_auditlogs_actor.py
+  - src/squadcast_sdk/models/v3_auditlogs_auditlogidresponse.py
+  - src/squadcast_sdk/models/v3_auditlogs_auditlogresponse.py
+  - src/squadcast_sdk/models/v3_auditlogs_auditlogsexporthistoryresponse.py
+  - src/squadcast_sdk/models/v3_auditlogs_exportauditlogsrequest.py
+  - src/squadcast_sdk/models/v3_auditlogs_exportauditlogsresponse.py
+  - src/squadcast_sdk/models/v3_auditlogs_filters.py
+  - src/squadcast_sdk/models/v3_auditlogs_getauditlogbyidresponse.py
+  - src/squadcast_sdk/models/v3_auditlogs_getauditlogexporthistorybyidresponse.py
+  - src/squadcast_sdk/models/v3_auditlogs_listauditlogsexporthistoryresponse.py
+  - src/squadcast_sdk/models/v3_auditlogs_listauditlogsresponse.py
+  - src/squadcast_sdk/models/v3_auditlogs_team.py
   - src/squadcast_sdk/models/v3_escalationpolicies_createescalationpolicyrequest.py
   - src/squadcast_sdk/models/v3_escalationpolicies_escalationentity.py
   - src/squadcast_sdk/models/v3_escalationpolicies_escalationpolicyresponse.py
@@ -7590,8 +7633,8 @@ examples:
     speakeasy-default-status-pages-list-status-pages:
       parameters:
         query:
-          pageSize: null
-          pageNumber: null
+          pageSize: 301790
+          pageNumber: 172386
           filters.isPublic: "<value>"
           teamID: "<id>"
       responses:
@@ -8428,13 +8471,157 @@ examples:
           application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
         "504":
           application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+  AuditLogs_listAuditLogs:
+    speakeasy-default-audit-logs-list-audit-logs:
+      parameters:
+        query:
+          pageSize: 832442
+          pageNumber: 555332
+          startDate: "2023-03-04"
+          endDate: "2024-08-07"
+      responses:
+        "200":
+          application/json: {"data": [{"id": 55666, "resource": "<value>", "action": "<value>", "actor": {"userID": "<id>", "userName": "Camylle.Douglas", "userEmail": "<value>", "fullName": "Mildred Turner"}, "client": "<value>", "timestamp": "<value>", "team": {"id": "<id>", "name": "<value>", "isDeleted": true}}], "metadata": {"totalCount": 844582}}
+        "400":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "401":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "402":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "403":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "404":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "409":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "422":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "500":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "502":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "503":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "504":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+  AuditLogs_exportAuditLogs:
+    speakeasy-default-audit-logs-export-audit-logs:
+      requestBody:
+        application/json: {"filters": {"startDate": "2025-07-29", "endDate": "2023-09-09"}, "name": "<value>", "exportType": "json"}
+      responses:
+        "200":
+          application/json: {"data": {"id": "<id>", "message": "<value>"}}
+        "400":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "401":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "402":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "403":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "404":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "409":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "422":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "500":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "502":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "503":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "504":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+  AuditLogs_listAuditLogsExportHistory:
+    speakeasy-default-audit-logs-list-audit-logs-export-history:
+      parameters:
+        query:
+          pageSize: 159672
+          pageNumber: 351281
+      responses:
+        "200":
+          application/json: {"data": [], "metadata": {"totalCount": 971269}}
+        "400":
+          application/json: {"meta": {"status": 961591, "error_message": "<value>"}}
+        "401":
+          application/json: {"meta": {"status": 961591, "error_message": "<value>"}}
+        "402":
+          application/json: {"meta": {"status": 961591, "error_message": "<value>"}}
+        "403":
+          application/json: {"meta": {"status": 961591, "error_message": "<value>"}}
+        "404":
+          application/json: {"meta": {"status": 961591, "error_message": "<value>"}}
+        "409":
+          application/json: {"meta": {"status": 961591, "error_message": "<value>"}}
+        "422":
+          application/json: {"meta": {"status": 961591, "error_message": "<value>"}}
+        "500":
+          application/json: {"meta": {"status": 961591, "error_message": "<value>"}}
+        "502":
+          application/json: {"meta": {"status": 961591, "error_message": "<value>"}}
+        "503":
+          application/json: {"meta": {"status": 961591, "error_message": "<value>"}}
+        "504":
+          application/json: {"meta": {"status": 961591, "error_message": "<value>"}}
+  AuditLogs_getAuditLogsExportHistoryById:
+    speakeasy-default-audit-logs-get-audit-logs-export-history-by-id:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": {"id": "<id>", "name": "<value>", "description": "dial woot commonly usher yuck", "exportedAt": "<value>", "requestedBy": {"userID": "<id>", "userName": "Beth.Jaskolski", "userEmail": "<value>", "fullName": "Amber Metz"}, "downloadLink": "<value>", "status": "<value>", "filters": {"startDate": "2024-04-07", "endDate": "2023-05-10"}}}
+        "400":
+          application/json: {"meta": {"status": 21588, "error_message": "<value>"}}
+        "401":
+          application/json: {"meta": {"status": 21588, "error_message": "<value>"}}
+        "402":
+          application/json: {"meta": {"status": 21588, "error_message": "<value>"}}
+        "403":
+          application/json: {"meta": {"status": 21588, "error_message": "<value>"}}
+        "404":
+          application/json: {"meta": {"status": 21588, "error_message": "<value>"}}
+        "409":
+          application/json: {"meta": {"status": 21588, "error_message": "<value>"}}
+        "422":
+          application/json: {"meta": {"status": 21588, "error_message": "<value>"}}
+        "500":
+          application/json: {"meta": {"status": 21588, "error_message": "<value>"}}
+        "502":
+          application/json: {"meta": {"status": 21588, "error_message": "<value>"}}
+        "503":
+          application/json: {"meta": {"status": 21588, "error_message": "<value>"}}
+        "504":
+          application/json: {"meta": {"status": 21588, "error_message": "<value>"}}
+  AuditLogs_getAuditLogById:
+    speakeasy-default-audit-logs-get-audit-log-by-id:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": {"id": 587064, "resource": "<value>", "action": "<value>", "actor": {"userID": "<id>", "userName": "Jaleel_Becker", "userEmail": "<value>", "fullName": "Andres Kub"}, "client": "<value>", "timestamp": "<value>", "timezone": "Europe/Moscow", "team": {"id": "<id>", "name": "<value>", "isDeleted": false}, "tokenType": "<value>", "ipAddress": "233.161.142.91", "additionalInfo": "<value>", "userAgent": "<value>"}}
+        "400":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "401":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "402":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "403":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "404":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "409":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "422":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "500":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "502":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "503":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+        "504":
+          application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Python SDK Changes Detected:
-  * `squadcast_sdk.escalation_policies.get_by_team()`:  `request` **Changed** **Breaking** :warning:
-  * `squadcast_sdk.global_event_rules.list()`:  `request` **Changed** **Breaking** :warning:
-  * `squadcast_sdk.global_event_rules.rulesets.rules.list()`:  `request` **Changed** **Breaking** :warning:
-  * `squadcast_sdk.webforms.list()`:  `request` **Changed** **Breaking** :warning:
-  * `squadcast_sdk.workflows.list()`:  `request` **Changed** **Breaking** :warning:
-  * `squadcast_sdk.workflows.logs.get()`:  `request` **Changed** **Breaking** :warning:
-  * `squadcast_sdk.status_pages.list()`:  `request` **Changed** **Breaking** :warning:

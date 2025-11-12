@@ -9,11 +9,6 @@ Developer-friendly & type-safe Python SDK specifically catered to leverage *open
     </a>
 </div>
 
-
-<br /><br />
-> [!IMPORTANT]
-> This SDK is not yet ready for production use. To complete setup please follow the steps outlined in your [workspace](https://app.speakeasy.com/org/swo/incident-response). Delete this section before > publishing to a package manager.
-
 <!-- Start Summary [summary] -->
 ## Summary
 
@@ -205,6 +200,14 @@ with SquadcastSDK(
 
 * [get_org_analytics](docs/sdks/analytics/README.md#get_org_analytics) - Get Org level analytics
 * [get_team](docs/sdks/analytics/README.md#get_team) - Get Team level analytics
+
+### [audit_logs](docs/sdks/auditlogs/README.md)
+
+* [list](docs/sdks/auditlogs/README.md#list) - List all Audit Logs
+* [export](docs/sdks/auditlogs/README.md#export) - Initiate an asynchronous export of audit logs based on the provided filters. The export file will be generated and available for download. Use 'Get details of Audit Logs export history by ID' API to retrieve the download URL.
+* [list_export_history](docs/sdks/auditlogs/README.md#list_export_history) - List all Audit Logs export history
+* [get_export_history_by_id](docs/sdks/auditlogs/README.md#get_export_history_by_id) - Get details of Audit Logs export history by ID
+* [get_by_id](docs/sdks/auditlogs/README.md#get_by_id) - Get audit log by ID
 
 ### [communication_cards](docs/sdks/communicationcards/README.md)
 
@@ -539,7 +542,7 @@ with SquadcastSDK(
 * [get_by_id](docs/sdks/squadssdk/README.md#get_by_id) - Get Squad By ID
 * [update_v4](docs/sdks/squadssdk/README.md#update_v4) - Update Squad
 * [remove_member](docs/sdks/squadssdk/README.md#remove_member) - Remove Squad Member
-* [squads_delete_squad](docs/sdks/squadssdk/README.md#squads_delete_squad) - Delete Squad
+* [delete](docs/sdks/squadssdk/README.md#delete) - Delete Squad
 
 #### [squads.members](docs/sdks/squadsmembers/README.md)
 
@@ -680,6 +683,7 @@ return value of `Next` is `None`, then there are no more pages to be fetched.
 
 Here's an example of one such pagination call:
 ```python
+from datetime import date
 from squadcast_sdk import SquadcastSDK
 
 
@@ -687,7 +691,7 @@ with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
 ) as ss_client:
 
-    res = ss_client.escalation_policies.get_by_team(owner_id="<id>")
+    res = ss_client.audit_logs.list(page_size=832442, page_number=555332, start_date=date.fromisoformat("2023-03-04"), end_date=date.fromisoformat("2024-08-07"))
 
     while res is not None:
         # Handle items
@@ -835,9 +839,9 @@ with SquadcastSDK(
 
 
 **Inherit from [`SquadcastSDKError`](./src/squadcast_sdk/errors/squadcastsdkerror.py)**:
-* [`CommonV4Error`](./src/squadcast_sdk/errors/commonv4error.py): The server could not understand the request due to invalid syntax. Applicable to 32 of 225 methods.*
-* [`ResponseBodyError1`](./src/squadcast_sdk/errors/responsebodyerror1.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 225 methods.*
-* [`ResponseBodyError2`](./src/squadcast_sdk/errors/responsebodyerror2.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 225 methods.*
+* [`CommonV4Error`](./src/squadcast_sdk/errors/commonv4error.py): The server could not understand the request due to invalid syntax. Applicable to 32 of 230 methods.*
+* [`ResponseBodyError1`](./src/squadcast_sdk/errors/responsebodyerror1.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 230 methods.*
+* [`ResponseBodyError2`](./src/squadcast_sdk/errors/responsebodyerror2.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 230 methods.*
 * [`ResponseValidationError`](./src/squadcast_sdk/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>

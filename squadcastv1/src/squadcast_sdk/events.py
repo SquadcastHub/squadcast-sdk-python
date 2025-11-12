@@ -39,7 +39,11 @@ class Events(BaseSDK):
         :param offset: non zero value
         :param limit: non zero value, maximum is 10
         :param sort: sort it by either asc or desc
-        :param deduped: if set to true, it will return only the deduped events.  if set to false, it will return only the non-deduped event.  otherwise it will return all the events
+        :param deduped: if set to true, it will return only the deduped events.
+
+            if set to false, it will return only the non-deduped event.
+
+            otherwise it will return all the events
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -207,7 +211,11 @@ class Events(BaseSDK):
         :param offset: non zero value
         :param limit: non zero value, maximum is 10
         :param sort: sort it by either asc or desc
-        :param deduped: if set to true, it will return only the deduped events.  if set to false, it will return only the non-deduped event.  otherwise it will return all the events
+        :param deduped: if set to true, it will return only the deduped events.
+
+            if set to false, it will return only the non-deduped event.
+
+            otherwise it will return all the events
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
