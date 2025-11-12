@@ -206,6 +206,14 @@ with SquadcastSDK(
 * [get_org_analytics](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/analytics/README.md#get_org_analytics) - Get Org level analytics
 * [get_team](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/analytics/README.md#get_team) - Get Team level analytics
 
+### [audit_logs](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/auditlogs/README.md)
+
+* [audit_logs_list_audit_logs](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/auditlogs/README.md#audit_logs_list_audit_logs) - List all Audit Logs
+* [audit_logs_export_audit_logs](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/auditlogs/README.md#audit_logs_export_audit_logs) - Initiate an asynchronous export of audit logs based on the provided filters. The export file will be generated and available for download. Use 'Get details of Audit Logs export history by ID' API to retrieve the download URL.
+* [audit_logs_list_audit_logs_export_history](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/auditlogs/README.md#audit_logs_list_audit_logs_export_history) - List all Audit Logs export history
+* [audit_logs_get_audit_logs_export_history_by_id](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/auditlogs/README.md#audit_logs_get_audit_logs_export_history_by_id) - Get details of Audit Logs export history by ID
+* [audit_logs_get_audit_log_by_id](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/auditlogs/README.md#audit_logs_get_audit_log_by_id) - Get audit log by ID
+
 ### [communication_cards](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/communicationcards/README.md)
 
 * [get_all](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/communicationcards/README.md#get_all) - Get All Communication Card
@@ -680,6 +688,7 @@ return value of `Next` is `None`, then there are no more pages to be fetched.
 
 Here's an example of one such pagination call:
 ```python
+from datetime import date
 from squadcast_sdk import SquadcastSDK
 
 
@@ -687,7 +696,7 @@ with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
 ) as ss_client:
 
-    res = ss_client.escalation_policies.get_by_team(owner_id="<id>")
+    res = ss_client.audit_logs.audit_logs_list_audit_logs(page_size=832442, page_number=555332, start_date=date.fromisoformat("2023-03-04"), end_date=date.fromisoformat("2024-08-07"))
 
     while res is not None:
         # Handle items
@@ -835,9 +844,9 @@ with SquadcastSDK(
 
 
 **Inherit from [`SquadcastSDKError`](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/./src/squadcast_sdk/errors/squadcastsdkerror.py)**:
-* [`CommonV4Error`](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/./src/squadcast_sdk/errors/commonv4error.py): The server could not understand the request due to invalid syntax. Applicable to 32 of 225 methods.*
-* [`ResponseBodyError1`](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/./src/squadcast_sdk/errors/responsebodyerror1.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 225 methods.*
-* [`ResponseBodyError2`](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/./src/squadcast_sdk/errors/responsebodyerror2.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 225 methods.*
+* [`CommonV4Error`](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/./src/squadcast_sdk/errors/commonv4error.py): The server could not understand the request due to invalid syntax. Applicable to 32 of 230 methods.*
+* [`ResponseBodyError1`](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/./src/squadcast_sdk/errors/responsebodyerror1.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 230 methods.*
+* [`ResponseBodyError2`](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/./src/squadcast_sdk/errors/responsebodyerror2.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 230 methods.*
 * [`ResponseValidationError`](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/./src/squadcast_sdk/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>

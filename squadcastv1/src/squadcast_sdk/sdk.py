@@ -17,6 +17,7 @@ import weakref
 if TYPE_CHECKING:
     from squadcast_sdk.additionalresponders import AdditionalResponders
     from squadcast_sdk.analytics import Analytics
+    from squadcast_sdk.audit_logs import AuditLogs
     from squadcast_sdk.communicationcards import CommunicationCards
     from squadcast_sdk.componentgroups import ComponentGroups
     from squadcast_sdk.components import Components
@@ -55,6 +56,7 @@ if TYPE_CHECKING:
 
 class SquadcastSDK(BaseSDK):
     analytics: "Analytics"
+    audit_logs: "AuditLogs"
     escalation_policies: "EscalationPoliciesSDK"
     exports: "Exports"
     extensions: "Extensions"
@@ -92,6 +94,7 @@ class SquadcastSDK(BaseSDK):
     subscribers: "Subscribers"
     _sub_sdk_map = {
         "analytics": ("squadcast_sdk.analytics", "Analytics"),
+        "audit_logs": ("squadcast_sdk.audit_logs", "AuditLogs"),
         "escalation_policies": (
             "squadcast_sdk.escalationpolicies_sdk",
             "EscalationPoliciesSDK",
