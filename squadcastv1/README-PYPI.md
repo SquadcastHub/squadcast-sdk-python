@@ -208,11 +208,11 @@ with SquadcastSDK(
 
 ### [audit_logs](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/auditlogs/README.md)
 
-* [audit_logs_list_audit_logs](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/auditlogs/README.md#audit_logs_list_audit_logs) - List all Audit Logs
-* [audit_logs_export_audit_logs](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/auditlogs/README.md#audit_logs_export_audit_logs) - Initiate an asynchronous export of audit logs based on the provided filters. The export file will be generated and available for download. Use 'Get details of Audit Logs export history by ID' API to retrieve the download URL.
-* [audit_logs_list_audit_logs_export_history](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/auditlogs/README.md#audit_logs_list_audit_logs_export_history) - List all Audit Logs export history
-* [audit_logs_get_audit_logs_export_history_by_id](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/auditlogs/README.md#audit_logs_get_audit_logs_export_history_by_id) - Get details of Audit Logs export history by ID
-* [audit_logs_get_audit_log_by_id](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/auditlogs/README.md#audit_logs_get_audit_log_by_id) - Get audit log by ID
+* [list](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/auditlogs/README.md#list) - List all Audit Logs
+* [export](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/auditlogs/README.md#export) - Initiate an asynchronous export of audit logs based on the provided filters. The export file will be generated and available for download. Use 'Get details of Audit Logs export history by ID' API to retrieve the download URL.
+* [list_export_history](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/auditlogs/README.md#list_export_history) - List all Audit Logs export history
+* [get_export_history_by_id](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/auditlogs/README.md#get_export_history_by_id) - Get details of Audit Logs export history by ID
+* [get_by_id](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/auditlogs/README.md#get_by_id) - Get audit log by ID
 
 ### [communication_cards](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/communicationcards/README.md)
 
@@ -547,7 +547,7 @@ with SquadcastSDK(
 * [get_by_id](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadssdk/README.md#get_by_id) - Get Squad By ID
 * [update_v4](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadssdk/README.md#update_v4) - Update Squad
 * [remove_member](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadssdk/README.md#remove_member) - Remove Squad Member
-* [squads_delete_squad](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadssdk/README.md#squads_delete_squad) - Delete Squad
+* [delete](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadssdk/README.md#delete) - Delete Squad
 
 #### [squads.members](https://github.com/SquadcastHub/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadsmembers/README.md)
 
@@ -696,7 +696,7 @@ with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
 ) as ss_client:
 
-    res = ss_client.audit_logs.audit_logs_list_audit_logs(page_size=832442, page_number=555332, start_date=date.fromisoformat("2023-03-04"), end_date=date.fromisoformat("2024-08-07"))
+    res = ss_client.audit_logs.list(page_size=832442, page_number=555332, start_date=date.fromisoformat("2023-03-04"), end_date=date.fromisoformat("2024-08-07"))
 
     while res is not None:
         # Handle items

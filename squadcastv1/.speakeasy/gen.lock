@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 03cdd445-0210-4c34-8201-e581ca90c83e
 management:
-  docChecksum: 7fe373b8260a6394bc2464b96e512c18
+  docChecksum: 4ce3734b86a7569bd86c935dfd943f73
   docVersion: 1.0.0
-  speakeasyVersion: 1.653.2
-  generationVersion: 2.748.4
-  releaseVersion: 0.3.1
-  configChecksum: eda48c28759c7ae5d42723fbca631704
+  speakeasyVersion: 1.654.0
+  generationVersion: 2.750.0
+  releaseVersion: 0.3.3
+  configChecksum: 486fa250d226d7676e09fca277f36aa6
   repoURL: https://github.com/SquadcastHub/squadcast-sdk-python.git
   repoSubDirectory: squadcastv1
   installationURL: https://github.com/SquadcastHub/squadcast-sdk-python.git#subdirectory=squadcastv1
@@ -1215,7 +1215,7 @@ generatedFiles:
   - src/squadcast_sdk/analytics.py
   - src/squadcast_sdk/apitoken.py
   - src/squadcast_sdk/apitokens.py
-  - src/squadcast_sdk/audit_logs.py
+  - src/squadcast_sdk/auditlogs.py
   - src/squadcast_sdk/autopausetransientalerts.py
   - src/squadcast_sdk/basesdk.py
   - src/squadcast_sdk/communicationcard.py
@@ -8625,10 +8625,3 @@ examples:
         "504":
           application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Python SDK Changes Detected:
-  * `squadcast_sdk.audit_logs.audit_logs_list_audit_logs()`: **Added**
-  * `squadcast_sdk.audit_logs.audit_logs_export_audit_logs()`: **Added**
-  * `squadcast_sdk.audit_logs.audit_logs_list_audit_logs_export_history()`: **Added**
-  * `squadcast_sdk.audit_logs.audit_logs_get_audit_logs_export_history_by_id()`: **Added**
-  * `squadcast_sdk.audit_logs.audit_logs_get_audit_log_by_id()`: **Added**

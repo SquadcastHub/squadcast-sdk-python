@@ -11,7 +11,7 @@ from typing import Any, Dict, List, Mapping, Optional, Union
 
 
 class AuditLogs(BaseSDK):
-    def audit_logs_list_audit_logs(
+    def list(
         self,
         *,
         page_size: int,
@@ -134,7 +134,7 @@ class AuditLogs(BaseSDK):
             if len(results[0]) < limit:
                 return None
 
-            return self.audit_logs_list_audit_logs(
+            return self.list(
                 page_size=page_size,
                 page_number=next_page,
                 start_date=start_date,
@@ -213,7 +213,7 @@ class AuditLogs(BaseSDK):
 
         raise errors.SDKDefaultError("Unexpected response received", http_res)
 
-    async def audit_logs_list_audit_logs_async(
+    async def list_async(
         self,
         *,
         page_size: int,
@@ -336,7 +336,7 @@ class AuditLogs(BaseSDK):
             if len(results[0]) < limit:
                 return None
 
-            return self.audit_logs_list_audit_logs(
+            return self.list(
                 page_size=page_size,
                 page_number=next_page,
                 start_date=start_date,
@@ -415,7 +415,7 @@ class AuditLogs(BaseSDK):
 
         raise errors.SDKDefaultError("Unexpected response received", http_res)
 
-    def audit_logs_export_audit_logs(
+    def export(
         self,
         *,
         filters: Union[models.Filters, models.FiltersTypedDict],
@@ -575,7 +575,7 @@ class AuditLogs(BaseSDK):
 
         raise errors.SDKDefaultError("Unexpected response received", http_res)
 
-    async def audit_logs_export_audit_logs_async(
+    async def export_async(
         self,
         *,
         filters: Union[models.Filters, models.FiltersTypedDict],
@@ -735,7 +735,7 @@ class AuditLogs(BaseSDK):
 
         raise errors.SDKDefaultError("Unexpected response received", http_res)
 
-    def audit_logs_list_audit_logs_export_history(
+    def list_export_history(
         self,
         *,
         page_size: int,
@@ -837,7 +837,7 @@ class AuditLogs(BaseSDK):
             if len(results[0]) < limit:
                 return None
 
-            return self.audit_logs_list_audit_logs_export_history(
+            return self.list_export_history(
                 page_size=page_size,
                 page_number=next_page,
                 retries=retries,
@@ -909,7 +909,7 @@ class AuditLogs(BaseSDK):
 
         raise errors.SDKDefaultError("Unexpected response received", http_res)
 
-    async def audit_logs_list_audit_logs_export_history_async(
+    async def list_export_history_async(
         self,
         *,
         page_size: int,
@@ -1011,7 +1011,7 @@ class AuditLogs(BaseSDK):
             if len(results[0]) < limit:
                 return None
 
-            return self.audit_logs_list_audit_logs_export_history(
+            return self.list_export_history(
                 page_size=page_size,
                 page_number=next_page,
                 retries=retries,
@@ -1083,7 +1083,7 @@ class AuditLogs(BaseSDK):
 
         raise errors.SDKDefaultError("Unexpected response received", http_res)
 
-    def audit_logs_get_audit_logs_export_history_by_id(
+    def get_export_history_by_id(
         self,
         *,
         id: str,
@@ -1231,7 +1231,7 @@ class AuditLogs(BaseSDK):
 
         raise errors.SDKDefaultError("Unexpected response received", http_res)
 
-    async def audit_logs_get_audit_logs_export_history_by_id_async(
+    async def get_export_history_by_id_async(
         self,
         *,
         id: str,
@@ -1379,7 +1379,7 @@ class AuditLogs(BaseSDK):
 
         raise errors.SDKDefaultError("Unexpected response received", http_res)
 
-    def audit_logs_get_audit_log_by_id(
+    def get_by_id(
         self,
         *,
         id: str,
@@ -1527,7 +1527,7 @@ class AuditLogs(BaseSDK):
 
         raise errors.SDKDefaultError("Unexpected response received", http_res)
 
-    async def audit_logs_get_audit_log_by_id_async(
+    async def get_by_id_async(
         self,
         *,
         id: str,

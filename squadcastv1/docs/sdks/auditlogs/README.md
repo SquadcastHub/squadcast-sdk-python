@@ -5,13 +5,13 @@
 
 ### Available Operations
 
-* [audit_logs_list_audit_logs](#audit_logs_list_audit_logs) - List all Audit Logs
-* [audit_logs_export_audit_logs](#audit_logs_export_audit_logs) - Initiate an asynchronous export of audit logs based on the provided filters. The export file will be generated and available for download. Use 'Get details of Audit Logs export history by ID' API to retrieve the download URL.
-* [audit_logs_list_audit_logs_export_history](#audit_logs_list_audit_logs_export_history) - List all Audit Logs export history
-* [audit_logs_get_audit_logs_export_history_by_id](#audit_logs_get_audit_logs_export_history_by_id) - Get details of Audit Logs export history by ID
-* [audit_logs_get_audit_log_by_id](#audit_logs_get_audit_log_by_id) - Get audit log by ID
+* [list](#list) - List all Audit Logs
+* [export](#export) - Initiate an asynchronous export of audit logs based on the provided filters. The export file will be generated and available for download. Use 'Get details of Audit Logs export history by ID' API to retrieve the download URL.
+* [list_export_history](#list_export_history) - List all Audit Logs export history
+* [get_export_history_by_id](#get_export_history_by_id) - Get details of Audit Logs export history by ID
+* [get_by_id](#get_by_id) - Get audit log by ID
 
-## audit_logs_list_audit_logs
+## list
 
 List all Audit Logs
 Returns array of audit logs for given team and filters
@@ -28,7 +28,7 @@ with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
 ) as ss_client:
 
-    res = ss_client.audit_logs.audit_logs_list_audit_logs(page_size=832442, page_number=555332, start_date=date.fromisoformat("2023-03-04"), end_date=date.fromisoformat("2024-08-07"))
+    res = ss_client.audit_logs.list(page_size=832442, page_number=555332, start_date=date.fromisoformat("2023-03-04"), end_date=date.fromisoformat("2024-08-07"))
 
     while res is not None:
         # Handle items
@@ -73,7 +73,7 @@ with SquadcastSDK(
 | errors.GatewayTimeoutError      | 504                             | application/json                |
 | errors.SDKDefaultError          | 4XX, 5XX                        | \*/\*                           |
 
-## audit_logs_export_audit_logs
+## export
 
 Export Audit logs
 Initiates export of audit logs based on provided filters
@@ -90,7 +90,7 @@ with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
 ) as ss_client:
 
-    res = ss_client.audit_logs.audit_logs_export_audit_logs(filters={
+    res = ss_client.audit_logs.export(filters={
         "start_date": date.fromisoformat("2025-07-29"),
         "end_date": date.fromisoformat("2023-09-09"),
     }, name="<value>", export_type="json")
@@ -131,7 +131,7 @@ with SquadcastSDK(
 | errors.GatewayTimeoutError      | 504                             | application/json                |
 | errors.SDKDefaultError          | 4XX, 5XX                        | \*/\*                           |
 
-## audit_logs_list_audit_logs_export_history
+## list_export_history
 
 List all Audit Logs export history
 Returns array of audit logs export history
@@ -147,7 +147,7 @@ with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
 ) as ss_client:
 
-    res = ss_client.audit_logs.audit_logs_list_audit_logs_export_history(page_size=159672, page_number=351281)
+    res = ss_client.audit_logs.list_export_history(page_size=159672, page_number=351281)
 
     while res is not None:
         # Handle items
@@ -185,7 +185,7 @@ with SquadcastSDK(
 | errors.GatewayTimeoutError      | 504                             | application/json                |
 | errors.SDKDefaultError          | 4XX, 5XX                        | \*/\*                           |
 
-## audit_logs_get_audit_logs_export_history_by_id
+## get_export_history_by_id
 
 Get details of Audit Logs export history by ID
 Returns audit log export history details for the specified ID
@@ -201,7 +201,7 @@ with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
 ) as ss_client:
 
-    res = ss_client.audit_logs.audit_logs_get_audit_logs_export_history_by_id(id="<id>")
+    res = ss_client.audit_logs.get_export_history_by_id(id="<id>")
 
     # Handle response
     print(res)
@@ -236,7 +236,7 @@ with SquadcastSDK(
 | errors.GatewayTimeoutError      | 504                             | application/json                |
 | errors.SDKDefaultError          | 4XX, 5XX                        | \*/\*                           |
 
-## audit_logs_get_audit_log_by_id
+## get_by_id
 
 Get audit log by ID
 Returns audit log details for the specified ID
@@ -252,7 +252,7 @@ with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
 ) as ss_client:
 
-    res = ss_client.audit_logs.audit_logs_get_audit_log_by_id(id="<id>")
+    res = ss_client.audit_logs.get_by_id(id="<id>")
 
     # Handle response
     print(res)
