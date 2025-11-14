@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.656.1
   generationVersion: 2.753.1
-  releaseVersion: 0.3.4
-  configChecksum: 2be785187d08921b4c6c800548338a4e
+  releaseVersion: 0.3.6
+  configChecksum: 0d6d134c8af69480fd37718fc2665d0e
   repoURL: https://github.com/SquadcastHub/squadcast-sdk-python.git
   repoSubDirectory: squadcastv1
   installationURL: https://github.com/SquadcastHub/squadcast-sdk-python.git#subdirectory=squadcastv1
@@ -8625,17 +8625,3 @@ examples:
         "504":
           application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Python SDK Changes Detected:
-  * `squadcast_sdk.audit_logs.list()`: **Added**
-  * `squadcast_sdk.audit_logs.export()`: **Added**
-  * `squadcast_sdk.audit_logs.list_export_history()`: **Added**
-  * `squadcast_sdk.audit_logs.get_export_history_by_id()`: **Added**
-  * `squadcast_sdk.audit_logs.get_by_id()`: **Added**
-  * `squadcast_sdk.squads.delete()`: **Added**
-  * `squadcast_sdk.audit_logs.audit_logs_list_audit_logs()`: **Deleted** **Breaking** :warning:
-  * `squadcast_sdk.audit_logs.audit_logs_export_audit_logs()`: **Deleted** **Breaking** :warning:
-  * `squadcast_sdk.audit_logs.audit_logs_list_audit_logs_export_history()`: **Deleted** **Breaking** :warning:
-  * `squadcast_sdk.audit_logs.audit_logs_get_audit_logs_export_history_by_id()`: **Deleted** **Breaking** :warning:
-  * `squadcast_sdk.audit_logs.audit_logs_get_audit_log_by_id()`: **Deleted** **Breaking** :warning:
-  * `squadcast_sdk.squads.squads_delete_squad()`: **Deleted** **Breaking** :warning:
