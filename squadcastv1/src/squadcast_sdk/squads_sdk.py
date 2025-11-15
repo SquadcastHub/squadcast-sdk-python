@@ -965,7 +965,7 @@ class SquadsSDK(BaseSDK):
 
         raise errors.SDKDefaultError("Unexpected response received", http_res)
 
-    def squads_delete_squad(
+    def delete(
         self,
         *,
         squad_id: str,
@@ -1075,7 +1075,7 @@ class SquadsSDK(BaseSDK):
 
         raise errors.SDKDefaultError("Unexpected response received", http_res)
 
-    async def squads_delete_squad_async(
+    async def delete_async(
         self,
         *,
         squad_id: str,

@@ -39,3 +39,13 @@ Based on:
 - [python v0.3.1] squadcastv1
 ### Releases
 - [PyPI v0.3.1] https://pypi.org/project/squadcast_sdk/0.3.1 - squadcastv1
+
+## 2025-11-15 00:23:34
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.654.0 (2.750.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.3.5] squadcastv1
+### Releases
+- [PyPI v0.3.5] https://pypi.org/project/squadcast_sdk/0.3.5 - squadcastv1
