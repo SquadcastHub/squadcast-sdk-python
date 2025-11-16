@@ -15,7 +15,7 @@ targets:
         sourceRevisionDigest: sha256:57fd0c037c10820027d08ead1d544f45adcfcb7a73a6ebe50695b1d6f311fe2f
         sourceBlobDigest: sha256:389df9398c509596bb510e6fa78688641a86e2e9e8481581152f801e73dffd58
         codeSamplesNamespace: squadcast-typescript-typescript-python-code-samples
-        codeSamplesRevisionDigest: sha256:3eeb9f4ef07b42b2b1b8cfd25513807740be5541568d22fb1b416f784460f00d
+        codeSamplesRevisionDigest: sha256:c47e897020f4fbbf1de252224712c5c500ede464d4a2508ecd309a7691361014
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
