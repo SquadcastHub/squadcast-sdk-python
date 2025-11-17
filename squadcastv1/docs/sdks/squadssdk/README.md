@@ -9,7 +9,7 @@
 * [get_by_id](#get_by_id) - Get Squad By ID
 * [update_v4](#update_v4) - Update Squad
 * [remove_member](#remove_member) - Remove Squad Member
-* [squads_delete_squad](#squads_delete_squad) - Delete Squad
+* [delete](#delete) - Delete Squad
 
 ## list
 
@@ -188,7 +188,7 @@ with SquadcastSDK(
 | errors.CommonV4Error              | 500, 502, 503, 504                | application/json                  |
 | errors.SDKDefaultError            | 4XX, 5XX                          | \*/\*                             |
 
-## squads_delete_squad
+## delete
 
 This endpoint is used to delete the squad. Squad should not be assigned to any incident or part of any escalation policy.
 Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header with `squad-update` scope.
@@ -204,7 +204,7 @@ with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
 ) as ss_client:
 
-    res = ss_client.squads.squads_delete_squad(squad_id="<id>")
+    res = ss_client.squads.delete(squad_id="<id>")
 
     # Handle response
     print(res)
