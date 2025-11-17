@@ -28,7 +28,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 python:
-  version: 0.3.3
+  version: 0.3.5
   additionalDependencies:
     dev: {}
     main: {}
@@ -60,6 +60,7 @@ python:
       webhooks: ""
   inputModelSuffix: input
   legacyPyright: true
+  license: ""
   maxMethodParams: 999
   mdoulename: squadcast_sdk
   methodArguments: infer-optional-args
