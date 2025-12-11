@@ -20,7 +20,7 @@ class ComponentGroups(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesComponentGroupsCreateComponentGroupResponse:
+    ) -> models.ComponentGroupsCreateComponentGroupResponse:
         r"""Create Component Group
 
         :param statuspage_id:
@@ -71,6 +71,7 @@ class ComponentGroups(BaseSDK):
                 "json",
                 models.V4StatusPagesComponentGroupsCreateComponentGroupRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -183,7 +184,7 @@ class ComponentGroups(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesComponentGroupsCreateComponentGroupResponse:
+    ) -> models.ComponentGroupsCreateComponentGroupResponse:
         r"""Create Component Group
 
         :param statuspage_id:
@@ -234,6 +235,7 @@ class ComponentGroups(BaseSDK):
                 "json",
                 models.V4StatusPagesComponentGroupsCreateComponentGroupRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

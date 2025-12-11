@@ -1,5 +1,4 @@
-# FalsePositive
-(*slos.false_positive*)
+# Slos.FalsePositive
 
 ## Overview
 

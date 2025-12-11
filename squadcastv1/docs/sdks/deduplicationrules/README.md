@@ -1,5 +1,4 @@
-# DeduplicationRules
-(*services.deduplication_rules*)
+# Services.DeduplicationRules
 
 ## Overview
 

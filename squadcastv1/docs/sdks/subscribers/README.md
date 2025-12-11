@@ -1,5 +1,4 @@
 # Subscribers
-(*subscribers*)
 
 ## Overview
 

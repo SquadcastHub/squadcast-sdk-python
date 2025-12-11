@@ -1,5 +1,4 @@
-# SchedulesOverrides
-(*schedules.overrides*)
+# Schedules.Overrides
 
 ## Overview
 

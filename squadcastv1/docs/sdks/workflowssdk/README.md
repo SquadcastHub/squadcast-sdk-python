@@ -1,5 +1,4 @@
-# WorkflowsSDK
-(*workflows*)
+# Workflows
 
 ## Overview
 

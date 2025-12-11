@@ -77,6 +77,7 @@ class SquadsMembers(BaseSDK):
                 "json",
                 models.V4SquadsUpdateSquadMemberRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -209,6 +210,7 @@ class SquadsMembers(BaseSDK):
                 "json",
                 models.V4SquadsUpdateSquadMemberRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

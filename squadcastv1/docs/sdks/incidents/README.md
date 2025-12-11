@@ -1,5 +1,4 @@
 # Incidents
-(*incidents*)
 
 ## Overview
 
@@ -19,7 +18,7 @@
 
 ## bulk_acknowledge
 
-- This endpoint is used to bulk acknowledge the incident by IDs.
+- This endpoint is used to bulk acknowledge the incident by IDs. The API can handle a maximum of 100 incident IDs in a single request with 10 such calls per minute."
 - Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header.
 
 ### Example Usage
@@ -207,7 +206,7 @@ with SquadcastSDK(
 
 ## bulk_resolve
 
-- This endpoint is used to bulk resolve the incident by IDs.
+- This endpoint is used to bulk resolve the incident by IDs. The API can handle a maximum of 100 incident IDs in a single request with 10 such calls per minute."
 - Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header.
 
 ### Example Usage

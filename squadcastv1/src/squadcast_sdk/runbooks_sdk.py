@@ -18,7 +18,7 @@ class RunbooksSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3IncidentsRunbooksRunbookResponse]:
+    ) -> models.RunbooksAttachRunbooksResponse:
         r"""Attach Runbooks
 
         :param incident_id:
@@ -65,6 +65,7 @@ class RunbooksSDK(BaseSDK):
                 "json",
                 models.V3IncidentsRunbooksAttachRunbooksRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -175,7 +176,7 @@ class RunbooksSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3IncidentsRunbooksRunbookResponse]:
+    ) -> models.RunbooksAttachRunbooksResponse:
         r"""Attach Runbooks
 
         :param incident_id:
@@ -222,6 +223,7 @@ class RunbooksSDK(BaseSDK):
                 "json",
                 models.V3IncidentsRunbooksAttachRunbooksRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -330,7 +332,7 @@ class RunbooksSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3RunbooksRunbookResponse]:
+    ) -> models.RunbooksGetAllRunbooksByTeamResponse:
         r"""Get All Runbooks By Team
 
         Returns all the runbooks of the team.
@@ -363,6 +365,7 @@ class RunbooksSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -471,7 +474,7 @@ class RunbooksSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3RunbooksRunbookResponse]:
+    ) -> models.RunbooksGetAllRunbooksByTeamResponse:
         r"""Get All Runbooks By Team
 
         Returns all the runbooks of the team.
@@ -504,6 +507,7 @@ class RunbooksSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -618,7 +622,7 @@ class RunbooksSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3RunbooksRunbookResponse:
+    ) -> models.RunbooksCreateRunbookResponse:
         r"""Create Runbook
 
         Add runbook to the team. Returns the runbook object in response.
@@ -668,6 +672,7 @@ class RunbooksSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.V3RunbooksCreateRunbookRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -782,7 +787,7 @@ class RunbooksSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3RunbooksRunbookResponse:
+    ) -> models.RunbooksCreateRunbookResponse:
         r"""Create Runbook
 
         Add runbook to the team. Returns the runbook object in response.
@@ -832,6 +837,7 @@ class RunbooksSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.V3RunbooksCreateRunbookRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -980,6 +986,7 @@ class RunbooksSDK(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1127,6 +1134,7 @@ class RunbooksSDK(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1235,7 +1243,7 @@ class RunbooksSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3RunbooksRunbookResponse:
+    ) -> models.RunbooksGetRunbookByIDResponse:
         r"""Get Runbook By ID
 
         Returns a runbook details of the given `runbookID` in the request param.
@@ -1274,6 +1282,7 @@ class RunbooksSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1383,7 +1392,7 @@ class RunbooksSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3RunbooksRunbookResponse:
+    ) -> models.RunbooksGetRunbookByIDResponse:
         r"""Get Runbook By ID
 
         Returns a runbook details of the given `runbookID` in the request param.
@@ -1422,6 +1431,7 @@ class RunbooksSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1536,7 +1546,7 @@ class RunbooksSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3RunbooksRunbookResponse:
+    ) -> models.RunbooksUpdateRunbookResponse:
         r"""Update Runbook
 
         Update runbook details.
@@ -1592,6 +1602,7 @@ class RunbooksSDK(BaseSDK):
                 "json",
                 models.V3RunbooksUpdateRunbookRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1706,7 +1717,7 @@ class RunbooksSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3RunbooksRunbookResponse:
+    ) -> models.RunbooksUpdateRunbookResponse:
         r"""Update Runbook
 
         Update runbook details.
@@ -1762,6 +1773,7 @@ class RunbooksSDK(BaseSDK):
                 "json",
                 models.V3RunbooksUpdateRunbookRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

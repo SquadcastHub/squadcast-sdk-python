@@ -125,6 +125,7 @@ class Webhooks(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.V3ExtensionsWebhooksWebhook
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -342,6 +343,7 @@ class Webhooks(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.V3ExtensionsWebhooksWebhook
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -490,6 +492,7 @@ class Webhooks(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -637,6 +640,7 @@ class Webhooks(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -745,7 +749,7 @@ class Webhooks(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3ExtensionsWebhooksWebhookResponse:
+    ) -> models.WebhooksGetWebhookByIDResponse:
         r"""Get Webhook By ID
 
         Returns a webhooks details of the given `eventWebhookID` in the request param.
@@ -784,6 +788,7 @@ class Webhooks(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -893,7 +898,7 @@ class Webhooks(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3ExtensionsWebhooksWebhookResponse:
+    ) -> models.WebhooksGetWebhookByIDResponse:
         r"""Get Webhook By ID
 
         Returns a webhooks details of the given `eventWebhookID` in the request param.
@@ -932,6 +937,7 @@ class Webhooks(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1072,7 +1078,7 @@ class Webhooks(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3ExtensionsWebhooksWebhookResponse:
+    ) -> models.WebhooksUpdateWebhookResponse:
         r"""Update Webhook
 
         Update organization webhook details.
@@ -1158,6 +1164,7 @@ class Webhooks(BaseSDK):
                 "json",
                 models.V3ExtensionsWebhooksWebhook,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1298,7 +1305,7 @@ class Webhooks(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3ExtensionsWebhooksWebhookResponse:
+    ) -> models.WebhooksUpdateWebhookResponse:
         r"""Update Webhook
 
         Update organization webhook details.
@@ -1384,6 +1391,7 @@ class Webhooks(BaseSDK):
                 "json",
                 models.V3ExtensionsWebhooksWebhook,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

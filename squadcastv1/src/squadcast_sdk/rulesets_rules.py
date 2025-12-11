@@ -71,6 +71,7 @@ class RulesetsRules(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -260,6 +261,7 @@ class RulesetsRules(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -404,7 +406,7 @@ class RulesetsRules(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3GlobalEventRulesRulesetRuleResponse:
+    ) -> models.GlobalEventRulesCreateRuleResponse:
         r"""Create Rule
 
         Create a GER Ruleset Rule.
@@ -463,6 +465,7 @@ class RulesetsRules(BaseSDK):
                 "json",
                 models.V3GlobalEventRulesCreateOrUpdateRuleRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -580,7 +583,7 @@ class RulesetsRules(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3GlobalEventRulesRulesetRuleResponse:
+    ) -> models.GlobalEventRulesCreateRuleResponse:
         r"""Create Rule
 
         Create a GER Ruleset Rule.
@@ -639,6 +642,7 @@ class RulesetsRules(BaseSDK):
                 "json",
                 models.V3GlobalEventRulesCreateOrUpdateRuleRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -751,7 +755,7 @@ class RulesetsRules(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3GlobalEventRulesRulesetRuleResponse:
+    ) -> models.GlobalEventRulesGetRuleByIDResponse:
         r"""Get Rule by ID
 
         Get a GER Ruleset Rule by its ID.
@@ -795,6 +799,7 @@ class RulesetsRules(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -907,7 +912,7 @@ class RulesetsRules(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3GlobalEventRulesRulesetRuleResponse:
+    ) -> models.GlobalEventRulesGetRuleByIDResponse:
         r"""Get Rule by ID
 
         Get a GER Ruleset Rule by its ID.
@@ -951,6 +956,7 @@ class RulesetsRules(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1071,7 +1077,7 @@ class RulesetsRules(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3GlobalEventRulesRulesetRuleResponse:
+    ) -> models.GlobalEventRulesUpdateRuleByIDResponse:
         r"""Update Rule by ID
 
         Update a GER Ruleset Rule by its ID.
@@ -1132,6 +1138,7 @@ class RulesetsRules(BaseSDK):
                 "json",
                 models.V3GlobalEventRulesUpdateRuleRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1252,7 +1259,7 @@ class RulesetsRules(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3GlobalEventRulesRulesetRuleResponse:
+    ) -> models.GlobalEventRulesUpdateRuleByIDResponse:
         r"""Update Rule by ID
 
         Update a GER Ruleset Rule by its ID.
@@ -1313,6 +1320,7 @@ class RulesetsRules(BaseSDK):
                 "json",
                 models.V3GlobalEventRulesUpdateRuleRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1427,7 +1435,7 @@ class RulesetsRules(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3GlobalEventRulesOrderingResponse:
+    ) -> models.GlobalEventRulesReorderRulesetByIndexResponse:
         r"""Reorder Ruleset By Index
 
         Reorder a GER Ruleset Rule by its index in the ruleset.
@@ -1484,6 +1492,7 @@ class RulesetsRules(BaseSDK):
                 "json",
                 models.V3GlobalEventRulesReorderRuleRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1598,7 +1607,7 @@ class RulesetsRules(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3GlobalEventRulesOrderingResponse:
+    ) -> models.GlobalEventRulesReorderRulesetByIndexResponse:
         r"""Reorder Ruleset By Index
 
         Reorder a GER Ruleset Rule by its index in the ruleset.
@@ -1655,6 +1664,7 @@ class RulesetsRules(BaseSDK):
                 "json",
                 models.V3GlobalEventRulesReorderRuleRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

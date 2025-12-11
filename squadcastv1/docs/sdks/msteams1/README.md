@@ -1,5 +1,4 @@
-# MsTeams1
-(*extensions.ms_teams*)
+# Extensions.MsTeams
 
 ## Overview
 

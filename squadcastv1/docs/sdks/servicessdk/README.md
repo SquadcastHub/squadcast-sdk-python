@@ -1,5 +1,4 @@
-# ServicesSDK
-(*services*)
+# Services
 
 ## Overview
 

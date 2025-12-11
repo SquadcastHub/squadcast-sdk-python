@@ -1,5 +1,4 @@
-# OverlayCustomContentTemplates
-(*services.overlay.custom_content_templates*)
+# Services.Overlay.CustomContentTemplates
 
 ## Overview
 

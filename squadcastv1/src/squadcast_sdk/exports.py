@@ -17,7 +17,7 @@ class Exports(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3ExportExportResponse:
+    ) -> models.ExportGetExportDetailsResponse:
         r"""Get Export Details
 
         Get Export Details
@@ -55,6 +55,7 @@ class Exports(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -164,7 +165,7 @@ class Exports(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3ExportExportResponse:
+    ) -> models.ExportGetExportDetailsResponse:
         r"""Get Export Details
 
         Get Export Details
@@ -202,6 +203,7 @@ class Exports(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

@@ -20,7 +20,7 @@ class StatusPagesMaintenances1(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V4StatusPagesMaintenancesMaintenance]:
+    ) -> models.V4StatusPagesMaintenancesListMaintenancesResponse:
         r"""List Maintenances
 
         :param statuspage_id:
@@ -60,6 +60,7 @@ class StatusPagesMaintenances1(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -171,7 +172,7 @@ class StatusPagesMaintenances1(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V4StatusPagesMaintenancesMaintenance]:
+    ) -> models.V4StatusPagesMaintenancesListMaintenancesResponse:
         r"""List Maintenances
 
         :param statuspage_id:
@@ -211,6 +212,7 @@ class StatusPagesMaintenances1(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -325,7 +327,7 @@ class StatusPagesMaintenances1(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesMaintenancesCreateMaintenanceResponse:
+    ) -> models.MaintenancesCreateMaintenanceResponse:
         r"""Create Maintenance
 
         :param statuspage_id:
@@ -380,6 +382,7 @@ class StatusPagesMaintenances1(BaseSDK):
                 "json",
                 models.V4StatusPagesMaintenancesCreateMaintenanceRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -494,7 +497,7 @@ class StatusPagesMaintenances1(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesMaintenancesCreateMaintenanceResponse:
+    ) -> models.MaintenancesCreateMaintenanceResponse:
         r"""Create Maintenance
 
         :param statuspage_id:
@@ -549,6 +552,7 @@ class StatusPagesMaintenances1(BaseSDK):
                 "json",
                 models.V4StatusPagesMaintenancesCreateMaintenanceRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

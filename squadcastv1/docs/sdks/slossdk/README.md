@@ -1,5 +1,4 @@
-# SlosSDK
-(*slos*)
+# Slos
 
 ## Overview
 

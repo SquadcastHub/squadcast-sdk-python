@@ -41,7 +41,7 @@ class ServicesOverlays(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> str:
+    ) -> models.OverlayRenderDedupKeyTemplateResponse:
         r"""Render Dedup Key template
 
         :param service_id:
@@ -92,6 +92,7 @@ class ServicesOverlays(BaseSDK):
                 "json",
                 models.V3ServicesOverlayRenderDedupKeyTemplateRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -204,7 +205,7 @@ class ServicesOverlays(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> str:
+    ) -> models.OverlayRenderDedupKeyTemplateResponse:
         r"""Render Dedup Key template
 
         :param service_id:
@@ -255,6 +256,7 @@ class ServicesOverlays(BaseSDK):
                 "json",
                 models.V3ServicesOverlayRenderDedupKeyTemplateRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

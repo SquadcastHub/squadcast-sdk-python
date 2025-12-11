@@ -5,7 +5,7 @@ from squadcast_sdk import errors, models, utils
 from squadcast_sdk._hooks import HookContext
 from squadcast_sdk.types import OptionalNullable, UNSET
 from squadcast_sdk.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional
+from typing import Any, Mapping, Optional
 
 
 class StatusPagesComponentGroups(BaseSDK):
@@ -17,7 +17,7 @@ class StatusPagesComponentGroups(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V4StatusPagesComponentGroupsComponentGroupResponse]:
+    ) -> models.ComponentGroupsListComponentGroupsResponse:
         r"""List Component Groups
 
         :param statuspage_id:
@@ -53,6 +53,7 @@ class StatusPagesComponentGroups(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -162,7 +163,7 @@ class StatusPagesComponentGroups(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V4StatusPagesComponentGroupsComponentGroupResponse]:
+    ) -> models.ComponentGroupsListComponentGroupsResponse:
         r"""List Component Groups
 
         :param statuspage_id:
@@ -198,6 +199,7 @@ class StatusPagesComponentGroups(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -308,7 +310,7 @@ class StatusPagesComponentGroups(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesComponentGroupsDeleteComponentGroupByIDResponse:
+    ) -> models.ComponentGroupsDeleteComponentGroupByIDResponse:
         r"""Delete Component Group By ID
 
         :param statuspage_id:
@@ -346,6 +348,7 @@ class StatusPagesComponentGroups(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -456,7 +459,7 @@ class StatusPagesComponentGroups(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesComponentGroupsDeleteComponentGroupByIDResponse:
+    ) -> models.ComponentGroupsDeleteComponentGroupByIDResponse:
         r"""Delete Component Group By ID
 
         :param statuspage_id:
@@ -494,6 +497,7 @@ class StatusPagesComponentGroups(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -604,7 +608,7 @@ class StatusPagesComponentGroups(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesComponentGroupsGetComponentGroupByIDResponse:
+    ) -> models.ComponentGroupsGetComponentGroupByIDResponse:
         r"""Get Component Group By ID
 
         :param statuspage_id:
@@ -642,6 +646,7 @@ class StatusPagesComponentGroups(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -752,7 +757,7 @@ class StatusPagesComponentGroups(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesComponentGroupsGetComponentGroupByIDResponse:
+    ) -> models.ComponentGroupsGetComponentGroupByIDResponse:
         r"""Get Component Group By ID
 
         :param statuspage_id:
@@ -790,6 +795,7 @@ class StatusPagesComponentGroups(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

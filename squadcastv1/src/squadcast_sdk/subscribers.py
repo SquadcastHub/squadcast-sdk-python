@@ -3,9 +3,9 @@
 from .basesdk import BaseSDK
 from squadcast_sdk import errors, models, utils
 from squadcast_sdk._hooks import HookContext
-from squadcast_sdk.types import Nullable, OptionalNullable, UNSET
+from squadcast_sdk.types import OptionalNullable, UNSET
 from squadcast_sdk.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional
+from typing import Any, Mapping, Optional
 
 
 class Subscribers(BaseSDK):
@@ -17,7 +17,7 @@ class Subscribers(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Nullable[List[models.V4StatusPagesStatusPageSubscriber]]:
+    ) -> models.V4StatusPagesListSubscribersResponse:
         r"""List Subscribers
 
         :param statuspage_id:
@@ -53,6 +53,7 @@ class Subscribers(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -162,7 +163,7 @@ class Subscribers(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Nullable[List[models.V4StatusPagesStatusPageSubscriber]]:
+    ) -> models.V4StatusPagesListSubscribersResponse:
         r"""List Subscribers
 
         :param statuspage_id:
@@ -198,6 +199,7 @@ class Subscribers(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

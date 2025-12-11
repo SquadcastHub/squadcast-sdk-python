@@ -1,5 +1,4 @@
-# SquadsSDK
-(*squads*)
+# Squads
 
 ## Overview
 

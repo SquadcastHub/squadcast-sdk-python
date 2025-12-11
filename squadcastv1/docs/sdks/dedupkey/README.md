@@ -1,5 +1,4 @@
-# DedupKey
-(*overlays.dedup_key*)
+# Overlays.DedupKey
 
 ## Overview
 

@@ -1,5 +1,4 @@
 # Overrides
-(*overrides*)
 
 ## Overview
 

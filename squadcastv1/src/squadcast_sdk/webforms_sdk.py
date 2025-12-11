@@ -63,6 +63,7 @@ class WebformsSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -241,6 +242,7 @@ class WebformsSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -406,7 +408,7 @@ class WebformsSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.WebformsCreateWebformData:
+    ) -> models.WebformsCreateWebformResponse:
         r"""Create Webform
 
         Add a webform to the organization. Returns the webform object in response.
@@ -494,6 +496,7 @@ class WebformsSDK(BaseSDK):
                 "json",
                 models.V3WebformsCreateOrUpdateWebformRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -635,7 +638,7 @@ class WebformsSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.WebformsCreateWebformData:
+    ) -> models.WebformsCreateWebformResponse:
         r"""Create Webform
 
         Add a webform to the organization. Returns the webform object in response.
@@ -723,6 +726,7 @@ class WebformsSDK(BaseSDK):
                 "json",
                 models.V3WebformsCreateOrUpdateWebformRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -865,7 +869,7 @@ class WebformsSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3WebformsWebformResponse:
+    ) -> models.WebformsUpdateWebformResponse:
         r"""Update Webform
 
         Update a webform to the organization. Returns the webform object in response.
@@ -957,6 +961,7 @@ class WebformsSDK(BaseSDK):
                 "json",
                 models.V3WebformsCreateOrUpdateWebformRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1099,7 +1104,7 @@ class WebformsSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3WebformsWebformResponse:
+    ) -> models.WebformsUpdateWebformResponse:
         r"""Update Webform
 
         Update a webform to the organization. Returns the webform object in response.
@@ -1191,6 +1196,7 @@ class WebformsSDK(BaseSDK):
                 "json",
                 models.V3WebformsCreateOrUpdateWebformRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1301,7 +1307,7 @@ class WebformsSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> str:
+    ) -> models.WebformsRemoveWebformResponse:
         r"""Remove Webform
 
         Remove a webform from the organization.
@@ -1342,6 +1348,7 @@ class WebformsSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1452,7 +1459,7 @@ class WebformsSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> str:
+    ) -> models.WebformsRemoveWebformResponse:
         r"""Remove Webform
 
         Remove a webform from the organization.
@@ -1493,6 +1500,7 @@ class WebformsSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1603,7 +1611,7 @@ class WebformsSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3WebformsWebformResponse:
+    ) -> models.WebformsGetWebformByIDResponse:
         r"""Get Webform By ID
 
         Returns a webform details of the given `webformId` in the request param.
@@ -1644,6 +1652,7 @@ class WebformsSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1754,7 +1763,7 @@ class WebformsSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3WebformsWebformResponse:
+    ) -> models.WebformsGetWebformByIDResponse:
         r"""Get Webform By ID
 
         Returns a webform details of the given `webformId` in the request param.
@@ -1795,6 +1804,7 @@ class WebformsSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

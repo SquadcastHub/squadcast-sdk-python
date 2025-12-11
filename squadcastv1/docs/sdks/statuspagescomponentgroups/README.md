@@ -1,5 +1,4 @@
-# StatusPagesComponentGroups
-(*status_pages.component_groups*)
+# StatusPages.ComponentGroups
 
 ## Overview
 

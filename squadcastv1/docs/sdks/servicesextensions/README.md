@@ -1,5 +1,4 @@
-# ServicesExtensions
-(*services.extensions*)
+# Services.Extensions
 
 ## Overview
 

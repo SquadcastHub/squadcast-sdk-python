@@ -17,7 +17,7 @@ class RoutingRules(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.RoutingRulesGetRoutingRulesData:
+    ) -> models.RoutingRulesGetRoutingRulesResponse:
         r"""Get Routing Rules
 
         :param service_id:
@@ -53,6 +53,7 @@ class RoutingRules(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -162,7 +163,7 @@ class RoutingRules(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.RoutingRulesGetRoutingRulesData:
+    ) -> models.RoutingRulesGetRoutingRulesResponse:
         r"""Get Routing Rules
 
         :param service_id:
@@ -198,6 +199,7 @@ class RoutingRules(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -311,7 +313,7 @@ class RoutingRules(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.RoutingRulesCreateOrUpdateRoutingRulesData:
+    ) -> models.RoutingRulesCreateOrUpdateRoutingRulesResponse:
         r"""Create or Update Routing Rules
 
         :param service_id:
@@ -360,6 +362,7 @@ class RoutingRules(BaseSDK):
                 "json",
                 models.V3ServicesRoutingRulesCreateOrUpdateRoutingRulesRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -473,7 +476,7 @@ class RoutingRules(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.RoutingRulesCreateOrUpdateRoutingRulesData:
+    ) -> models.RoutingRulesCreateOrUpdateRoutingRulesResponse:
         r"""Create or Update Routing Rules
 
         :param service_id:
@@ -522,6 +525,7 @@ class RoutingRules(BaseSDK):
                 "json",
                 models.V3ServicesRoutingRulesCreateOrUpdateRoutingRulesRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

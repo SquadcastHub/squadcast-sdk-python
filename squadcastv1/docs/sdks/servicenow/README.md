@@ -1,5 +1,4 @@
-# ServiceNow
-(*incidents.actions.service_now*)
+# Incidents.Actions.ServiceNow
 
 ## Overview
 

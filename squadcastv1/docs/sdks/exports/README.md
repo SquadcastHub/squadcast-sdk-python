@@ -1,5 +1,4 @@
 # Exports
-(*exports*)
 
 ## Overview
 

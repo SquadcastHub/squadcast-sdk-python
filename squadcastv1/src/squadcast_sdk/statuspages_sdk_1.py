@@ -94,6 +94,7 @@ class StatusPagesSDK1(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -273,6 +274,7 @@ class StatusPagesSDK1(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -432,7 +434,7 @@ class StatusPagesSDK1(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesCreateStatusPageResponse:
+    ) -> models.StatusPagesCreateStatusPageResponse:
         r"""Create Status Page
 
         :param name:
@@ -510,6 +512,7 @@ class StatusPagesSDK1(BaseSDK):
                 "json",
                 models.V4StatusPagesCreateStatusPageRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -644,7 +647,7 @@ class StatusPagesSDK1(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesCreateStatusPageResponse:
+    ) -> models.StatusPagesCreateStatusPageResponse:
         r"""Create Status Page
 
         :param name:
@@ -722,6 +725,7 @@ class StatusPagesSDK1(BaseSDK):
                 "json",
                 models.V4StatusPagesCreateStatusPageRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -831,7 +835,7 @@ class StatusPagesSDK1(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesDeleteStatusPageByIDResponse:
+    ) -> models.StatusPagesDeleteStatusPageByIDResponse:
         r"""Delete Status Page By ID
 
         :param statuspage_id:
@@ -867,6 +871,7 @@ class StatusPagesSDK1(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -976,7 +981,7 @@ class StatusPagesSDK1(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesDeleteStatusPageByIDResponse:
+    ) -> models.StatusPagesDeleteStatusPageByIDResponse:
         r"""Delete Status Page By ID
 
         :param statuspage_id:
@@ -1012,6 +1017,7 @@ class StatusPagesSDK1(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1121,7 +1127,7 @@ class StatusPagesSDK1(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesGetStatusPageByIDResponse:
+    ) -> models.StatusPagesGetStatusPageByIDResponse:
         r"""Get Status Page By ID
 
         :param statuspage_id:
@@ -1157,6 +1163,7 @@ class StatusPagesSDK1(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1266,7 +1273,7 @@ class StatusPagesSDK1(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesGetStatusPageByIDResponse:
+    ) -> models.StatusPagesGetStatusPageByIDResponse:
         r"""Get Status Page By ID
 
         :param statuspage_id:
@@ -1302,6 +1309,7 @@ class StatusPagesSDK1(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1439,7 +1447,7 @@ class StatusPagesSDK1(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesUpdateStatusPageByIDResponse:
+    ) -> models.StatusPagesUpdateStatusPageByIDResponse:
         r"""Update Status Page By ID
 
         :param statuspage_id:
@@ -1528,6 +1536,7 @@ class StatusPagesSDK1(BaseSDK):
                 "json",
                 models.V4StatusPagesUpdateStatusPageByIDRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1665,7 +1674,7 @@ class StatusPagesSDK1(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesUpdateStatusPageByIDResponse:
+    ) -> models.StatusPagesUpdateStatusPageByIDResponse:
         r"""Update Status Page By ID
 
         :param statuspage_id:
@@ -1754,6 +1763,7 @@ class StatusPagesSDK1(BaseSDK):
                 "json",
                 models.V4StatusPagesUpdateStatusPageByIDRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1863,7 +1873,7 @@ class StatusPagesSDK1(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V4StatusPagesStatusPageStatusesResponse]:
+    ) -> models.StatusPagesListStatusPageStatusesResponse:
         r"""List Status Page Statuses
 
         :param statuspage_id:
@@ -1899,6 +1909,7 @@ class StatusPagesSDK1(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2008,7 +2019,7 @@ class StatusPagesSDK1(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V4StatusPagesStatusPageStatusesResponse]:
+    ) -> models.StatusPagesListStatusPageStatusesResponse:
         r"""List Status Page Statuses
 
         :param statuspage_id:
@@ -2044,6 +2055,7 @@ class StatusPagesSDK1(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

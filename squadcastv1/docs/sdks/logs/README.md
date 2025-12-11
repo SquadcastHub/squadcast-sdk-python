@@ -1,5 +1,4 @@
-# Logs
-(*workflows.logs*)
+# Workflows.Logs
 
 ## Overview
 

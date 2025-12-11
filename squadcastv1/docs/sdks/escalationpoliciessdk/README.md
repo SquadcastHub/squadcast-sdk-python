@@ -1,5 +1,4 @@
-# EscalationPoliciesSDK
-(*escalation_policies*)
+# EscalationPolicies
 
 ## Overview
 

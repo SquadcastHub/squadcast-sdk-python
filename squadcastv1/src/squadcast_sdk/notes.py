@@ -68,6 +68,7 @@ class Notes(BaseSDK):
                 "json",
                 models.V3IncidentsNotesCreateNoteRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -226,6 +227,7 @@ class Notes(BaseSDK):
                 "json",
                 models.V3IncidentsNotesCreateNoteRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -333,7 +335,7 @@ class Notes(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3IncidentsNotesNoteResponse]:
+    ) -> models.NotesGetAllNotesResponse:
         r"""Get All Notes
 
         *   This endpoint is used to get all the note details of incidentID mentioned params.
@@ -372,6 +374,7 @@ class Notes(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -479,7 +482,7 @@ class Notes(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3IncidentsNotesNoteResponse]:
+    ) -> models.NotesGetAllNotesResponse:
         r"""Get All Notes
 
         *   This endpoint is used to get all the note details of incidentID mentioned params.
@@ -518,6 +521,7 @@ class Notes(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -668,6 +672,7 @@ class Notes(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -819,6 +824,7 @@ class Notes(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -930,7 +936,7 @@ class Notes(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3IncidentsNotesNoteResponse:
+    ) -> models.NotesUpdateNoteResponse:
         r"""Update Note
 
         This API can be used to update a Note or a Resolution reason associated with an incident
@@ -983,6 +989,7 @@ class Notes(BaseSDK):
                 "json",
                 models.V3IncidentsNotesUpdateNoteRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1093,7 +1100,7 @@ class Notes(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3IncidentsNotesNoteResponse:
+    ) -> models.NotesUpdateNoteResponse:
         r"""Update Note
 
         This API can be used to update a Note or a Resolution reason associated with an incident
@@ -1146,6 +1153,7 @@ class Notes(BaseSDK):
                 "json",
                 models.V3IncidentsNotesUpdateNoteRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

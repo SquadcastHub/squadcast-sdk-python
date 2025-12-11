@@ -1,5 +1,4 @@
-# SchedulesSDK
-(*schedules*)
+# Schedules
 
 ## Overview
 

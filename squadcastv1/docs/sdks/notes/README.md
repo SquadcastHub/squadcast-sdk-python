@@ -1,5 +1,4 @@
-# Notes
-(*incidents.notes*)
+# Incidents.Notes
 
 ## Overview
 

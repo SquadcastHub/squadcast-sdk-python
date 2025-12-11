@@ -64,6 +64,7 @@ class EscalationPoliciesSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -245,6 +246,7 @@ class EscalationPoliciesSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -399,7 +401,7 @@ class EscalationPoliciesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3EscalationPoliciesEscalationPolicyResponse:
+    ) -> models.EscalationPoliciesCreateEscalationPoliciesResponse:
         r"""Create Escalation Policies
 
         Add escalation policy to the organization. Returns the escalation policy object in response.
@@ -472,6 +474,7 @@ class EscalationPoliciesSDK(BaseSDK):
                 "json",
                 models.V3EscalationPoliciesCreateEscalationPolicyRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -599,7 +602,7 @@ class EscalationPoliciesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3EscalationPoliciesEscalationPolicyResponse:
+    ) -> models.EscalationPoliciesCreateEscalationPoliciesResponse:
         r"""Create Escalation Policies
 
         Add escalation policy to the organization. Returns the escalation policy object in response.
@@ -672,6 +675,7 @@ class EscalationPoliciesSDK(BaseSDK):
                 "json",
                 models.V3EscalationPoliciesCreateEscalationPolicyRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -820,6 +824,7 @@ class EscalationPoliciesSDK(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -967,6 +972,7 @@ class EscalationPoliciesSDK(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1075,7 +1081,7 @@ class EscalationPoliciesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3EscalationPoliciesEscalationPolicyResponse:
+    ) -> models.EscalationPoliciesGetEscalationPolicyByIDResponse:
         r"""Get Escalation Policy By ID
 
         Returns an escalation policy details of the given `escalationPolicyID` in the request param.
@@ -1114,6 +1120,7 @@ class EscalationPoliciesSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1223,7 +1230,7 @@ class EscalationPoliciesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3EscalationPoliciesEscalationPolicyResponse:
+    ) -> models.EscalationPoliciesGetEscalationPolicyByIDResponse:
         r"""Get Escalation Policy By ID
 
         Returns an escalation policy details of the given `escalationPolicyID` in the request param.
@@ -1262,6 +1269,7 @@ class EscalationPoliciesSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1374,7 +1382,7 @@ class EscalationPoliciesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3EscalationPoliciesEscalationPolicyResponse:
+    ) -> models.EscalationPoliciesUpdateEscalationPolicyResponse:
         r"""Update Escalation Policy
 
         Update organization escalation policy details.
@@ -1422,6 +1430,7 @@ class EscalationPoliciesSDK(BaseSDK):
                 "raw",
                 Union[bytes, IO[bytes], io.BufferedReader],
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1534,7 +1543,7 @@ class EscalationPoliciesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3EscalationPoliciesEscalationPolicyResponse:
+    ) -> models.EscalationPoliciesUpdateEscalationPolicyResponse:
         r"""Update Escalation Policy
 
         Update organization escalation policy details.
@@ -1582,6 +1591,7 @@ class EscalationPoliciesSDK(BaseSDK):
                 "raw",
                 Union[bytes, IO[bytes], io.BufferedReader],
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

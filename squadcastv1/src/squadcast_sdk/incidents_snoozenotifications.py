@@ -21,7 +21,7 @@ class IncidentsSnoozeNotifications(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3IncidentsSnoozeNotificationsUnsnoozeIncidentResponse:
+    ) -> models.SnoozeNotificationsUnsnoozeIncidentNotificationsResponse:
         r"""Unsnooze Incident Notifications
 
         :param incident_id:
@@ -70,6 +70,7 @@ class IncidentsSnoozeNotifications(BaseSDK):
                 "json",
                 models.V3IncidentsSnoozeNotificationsUnsnoozeIncidentRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -184,7 +185,7 @@ class IncidentsSnoozeNotifications(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3IncidentsSnoozeNotificationsUnsnoozeIncidentResponse:
+    ) -> models.SnoozeNotificationsUnsnoozeIncidentNotificationsResponse:
         r"""Unsnooze Incident Notifications
 
         :param incident_id:
@@ -233,6 +234,7 @@ class IncidentsSnoozeNotifications(BaseSDK):
                 "json",
                 models.V3IncidentsSnoozeNotificationsUnsnoozeIncidentRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

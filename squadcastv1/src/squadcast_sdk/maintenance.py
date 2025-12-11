@@ -22,7 +22,7 @@ class Maintenance(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> str:
+    ) -> models.MaintenanceModeCreateOrUpdateMaintenanceModeResponse:
         r"""Create or Update Maintenance Mode
 
         :param service_id:
@@ -74,6 +74,7 @@ class Maintenance(BaseSDK):
                 "json",
                 models.V3ServicesMaintenanceModeCreateOrUpdateMaintenanceModeRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -188,7 +189,7 @@ class Maintenance(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> str:
+    ) -> models.MaintenanceModeCreateOrUpdateMaintenanceModeResponse:
         r"""Create or Update Maintenance Mode
 
         :param service_id:
@@ -240,6 +241,7 @@ class Maintenance(BaseSDK):
                 "json",
                 models.V3ServicesMaintenanceModeCreateOrUpdateMaintenanceModeRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

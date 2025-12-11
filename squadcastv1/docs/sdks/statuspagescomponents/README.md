@@ -1,5 +1,4 @@
-# StatusPagesComponents
-(*status_pages.components*)
+# StatusPages.Components
 
 ## Overview
 

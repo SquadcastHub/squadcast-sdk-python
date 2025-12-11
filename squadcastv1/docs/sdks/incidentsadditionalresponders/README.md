@@ -1,5 +1,4 @@
-# IncidentsAdditionalResponders
-(*incidents.additional_responders*)
+# Incidents.AdditionalResponders
 
 ## Overview
 

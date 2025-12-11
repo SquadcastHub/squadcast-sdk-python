@@ -1,5 +1,4 @@
-# IncidentsSnoozeNotifications
-(*incidents.snooze_notifications*)
+# Incidents.SnoozeNotifications
 
 ## Overview
 

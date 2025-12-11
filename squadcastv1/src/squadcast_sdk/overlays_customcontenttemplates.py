@@ -20,7 +20,7 @@ class OverlaysCustomContentTemplates(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> str:
+    ) -> models.OverlayRenderCustomContentOverlayResponse:
         r"""Render Custom Content Overlay
 
         :param service_id:
@@ -71,6 +71,7 @@ class OverlaysCustomContentTemplates(BaseSDK):
                 "json",
                 models.V3ServicesOverlayRenderCustomContentOverlayRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -183,7 +184,7 @@ class OverlaysCustomContentTemplates(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> str:
+    ) -> models.OverlayRenderCustomContentOverlayResponse:
         r"""Render Custom Content Overlay
 
         :param service_id:
@@ -234,6 +235,7 @@ class OverlaysCustomContentTemplates(BaseSDK):
                 "json",
                 models.V3ServicesOverlayRenderCustomContentOverlayRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -382,6 +384,7 @@ class OverlaysCustomContentTemplates(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -529,6 +532,7 @@ class OverlaysCustomContentTemplates(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -638,7 +642,7 @@ class OverlaysCustomContentTemplates(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3ServicesOverlayCustomContentOverlayResponse:
+    ) -> models.OverlayGetCustomContentTemplateOverlayResponse:
         r"""Get Custom Content Template Overlay
 
         :param service_id:
@@ -676,6 +680,7 @@ class OverlaysCustomContentTemplates(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -786,7 +791,7 @@ class OverlaysCustomContentTemplates(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3ServicesOverlayCustomContentOverlayResponse:
+    ) -> models.OverlayGetCustomContentTemplateOverlayResponse:
         r"""Get Custom Content Template Overlay
 
         :param service_id:
@@ -824,6 +829,7 @@ class OverlaysCustomContentTemplates(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

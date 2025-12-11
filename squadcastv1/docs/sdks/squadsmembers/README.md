@@ -1,5 +1,4 @@
-# SquadsMembers
-(*squads.members*)
+# Squads.Members
 
 ## Overview
 

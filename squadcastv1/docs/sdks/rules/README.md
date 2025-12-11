@@ -1,5 +1,4 @@
 # Rules
-(*rules*)
 
 ## Overview
 

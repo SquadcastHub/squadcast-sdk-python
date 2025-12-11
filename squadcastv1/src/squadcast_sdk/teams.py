@@ -33,7 +33,7 @@ class Teams(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3TeamsTeamResponse]:
+    ) -> models.TeamsGetAllTeamsResponse:
         r"""Get All Teams
 
         Returns all the teams of the organization.
@@ -66,6 +66,7 @@ class Teams(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -172,7 +173,7 @@ class Teams(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3TeamsTeamResponse]:
+    ) -> models.TeamsGetAllTeamsResponse:
         r"""Get All Teams
 
         Returns all the teams of the organization.
@@ -205,6 +206,7 @@ class Teams(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -314,7 +316,7 @@ class Teams(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3TeamsTeamResponse:
+    ) -> models.TeamsCreateTeamResponse:
         r"""Create Team
 
         Add team to the organization. Returns the team object in response.
@@ -360,6 +362,7 @@ class Teams(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.V3TeamsCreateTeamRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -469,7 +472,7 @@ class Teams(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3TeamsTeamResponse:
+    ) -> models.TeamsCreateTeamResponse:
         r"""Create Team
 
         Add team to the organization. Returns the team object in response.
@@ -515,6 +518,7 @@ class Teams(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.V3TeamsCreateTeamRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -622,7 +626,7 @@ class Teams(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3TeamsTeamResponse:
+    ) -> models.TeamsGetTeamByIDResponse:
         r"""Get Team By ID
 
         Returns a team details of the given `teamID` in the request param.
@@ -661,6 +665,7 @@ class Teams(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -768,7 +773,7 @@ class Teams(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3TeamsTeamResponse:
+    ) -> models.TeamsGetTeamByIDResponse:
         r"""Get Team By ID
 
         Returns a team details of the given `teamID` in the request param.
@@ -807,6 +812,7 @@ class Teams(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -920,7 +926,7 @@ class Teams(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3TeamsTeamResponse:
+    ) -> models.TeamsUpdateTeamResponse:
         r"""Update Team
 
         Update organization team details.
@@ -976,6 +982,7 @@ class Teams(BaseSDK):
                 "json",
                 models.V3TeamsUpdateTeamRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1089,7 +1096,7 @@ class Teams(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3TeamsTeamResponse:
+    ) -> models.TeamsUpdateTeamResponse:
         r"""Update Team
 
         Update organization team details.
@@ -1145,6 +1152,7 @@ class Teams(BaseSDK):
                 "json",
                 models.V3TeamsUpdateTeamRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1291,6 +1299,7 @@ class Teams(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1438,6 +1447,7 @@ class Teams(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1550,7 +1560,7 @@ class Teams(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.TeamsAddBulkTeamMemberData:
+    ) -> models.TeamsAddBulkTeamMemberResponse:
         r"""Add Bulk Team Member
 
         Add team member to the team.
@@ -1602,6 +1612,7 @@ class Teams(BaseSDK):
                 "json",
                 models.V3TeamsAddBulkTeamMemberRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1715,7 +1726,7 @@ class Teams(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.TeamsAddBulkTeamMemberData:
+    ) -> models.TeamsAddBulkTeamMemberResponse:
         r"""Add Bulk Team Member
 
         Add team member to the team.
@@ -1767,6 +1778,7 @@ class Teams(BaseSDK):
                 "json",
                 models.V3TeamsAddBulkTeamMemberRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1918,6 +1930,7 @@ class Teams(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2068,6 +2081,7 @@ class Teams(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2179,7 +2193,7 @@ class Teams(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3TeamsTeamMemberResponse:
+    ) -> models.TeamsUpdateTeamMemberResponse:
         r"""Update Team Member
 
         Update team member.
@@ -2233,6 +2247,7 @@ class Teams(BaseSDK):
                 "json",
                 models.V3TeamsUpdateTeamMemberRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2345,7 +2360,7 @@ class Teams(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3TeamsTeamMemberResponse:
+    ) -> models.TeamsUpdateTeamMemberResponse:
         r"""Update Team Member
 
         Update team member.
@@ -2399,6 +2414,7 @@ class Teams(BaseSDK):
                 "json",
                 models.V3TeamsUpdateTeamMemberRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2550,6 +2566,7 @@ class Teams(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2700,6 +2717,7 @@ class Teams(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

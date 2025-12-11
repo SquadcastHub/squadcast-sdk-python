@@ -21,7 +21,7 @@ class SquadsV4(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4SquadsCreateSquadResponse:
+    ) -> models.SquadsCreateSquadResponse:
         r"""Create Squad
 
         This endpoint is used to create a new squad.
@@ -69,6 +69,7 @@ class SquadsV4(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.V4SquadsCreateSquadRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -143,7 +144,7 @@ class SquadsV4(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4SquadsCreateSquadResponse:
+    ) -> models.SquadsCreateSquadResponse:
         r"""Create Squad
 
         This endpoint is used to create a new squad.
@@ -191,6 +192,7 @@ class SquadsV4(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.V4SquadsCreateSquadRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -262,7 +264,7 @@ class SquadsV4(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4SquadsUpdateSquadNameResponse:
+    ) -> models.SquadsUpdateSquadNameResponse:
         r"""Update Squad Name
 
         This endpoint is used to update squad's name.
@@ -312,6 +314,7 @@ class SquadsV4(BaseSDK):
                 "json",
                 models.V4SquadsUpdateSquadNameRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -385,7 +388,7 @@ class SquadsV4(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4SquadsUpdateSquadNameResponse:
+    ) -> models.SquadsUpdateSquadNameResponse:
         r"""Update Squad Name
 
         This endpoint is used to update squad's name.
@@ -435,6 +438,7 @@ class SquadsV4(BaseSDK):
                 "json",
                 models.V4SquadsUpdateSquadNameRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

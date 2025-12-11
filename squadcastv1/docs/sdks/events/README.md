@@ -1,5 +1,4 @@
-# Events
-(*incidents.events*)
+# Incidents.Events
 
 ## Overview
 

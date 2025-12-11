@@ -36,7 +36,7 @@ class SlosSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.SLOGetAllSLOsData:
+    ) -> models.SLOGetAllSLOsResponse:
         r"""Get All SLOs
 
         Returns all the SLOs of the passed owner_id in the params.
@@ -79,6 +79,7 @@ class SlosSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -188,7 +189,7 @@ class SlosSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.SLOGetAllSLOsData:
+    ) -> models.SLOGetAllSLOsResponse:
         r"""Get All SLOs
 
         Returns all the SLOs of the passed owner_id in the params.
@@ -231,6 +232,7 @@ class SlosSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -365,7 +367,7 @@ class SlosSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.SLOCreateSLOData:
+    ) -> models.SLOCreateSLOResponse:
         r"""Create SLO
 
         - This API will create SLO.
@@ -443,6 +445,7 @@ class SlosSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.V3SLOCreateSLORequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -577,7 +580,7 @@ class SlosSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.SLOCreateSLOData:
+    ) -> models.SLOCreateSLOResponse:
         r"""Create SLO
 
         - This API will create SLO.
@@ -655,6 +658,7 @@ class SlosSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.V3SLOCreateSLORequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -791,7 +795,7 @@ class SlosSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.SLOUpdateSLOData:
+    ) -> models.SLOUpdateSLOResponse:
         r"""Update SLO
 
         - This API will update SLO.
@@ -880,6 +884,7 @@ class SlosSDK(BaseSDK):
                 "json",
                 models.V3SLOCreateSLORequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1016,7 +1021,7 @@ class SlosSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.SLOUpdateSLOData:
+    ) -> models.SLOUpdateSLOResponse:
         r"""Update SLO
 
         - This API will update SLO.
@@ -1105,6 +1110,7 @@ class SlosSDK(BaseSDK):
                 "json",
                 models.V3SLOCreateSLORequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1213,7 +1219,7 @@ class SlosSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3SLOSLOResponse:
+    ) -> models.SLORemoveSLOResponse:
         r"""Remove SLO
 
         Remove SLO from passed owner_id (team_id) in the params . Upon sccess the slo will be removed.
@@ -1254,6 +1260,7 @@ class SlosSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1362,7 +1369,7 @@ class SlosSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3SLOSLOResponse:
+    ) -> models.SLORemoveSLOResponse:
         r"""Remove SLO
 
         Remove SLO from passed owner_id (team_id) in the params . Upon sccess the slo will be removed.
@@ -1403,6 +1410,7 @@ class SlosSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1511,7 +1519,7 @@ class SlosSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3SLOSLOWithInsightsResponse:
+    ) -> models.SLOGetSLOByIDResponse:
         r"""Get SLO By ID
 
         Returns a SLO details of the given `sloID` in the request param.
@@ -1552,6 +1560,7 @@ class SlosSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1660,7 +1669,7 @@ class SlosSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3SLOSLOWithInsightsResponse:
+    ) -> models.SLOGetSLOByIDResponse:
         r"""Get SLO By ID
 
         Returns a SLO details of the given `sloID` in the request param.
@@ -1701,6 +1710,7 @@ class SlosSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1815,7 +1825,7 @@ class SlosSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.SLOMarkSLOAffectedData:
+    ) -> models.SLOMarkSLOAffectedResponse:
         r"""Mark SLO Affected
 
         This endpoint is used for mark slo affected.
@@ -1878,6 +1888,7 @@ class SlosSDK(BaseSDK):
                 "json",
                 models.V3SLOMarkSLOAffectedRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1992,7 +2003,7 @@ class SlosSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.SLOMarkSLOAffectedData:
+    ) -> models.SLOMarkSLOAffectedResponse:
         r"""Mark SLO Affected
 
         This endpoint is used for mark slo affected.
@@ -2055,6 +2066,7 @@ class SlosSDK(BaseSDK):
                 "json",
                 models.V3SLOMarkSLOAffectedRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

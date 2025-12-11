@@ -82,6 +82,7 @@ class AuditLogs(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -284,6 +285,7 @@ class AuditLogs(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -426,7 +428,7 @@ class AuditLogs(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3AuditLogsExportAuditLogsResponseData:
+    ) -> models.V3AuditLogsExportAuditLogsResponse:
         r"""Initiate an asynchronous export of audit logs based on the provided filters. The export file will be generated and available for download. Use 'Get details of Audit Logs export history by ID' API to retrieve the download URL.
 
         Export Audit logs
@@ -474,6 +476,7 @@ class AuditLogs(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.V3AuditLogsExportAuditLogsRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -586,7 +589,7 @@ class AuditLogs(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3AuditLogsExportAuditLogsResponseData:
+    ) -> models.V3AuditLogsExportAuditLogsResponse:
         r"""Initiate an asynchronous export of audit logs based on the provided filters. The export file will be generated and available for download. Use 'Get details of Audit Logs export history by ID' API to retrieve the download URL.
 
         Export Audit logs
@@ -634,6 +637,7 @@ class AuditLogs(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.V3AuditLogsExportAuditLogsRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -785,6 +789,7 @@ class AuditLogs(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -959,6 +964,7 @@ class AuditLogs(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1091,7 +1097,7 @@ class AuditLogs(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3AuditLogsAuditLogsExportHistoryResponse:
+    ) -> models.V3AuditLogsGetAuditLogExportHistoryByIDResponse:
         r"""Get details of Audit Logs export history by ID
 
         Get details of Audit Logs export history by ID
@@ -1130,6 +1136,7 @@ class AuditLogs(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1239,7 +1246,7 @@ class AuditLogs(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3AuditLogsAuditLogsExportHistoryResponse:
+    ) -> models.V3AuditLogsGetAuditLogExportHistoryByIDResponse:
         r"""Get details of Audit Logs export history by ID
 
         Get details of Audit Logs export history by ID
@@ -1278,6 +1285,7 @@ class AuditLogs(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1387,7 +1395,7 @@ class AuditLogs(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3AuditLogsAuditLogIDResponse:
+    ) -> models.V3AuditLogsGetAuditLogByIDResponse:
         r"""Get audit log by ID
 
         Get audit log by ID
@@ -1426,6 +1434,7 @@ class AuditLogs(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1535,7 +1544,7 @@ class AuditLogs(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3AuditLogsAuditLogIDResponse:
+    ) -> models.V3AuditLogsGetAuditLogByIDResponse:
         r"""Get audit log by ID
 
         Get audit log by ID
@@ -1574,6 +1583,7 @@ class AuditLogs(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

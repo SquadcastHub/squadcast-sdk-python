@@ -100,6 +100,7 @@ class IncidentsExport(BaseSDK):
                 "json",
                 models.V3IncidentsIncidentExportAsyncRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -290,6 +291,7 @@ class IncidentsExport(BaseSDK):
                 "json",
                 models.V3IncidentsIncidentExportAsyncRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

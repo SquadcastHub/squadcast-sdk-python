@@ -1,5 +1,4 @@
-# IncidentActions
-(*incidents.incident_actions*)
+# Incidents.IncidentActions
 
 ## Overview
 

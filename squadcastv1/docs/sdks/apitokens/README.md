@@ -1,5 +1,4 @@
-# APITokens
-(*users.api_tokens*)
+# Users.ApiTokens
 
 ## Overview
 

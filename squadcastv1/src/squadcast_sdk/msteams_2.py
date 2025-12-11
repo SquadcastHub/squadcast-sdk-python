@@ -39,7 +39,7 @@ class Msteams2(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3ExtensionsMSTeamsMSTeamsConfigResponse:
+    ) -> models.MSTeamsCreateOrUpdateMsteamsConfigurationResponse:
         r"""Create Or Update MSTeams Configuration
 
         Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header with `user-write` scope.
@@ -113,6 +113,7 @@ class Msteams2(BaseSDK):
                 "json",
                 models.V3ExtensionsMSTeamsCreateOrUpdateMSTeamsConfigRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -244,7 +245,7 @@ class Msteams2(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3ExtensionsMSTeamsMSTeamsConfigResponse:
+    ) -> models.MSTeamsCreateOrUpdateMsteamsConfigurationResponse:
         r"""Create Or Update MSTeams Configuration
 
         Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header with `user-write` scope.
@@ -318,6 +319,7 @@ class Msteams2(BaseSDK):
                 "json",
                 models.V3ExtensionsMSTeamsCreateOrUpdateMSTeamsConfigRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

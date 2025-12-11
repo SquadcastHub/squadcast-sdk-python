@@ -5,7 +5,7 @@ from squadcast_sdk import errors, models, utils
 from squadcast_sdk._hooks import HookContext
 from squadcast_sdk.types import OptionalNullable, UNSET
 from squadcast_sdk.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional, Union
+from typing import Any, Mapping, Optional, Union
 
 
 class OverlayCustomContentTemplates(BaseSDK):
@@ -17,7 +17,7 @@ class OverlayCustomContentTemplates(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3ServicesOverlayCustomContentOverlayResponse]:
+    ) -> models.OverlayGetAllCustomContentTemplateOverlayByServiceResponse:
         r"""Get All Custom Content Template Overlay by Service
 
         :param service_id:
@@ -53,6 +53,7 @@ class OverlayCustomContentTemplates(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -163,7 +164,7 @@ class OverlayCustomContentTemplates(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3ServicesOverlayCustomContentOverlayResponse]:
+    ) -> models.OverlayGetAllCustomContentTemplateOverlayByServiceResponse:
         r"""Get All Custom Content Template Overlay by Service
 
         :param service_id:
@@ -199,6 +200,7 @@ class OverlayCustomContentTemplates(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -315,7 +317,7 @@ class OverlayCustomContentTemplates(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3ServicesOverlayCustomContentOverlayResponse:
+    ) -> models.OverlayCreateOrUpdateNotificationTemplateOverlayResponse:
         r"""Create or Update Notification Template Overlay
 
         :param service_id:
@@ -372,6 +374,7 @@ class OverlayCustomContentTemplates(BaseSDK):
                 "json",
                 models.V3ServicesOverlayUpdateCustomContentTemplateOverlayRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -488,7 +491,7 @@ class OverlayCustomContentTemplates(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3ServicesOverlayCustomContentOverlayResponse:
+    ) -> models.OverlayCreateOrUpdateNotificationTemplateOverlayResponse:
         r"""Create or Update Notification Template Overlay
 
         :param service_id:
@@ -545,6 +548,7 @@ class OverlayCustomContentTemplates(BaseSDK):
                 "json",
                 models.V3ServicesOverlayUpdateCustomContentTemplateOverlayRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

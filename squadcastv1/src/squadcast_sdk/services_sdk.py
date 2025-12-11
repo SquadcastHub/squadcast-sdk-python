@@ -78,7 +78,7 @@ class ServicesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3ServicesServiceResponse]:
+    ) -> models.ServicesGetServicesResponse:
         r"""Get All Services
 
         :param owner_id:
@@ -118,6 +118,7 @@ class ServicesSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -227,7 +228,7 @@ class ServicesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3ServicesServiceResponse]:
+    ) -> models.ServicesGetServicesResponse:
         r"""Get All Services
 
         :param owner_id:
@@ -267,6 +268,7 @@ class ServicesSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -488,6 +490,7 @@ class ServicesSDK(BaseSDK):
                 "json",
                 models.V3ServicesCreateServiceRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -711,6 +714,7 @@ class ServicesSDK(BaseSDK):
                 "json",
                 models.V3ServicesCreateServiceRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -821,7 +825,7 @@ class ServicesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3ServicesServiceResponse:
+    ) -> models.ServicesGetServicesByNameResponse:
         r"""Get Services By Name
 
         :param name:
@@ -859,6 +863,7 @@ class ServicesSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -969,7 +974,7 @@ class ServicesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3ServicesServiceResponse:
+    ) -> models.ServicesGetServicesByNameResponse:
         r"""Get Services By Name
 
         :param name:
@@ -1007,6 +1012,7 @@ class ServicesSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1116,7 +1122,7 @@ class ServicesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3ServicesServiceResponse:
+    ) -> models.ServicesGetServiceByIDResponse:
         r"""Get Service By ID
 
         :param service_id:
@@ -1152,6 +1158,7 @@ class ServicesSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1261,7 +1268,7 @@ class ServicesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3ServicesServiceResponse:
+    ) -> models.ServicesGetServiceByIDResponse:
         r"""Get Service By ID
 
         :param service_id:
@@ -1297,6 +1304,7 @@ class ServicesSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1434,7 +1442,7 @@ class ServicesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3ServicesServiceResponse:
+    ) -> models.ServicesUpdateServiceResponse:
         r"""Update Service
 
         :param service_id:
@@ -1510,6 +1518,7 @@ class ServicesSDK(BaseSDK):
                 "json",
                 models.V3ServicesUpdateServiceRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1647,7 +1656,7 @@ class ServicesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3ServicesServiceResponse:
+    ) -> models.ServicesUpdateServiceResponse:
         r"""Update Service
 
         :param service_id:
@@ -1723,6 +1732,7 @@ class ServicesSDK(BaseSDK):
                 "json",
                 models.V3ServicesUpdateServiceRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1868,6 +1878,7 @@ class ServicesSDK(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2012,6 +2023,7 @@ class ServicesSDK(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2122,7 +2134,7 @@ class ServicesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ServicesCreateOrUpdateAPTAConfigData:
+    ) -> models.ServicesCreateOrUpdateAPTAConfigResponse:
         r"""Auto Pause Transient Alerts (APTA)
 
         :param service_id:
@@ -2171,6 +2183,7 @@ class ServicesSDK(BaseSDK):
                 "json",
                 models.V3ServicesAPTAConfigRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2282,7 +2295,7 @@ class ServicesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ServicesCreateOrUpdateAPTAConfigData:
+    ) -> models.ServicesCreateOrUpdateAPTAConfigResponse:
         r"""Auto Pause Transient Alerts (APTA)
 
         :param service_id:
@@ -2331,6 +2344,7 @@ class ServicesSDK(BaseSDK):
                 "json",
                 models.V3ServicesAPTAConfigRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2442,7 +2456,7 @@ class ServicesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ServicesCreateOrUpdateIAGConfigData:
+    ) -> models.ServicesCreateOrUpdateIAGConfigResponse:
         r"""Intelligent Alert Grouping (IAG)
 
         :param service_id:
@@ -2491,6 +2505,7 @@ class ServicesSDK(BaseSDK):
                 "json",
                 models.V3ServicesIAGConfigRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2602,7 +2617,7 @@ class ServicesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ServicesCreateOrUpdateIAGConfigData:
+    ) -> models.ServicesCreateOrUpdateIAGConfigResponse:
         r"""Intelligent Alert Grouping (IAG)
 
         :param service_id:
@@ -2651,6 +2666,7 @@ class ServicesSDK(BaseSDK):
                 "json",
                 models.V3ServicesIAGConfigRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2781,7 +2797,7 @@ class ServicesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3ServicesServiceResponse:
+    ) -> models.ServicesDelayedNotificationConfigResponse:
         r"""Delayed Notification Config
 
         :param service_id:
@@ -2851,6 +2867,7 @@ class ServicesSDK(BaseSDK):
                 "json",
                 models.V3ServicesNotificationDelayConfigRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2981,7 +2998,7 @@ class ServicesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3ServicesServiceResponse:
+    ) -> models.ServicesDelayedNotificationConfigResponse:
         r"""Delayed Notification Config
 
         :param service_id:
@@ -3051,6 +3068,7 @@ class ServicesSDK(BaseSDK):
                 "json",
                 models.V3ServicesNotificationDelayConfigRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

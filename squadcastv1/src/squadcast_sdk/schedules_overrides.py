@@ -5,7 +5,7 @@ from squadcast_sdk import errors, models, utils
 from squadcast_sdk._hooks import HookContext
 from squadcast_sdk.types import OptionalNullable, UNSET
 from squadcast_sdk.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional, Union
+from typing import Any, Mapping, Optional, Union
 
 
 class SchedulesOverrides(BaseSDK):
@@ -22,7 +22,7 @@ class SchedulesOverrides(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V4OverrideResponse]:
+    ) -> models.OverridesListOverridesResponse:
         r"""List Overrides
 
         :param schedule_id:
@@ -68,6 +68,7 @@ class SchedulesOverrides(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -145,7 +146,7 @@ class SchedulesOverrides(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V4OverrideResponse]:
+    ) -> models.OverridesListOverridesResponse:
         r"""List Overrides
 
         :param schedule_id:
@@ -191,6 +192,7 @@ class SchedulesOverrides(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -274,7 +276,7 @@ class SchedulesOverrides(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4OverrideResponse:
+    ) -> models.OverridesCreateScheduleOverrideResponse:
         r"""Create Schedule Override
 
         :param schedule_id:
@@ -333,6 +335,7 @@ class SchedulesOverrides(BaseSDK):
                 "json",
                 models.V4CreateScheduleOverrideRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -416,7 +419,7 @@ class SchedulesOverrides(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4OverrideResponse:
+    ) -> models.OverridesCreateScheduleOverrideResponse:
         r"""Create Schedule Override
 
         :param schedule_id:
@@ -475,6 +478,7 @@ class SchedulesOverrides(BaseSDK):
                 "json",
                 models.V4CreateScheduleOverrideRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -559,7 +563,7 @@ class SchedulesOverrides(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4OverrideResponse:
+    ) -> models.OverridesUpdateScheduleOverrideResponse:
         r"""Update Schedule Override
 
         :param schedule_id:
@@ -620,6 +624,7 @@ class SchedulesOverrides(BaseSDK):
                 "json",
                 models.V4UpdateScheduleOverrideRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -704,7 +709,7 @@ class SchedulesOverrides(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4OverrideResponse:
+    ) -> models.OverridesUpdateScheduleOverrideResponse:
         r"""Update Schedule Override
 
         :param schedule_id:
@@ -765,6 +770,7 @@ class SchedulesOverrides(BaseSDK):
                 "json",
                 models.V4UpdateScheduleOverrideRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

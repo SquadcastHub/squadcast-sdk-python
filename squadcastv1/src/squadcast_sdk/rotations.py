@@ -17,7 +17,7 @@ class Rotations(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V4RotationResponse]:
+    ) -> models.RotationsGetScheduleRotationsResponse:
         r"""List Schedule Rotations
 
         :param schedule_id:
@@ -53,6 +53,7 @@ class Rotations(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -125,7 +126,7 @@ class Rotations(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V4RotationResponse]:
+    ) -> models.RotationsGetScheduleRotationsResponse:
         r"""List Schedule Rotations
 
         :param schedule_id:
@@ -161,6 +162,7 @@ class Rotations(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -249,7 +251,7 @@ class Rotations(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4RotationResponse:
+    ) -> models.RotationsCreateRotationResponse:
         r"""Create Rotation
 
         :param schedule_id:
@@ -322,6 +324,7 @@ class Rotations(BaseSDK):
                 "json",
                 models.V4CreateRotationRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -410,7 +413,7 @@ class Rotations(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4RotationResponse:
+    ) -> models.RotationsCreateRotationResponse:
         r"""Create Rotation
 
         :param schedule_id:
@@ -483,6 +486,7 @@ class Rotations(BaseSDK):
                 "json",
                 models.V4CreateRotationRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -594,6 +598,7 @@ class Rotations(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -704,6 +709,7 @@ class Rotations(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -776,7 +782,7 @@ class Rotations(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4RotationResponse:
+    ) -> models.RotationsGetScheduleRotationByIDResponse:
         r"""Get Schedule Rotation by ID
 
         :param schedule_id:
@@ -814,6 +820,7 @@ class Rotations(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -887,7 +894,7 @@ class Rotations(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4RotationResponse:
+    ) -> models.RotationsGetScheduleRotationByIDResponse:
         r"""Get Schedule Rotation by ID
 
         :param schedule_id:
@@ -925,6 +932,7 @@ class Rotations(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1011,7 +1019,7 @@ class Rotations(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4RotationResponse:
+    ) -> models.RotationsUpdateRotationResponse:
         r"""Update Rotation
 
         :param schedule_id:
@@ -1082,6 +1090,7 @@ class Rotations(BaseSDK):
                 "json",
                 models.V4UpdateRotationRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1168,7 +1177,7 @@ class Rotations(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4RotationResponse:
+    ) -> models.RotationsUpdateRotationResponse:
         r"""Update Rotation
 
         :param schedule_id:
@@ -1239,6 +1248,7 @@ class Rotations(BaseSDK):
                 "json",
                 models.V4UpdateRotationRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1312,7 +1322,7 @@ class Rotations(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4GetRotationParticipantsResponse:
+    ) -> models.RotationsGetRotationParticipantsResponse:
         r"""Get Rotation Participants
 
         :param schedule_id:
@@ -1350,6 +1360,7 @@ class Rotations(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1423,7 +1434,7 @@ class Rotations(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4GetRotationParticipantsResponse:
+    ) -> models.RotationsGetRotationParticipantsResponse:
         r"""Get Rotation Participants
 
         :param schedule_id:
@@ -1461,6 +1472,7 @@ class Rotations(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1537,7 +1549,7 @@ class Rotations(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4RotationParticipantsResponse:
+    ) -> models.RotationsUpdateRotationParticipantsResponse:
         r"""Update Rotation Participants
 
         :param schedule_id:
@@ -1588,6 +1600,7 @@ class Rotations(BaseSDK):
                 "json",
                 models.V4UpdateRotationParticipantsRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1664,7 +1677,7 @@ class Rotations(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4RotationParticipantsResponse:
+    ) -> models.RotationsUpdateRotationParticipantsResponse:
         r"""Update Rotation Participants
 
         :param schedule_id:
@@ -1715,6 +1728,7 @@ class Rotations(BaseSDK):
                 "json",
                 models.V4UpdateRotationParticipantsRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

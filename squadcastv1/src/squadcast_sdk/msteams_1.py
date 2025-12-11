@@ -16,7 +16,7 @@ class MsTeams1(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3ExtensionsMSTeamsMSTeamsConfigResponse:
+    ) -> models.MSTeamsGetMsteamsConfigResponse:
         r"""Get MSTeams Config
 
         Returns MSTeams config of the organization.
@@ -49,6 +49,7 @@ class MsTeams1(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -157,7 +158,7 @@ class MsTeams1(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3ExtensionsMSTeamsMSTeamsConfigResponse:
+    ) -> models.MSTeamsGetMsteamsConfigResponse:
         r"""Get MSTeams Config
 
         Returns MSTeams config of the organization.
@@ -190,6 +191,7 @@ class MsTeams1(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

@@ -24,7 +24,7 @@ class FalsePositive(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.SLOMarkSLOFalsePositiveData:
+    ) -> models.SLOMarkSLOFalsePositiveResponse:
         r"""Mark SLO False Positive
 
         Value is a boolean (true or false)
@@ -79,6 +79,7 @@ class FalsePositive(BaseSDK):
                 "json",
                 models.SLOMarkSLOFalsePositiveRequestBody,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -195,7 +196,7 @@ class FalsePositive(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.SLOMarkSLOFalsePositiveData:
+    ) -> models.SLOMarkSLOFalsePositiveResponse:
         r"""Mark SLO False Positive
 
         Value is a boolean (true or false)
@@ -250,6 +251,7 @@ class FalsePositive(BaseSDK):
                 "json",
                 models.SLOMarkSLOFalsePositiveRequestBody,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
