@@ -12,8 +12,8 @@ management:
   installationURL: https://github.com/SquadcastHub/squadcast-sdk-python.git#subdirectory=squadcastv1
   published: true
 persistentEdits:
-  generation_id: 7b8ddf87-c8b8-4ad2-88bb-903a99613dbf
-  pristine_commit_hash: 454406e9ca003f91634391762a0e9968fc412f36
+  generation_id: 76a4c87e-a004-4aca-bbb5-8b40be105c34
+  pristine_commit_hash: f2915f3bbaadee3872cfe1f6d81b2c4fb6760127
   pristine_tree_hash: 4ef17edfc9baf304cf208a48fc3f99309f94fb2b
 features:
   python:
