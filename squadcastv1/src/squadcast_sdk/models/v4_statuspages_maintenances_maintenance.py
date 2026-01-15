@@ -3,7 +3,8 @@
 from __future__ import annotations
 from datetime import datetime
 import pydantic
-from squadcast_sdk.types import BaseModel
+from pydantic import model_serializer
+from squadcast_sdk.types import BaseModel, UNSET_SENTINEL
 from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -20,6 +21,22 @@ class V4StatusPagesMaintenancesMaintenanceComponent(BaseModel):
     name: Optional[str] = None
 
     group_name: Annotated[Optional[str], pydantic.Field(alias="groupName")] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["id", "name", "groupName"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class V4StatusPagesMaintenancesMaintenanceTypedDict(TypedDict):
@@ -53,3 +70,30 @@ class V4StatusPagesMaintenancesMaintenance(BaseModel):
     maintenance_state: Annotated[
         Optional[str], pydantic.Field(alias="maintenanceState")
     ] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "id",
+                "title",
+                "pageID",
+                "note",
+                "components",
+                "startTime",
+                "endTime",
+                "maintenanceState",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

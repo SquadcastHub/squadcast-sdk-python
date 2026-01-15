@@ -12,7 +12,8 @@ from .v3_incidents_postmortems_postmortemfollowup import (
 from .v3_incidents_postmortems_postmortemstatus import (
     V3IncidentsPostmortemsPostmortemStatus,
 )
-from squadcast_sdk.types import BaseModel
+from pydantic import model_serializer
+from squadcast_sdk.types import BaseModel, UNSET_SENTINEL
 from typing import List, Optional
 from typing_extensions import NotRequired, TypedDict
 
@@ -48,3 +49,28 @@ class V3IncidentsPostmortemsUpdatePostmortemRequest(BaseModel):
 
     status: Optional[V3IncidentsPostmortemsPostmortemStatus] = None
     r"""Represents the status of a postmortem."""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "owner_id",
+                "postmortem",
+                "follow_ups",
+                "new_attachments",
+                "title",
+                "status",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

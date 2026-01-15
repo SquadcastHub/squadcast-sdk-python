@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 from .v3_slo_slo import V3SloSlo, V3SloSloTypedDict
-from squadcast_sdk.types import BaseModel
+from pydantic import model_serializer
+from squadcast_sdk.types import BaseModel, UNSET_SENTINEL
 from typing import Optional
 from typing_extensions import NotRequired, TypedDict
 
@@ -24,3 +25,19 @@ class V3SLOSLOWithInsightsResponse(BaseModel):
     slo: V3SloSlo
 
     insights: Optional[Insights] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["insights"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

@@ -4,7 +4,8 @@ from __future__ import annotations
 from .common_v4_pageinfo import CommonV4PageInfo, CommonV4PageInfoTypedDict
 from .v4_scheduleresponse import V4ScheduleResponse, V4ScheduleResponseTypedDict
 import pydantic
-from squadcast_sdk.types import BaseModel
+from pydantic import model_serializer
+from squadcast_sdk.types import BaseModel, UNSET_SENTINEL
 from squadcast_sdk.utils import FieldMetadata, QueryParamMetadata
 from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
@@ -101,6 +102,37 @@ class SchedulesListSchedulesRequest(BaseModel):
         Optional[str],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=False)),
     ] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "scheduleIDs",
+                "participants",
+                "scheduleName",
+                "myOnCall",
+                "youAndYourSquads",
+                "search",
+                "hidePaused",
+                "ownerID",
+                "escalationPolicies",
+                "withoutEscalationPolicy",
+                "pageSize",
+                "cursor",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class SchedulesListSchedulesResponseBodyTypedDict(TypedDict):

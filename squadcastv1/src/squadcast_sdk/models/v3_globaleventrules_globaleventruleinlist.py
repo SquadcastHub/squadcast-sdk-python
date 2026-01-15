@@ -10,7 +10,8 @@ from .v3_globaleventrules_ruleset import (
     V3GlobalEventRulesRulesetTypedDict,
 )
 from datetime import datetime
-from squadcast_sdk.types import BaseModel
+from pydantic import model_serializer
+from squadcast_sdk.types import BaseModel, UNSET_SENTINEL
 from typing import List, Optional
 from typing_extensions import NotRequired, TypedDict
 
@@ -54,3 +55,34 @@ class V3GlobalEventRulesGlobalEventRuleInList(BaseModel):
     updated_at: Optional[datetime] = None
 
     updated_by: Optional[str] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "id",
+                "org_id",
+                "team_id",
+                "name",
+                "description",
+                "routing_key",
+                "entity_owner",
+                "rulesets",
+                "created_at",
+                "created_by",
+                "updated_at",
+                "updated_by",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

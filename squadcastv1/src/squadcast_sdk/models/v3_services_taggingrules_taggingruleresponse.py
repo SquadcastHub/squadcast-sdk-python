@@ -9,7 +9,8 @@ from .v3_services_taggingrules_tagsobject import (
     V3ServicesTaggingRulesTagsObject,
     V3ServicesTaggingRulesTagsObjectTypedDict,
 )
-from squadcast_sdk.types import BaseModel
+from pydantic import model_serializer
+from squadcast_sdk.types import BaseModel, UNSET_SENTINEL
 from typing import List, Optional
 from typing_extensions import NotRequired, TypedDict
 
@@ -31,3 +32,19 @@ class V3ServicesTaggingRulesTaggingRuleResponse(BaseModel):
     is_basic: Optional[bool] = None
 
     basic_expression: Optional[List[V3ServicesTaggingRulesExpressionBranch]] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["expression", "tags", "is_basic", "basic_expression"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

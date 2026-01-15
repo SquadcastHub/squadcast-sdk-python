@@ -6,7 +6,8 @@ from .v3_analytics_analyticsresponse import (
     V3AnalyticsAnalyticsResponseTypedDict,
 )
 import pydantic
-from squadcast_sdk.types import BaseModel
+from pydantic import model_serializer
+from squadcast_sdk.types import BaseModel, UNSET_SENTINEL
 from squadcast_sdk.utils import FieldMetadata, QueryParamMetadata
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
@@ -39,6 +40,22 @@ class AnalyticsGetOrgAnalyticsRequest(BaseModel):
         Optional[str],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=False)),
     ] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["team_id", "user_id"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class AnalyticsGetOrgAnalyticsResponseTypedDict(TypedDict):

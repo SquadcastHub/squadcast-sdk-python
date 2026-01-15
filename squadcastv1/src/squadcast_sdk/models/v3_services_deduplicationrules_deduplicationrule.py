@@ -5,7 +5,8 @@ from .v3_services_deduplicationrules_expressionbranch import (
     V3ServicesDeduplicationRulesExpressionBranch,
     V3ServicesDeduplicationRulesExpressionBranchTypedDict,
 )
-from squadcast_sdk.types import BaseModel
+from pydantic import model_serializer
+from squadcast_sdk.types import BaseModel, UNSET_SENTINEL
 from typing import List, Literal, Optional
 from typing_extensions import NotRequired, TypedDict
 
@@ -44,3 +45,21 @@ class V3ServicesDeduplicationRulesDeduplicationRule(BaseModel):
     dependency_deduplication: Optional[bool] = None
 
     description: Optional[str] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            ["basic_expression", "dependency_deduplication", "description"]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
