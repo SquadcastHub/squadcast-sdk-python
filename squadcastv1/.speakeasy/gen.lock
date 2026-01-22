@@ -3,7 +3,7 @@ id: 03cdd445-0210-4c34-8201-e581ca90c83e
 management:
   docChecksum: 53ff1f9dcf717cdb49d8871b8544f612
   docVersion: 1.0.0
-  speakeasyVersion: 1.691.0
+  speakeasyVersion: 1.692.0
   generationVersion: 2.797.1
   releaseVersion: 0.4.0
   configChecksum: 56a02d033320bd6cf86750f61dc7f4a8
@@ -12,8 +12,8 @@ management:
   installationURL: https://github.com/SquadcastHub/squadcast-sdk-python.git#subdirectory=squadcastv1
   published: true
 persistentEdits:
-  generation_id: 85ed5467-50f9-428d-a1fb-9adf6402219c
-  pristine_commit_hash: d793de41e89e815ef708a452c5289e8b800c243e
+  generation_id: 3c51679c-4829-40f0-8d07-383c8d10e753
+  pristine_commit_hash: 96e595478d59c6aff6c20ec3f5765fffa94bfdbc
   pristine_tree_hash: 0681268c1e01b55e684ded125b24025a0d116559
 features:
   python:
