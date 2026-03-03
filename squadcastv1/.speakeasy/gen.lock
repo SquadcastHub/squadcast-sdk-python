@@ -3,8 +3,8 @@ id: 03cdd445-0210-4c34-8201-e581ca90c83e
 management:
   docChecksum: df7a4422fc789c0b9bf9786cbc3e3c75
   docVersion: 1.0.0
-  speakeasyVersion: 1.736.3
-  generationVersion: 2.845.15
+  speakeasyVersion: 1.738.0
+  generationVersion: 2.845.21
   releaseVersion: 0.4.0
   configChecksum: 5ca6f50cbbde55b93597edb6f6de0466
   repoURL: https://github.com/SquadcastHub/squadcast-sdk-python.git
@@ -12,9 +12,9 @@ management:
   installationURL: https://github.com/SquadcastHub/squadcast-sdk-python.git#subdirectory=squadcastv1
   published: true
 persistentEdits:
-  generation_id: 985c1ba8-1145-494a-a732-e2f6387d2b9b
-  pristine_commit_hash: 6183d8c654b6111be63d43d76c8c5b45f3258e63
-  pristine_tree_hash: d628f524a0f7f8ced39584edad97428d47f0ec88
+  generation_id: da96163e-df39-4c10-9143-a2b61f31dfeb
+  pristine_commit_hash: 6741d3c70ae5289a0e634b58e705ac43f33933d8
+  pristine_tree_hash: 7b6ac9dddafa48bb4a5bfa20c129ec5f6f0c2aa6
 features:
   python:
     additionalDependencies: 1.0.0
@@ -4754,8 +4754,8 @@ trackedFiles:
     pristine_git_object: 28a85ed5e041bd88f09388cdbd7c0d9e84461a4d
   src/squadcast_sdk/_version.py:
     id: 4f595f70b00c
-    last_write_checksum: sha1:4eb5d9fa05efe0a59dbc1f32d8af3aebf1db5aa8
-    pristine_git_object: 0c494a3481e302ff8c9410ee28d71b39db54947f
+    last_write_checksum: sha1:d527fb42bd715095a7a5287eff517b79e6b89099
+    pristine_git_object: 2c747dd881691741c8d2221684d7000fd42a583c
   src/squadcast_sdk/additionalresponders.py:
     id: b928e2200f63
     last_write_checksum: sha1:6173958904ab7d26b7544464810f5fdbd5247ee0
