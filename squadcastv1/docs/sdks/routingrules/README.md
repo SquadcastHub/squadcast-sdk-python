@@ -1,5 +1,4 @@
-# RoutingRules
-(*services.routing_rules*)
+# Services.RoutingRules
 
 ## Overview
 

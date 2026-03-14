@@ -1,5 +1,4 @@
 # ExportSchedule
-(*export_schedule*)
 
 ## Overview
 

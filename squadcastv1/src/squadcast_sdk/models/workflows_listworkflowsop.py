@@ -5,7 +5,8 @@ from .v3_workflows_listworkflowapiresponse import (
     V3WorkflowsListWorkflowAPIResponse,
     V3WorkflowsListWorkflowAPIResponseTypedDict,
 )
-from squadcast_sdk.types import BaseModel
+from pydantic import model_serializer
+from squadcast_sdk.types import BaseModel, UNSET_SENTINEL
 from squadcast_sdk.utils import FieldMetadata, QueryParamMetadata
 from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
@@ -79,6 +80,35 @@ class WorkflowsListWorkflowsRequest(BaseModel):
         Optional[str],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=False)),
     ] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "page_size",
+                "page_number",
+                "search",
+                "event",
+                "actions",
+                "tags",
+                "owner",
+                "created_by",
+                "updated_by",
+                "enabled",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class WorkflowsListWorkflowsResponseTypedDict(TypedDict):

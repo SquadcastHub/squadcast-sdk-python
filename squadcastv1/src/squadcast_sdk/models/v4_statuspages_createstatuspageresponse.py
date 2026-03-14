@@ -10,7 +10,8 @@ from .v4_statuspages_newstatuspagethemecolor import (
     V4StatusPagesNewStatusPageThemeColorTypedDict,
 )
 import pydantic
-from squadcast_sdk.types import BaseModel
+from pydantic import model_serializer
+from squadcast_sdk.types import BaseModel, UNSET_SENTINEL
 from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -75,3 +76,25 @@ class V4StatusPagesCreateStatusPageResponse(BaseModel):
     ] = None
 
     components: Optional[List[V4StatusPagesNewStatusPageComponentList]] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["description", "themeColor", "components"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
+
+try:
+    V4StatusPagesCreateStatusPageResponse.model_rebuild()
+except NameError:
+    pass

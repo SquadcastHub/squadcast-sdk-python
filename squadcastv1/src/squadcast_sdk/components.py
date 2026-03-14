@@ -5,7 +5,7 @@ from squadcast_sdk import errors, models, utils
 from squadcast_sdk._hooks import HookContext
 from squadcast_sdk.types import OptionalNullable, UNSET
 from squadcast_sdk.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional
+from typing import Any, Mapping, Optional
 
 
 class Components(BaseSDK):
@@ -17,7 +17,7 @@ class Components(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V4StatusPagesComponentsListComponentsResponse]:
+    ) -> models.ComponentsListComponentsResponse:
         r"""List Components
 
         :param statuspage_id:
@@ -53,6 +53,7 @@ class Components(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -162,7 +163,7 @@ class Components(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V4StatusPagesComponentsListComponentsResponse]:
+    ) -> models.ComponentsListComponentsResponse:
         r"""List Components
 
         :param statuspage_id:
@@ -198,6 +199,7 @@ class Components(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -312,7 +314,7 @@ class Components(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesComponentsCreateComponentResponse:
+    ) -> models.ComponentsCreateComponentResponse:
         r"""Create Component
 
         :param statuspage_id:
@@ -367,6 +369,7 @@ class Components(BaseSDK):
                 "json",
                 models.V4StatusPagesComponentsCreateComponentRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -481,7 +484,7 @@ class Components(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesComponentsCreateComponentResponse:
+    ) -> models.ComponentsCreateComponentResponse:
         r"""Create Component
 
         :param statuspage_id:
@@ -536,6 +539,7 @@ class Components(BaseSDK):
                 "json",
                 models.V4StatusPagesComponentsCreateComponentRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -646,7 +650,7 @@ class Components(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesComponentsGetComponentByIDResponse:
+    ) -> models.ComponentsGetComponentByIDResponse:
         r"""Get Component By ID
 
         :param statuspage_id:
@@ -684,6 +688,7 @@ class Components(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -794,7 +799,7 @@ class Components(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesComponentsGetComponentByIDResponse:
+    ) -> models.ComponentsGetComponentByIDResponse:
         r"""Get Component By ID
 
         :param statuspage_id:
@@ -832,6 +837,7 @@ class Components(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -948,7 +954,7 @@ class Components(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesComponentsUpdateComponentByIDResponse:
+    ) -> models.ComponentsUpdateComponentByIDResponse:
         r"""Update Component By ID
 
         :param statuspage_id:
@@ -1007,6 +1013,7 @@ class Components(BaseSDK):
                 "json",
                 models.V4StatusPagesComponentsUpdateComponentByIDRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1123,7 +1130,7 @@ class Components(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesComponentsUpdateComponentByIDResponse:
+    ) -> models.ComponentsUpdateComponentByIDResponse:
         r"""Update Component By ID
 
         :param statuspage_id:
@@ -1182,6 +1189,7 @@ class Components(BaseSDK):
                 "json",
                 models.V4StatusPagesComponentsUpdateComponentByIDRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

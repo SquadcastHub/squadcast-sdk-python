@@ -6,7 +6,8 @@ from .v4_statuspages_issues_componentstatus import (
     V4StatusPagesIssuesComponentStatusTypedDict,
 )
 import pydantic
-from squadcast_sdk.types import BaseModel
+from pydantic import model_serializer
+from squadcast_sdk.types import BaseModel, UNSET_SENTINEL
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -31,3 +32,25 @@ class V4StatusPagesIssuesIssueComponentDetail(BaseModel):
         Optional[V4StatusPagesIssuesComponentStatus],
         pydantic.Field(alias="statusMaintenance"),
     ] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["id", "status", "underMaintenance", "statusMaintenance"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
+
+try:
+    V4StatusPagesIssuesIssueComponentDetail.model_rebuild()
+except NameError:
+    pass

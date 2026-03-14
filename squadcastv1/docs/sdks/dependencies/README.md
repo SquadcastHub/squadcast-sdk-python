@@ -1,5 +1,4 @@
-# Dependencies
-(*services.dependencies*)
+# Services.Dependencies
 
 ## Overview
 

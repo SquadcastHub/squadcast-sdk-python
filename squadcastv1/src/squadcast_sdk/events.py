@@ -21,7 +21,7 @@ class Events(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.IncidentsGetIncidentEventsData:
+    ) -> models.IncidentsGetIncidentEventsResponse:
         r"""Get Incident Events
 
         - This endpoint is used to get all the deduped incident events details by either ID or number.
@@ -80,6 +80,7 @@ class Events(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -193,7 +194,7 @@ class Events(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.IncidentsGetIncidentEventsData:
+    ) -> models.IncidentsGetIncidentEventsResponse:
         r"""Get Incident Events
 
         - This endpoint is used to get all the deduped incident events details by either ID or number.
@@ -252,6 +253,7 @@ class Events(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

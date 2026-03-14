@@ -57,6 +57,7 @@ class GlobalOncallReminderRulesSDK(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -205,6 +206,7 @@ class GlobalOncallReminderRulesSDK(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -313,7 +315,7 @@ class GlobalOncallReminderRulesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3GlobalOncallReminderRulesGlobalOncallReminderRuleResponse:
+    ) -> models.GlobalOncallReminderRulesGetGlobalOncallReminderRulesResponse:
         r"""Get Global Oncall Reminder Rules
 
         Get Global Oncall Reminder Rules
@@ -351,6 +353,7 @@ class GlobalOncallReminderRulesSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -461,7 +464,7 @@ class GlobalOncallReminderRulesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3GlobalOncallReminderRulesGlobalOncallReminderRuleResponse:
+    ) -> models.GlobalOncallReminderRulesGetGlobalOncallReminderRulesResponse:
         r"""Get Global Oncall Reminder Rules
 
         Get Global Oncall Reminder Rules
@@ -499,6 +502,7 @@ class GlobalOncallReminderRulesSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -614,7 +618,7 @@ class GlobalOncallReminderRulesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3GlobalOncallReminderRulesGlobalOncallReminderRuleResponse:
+    ) -> models.GlobalOncallReminderRulesCreateGlobalOncallReminderRulesResponse:
         r"""Create Global Oncall Reminder Rules
 
         :param is_enabled:
@@ -665,6 +669,7 @@ class GlobalOncallReminderRulesSDK(BaseSDK):
                 "json",
                 models.V3GlobalOncallReminderRulesCreateGlobalOncallReminderRulesRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -780,7 +785,7 @@ class GlobalOncallReminderRulesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3GlobalOncallReminderRulesGlobalOncallReminderRuleResponse:
+    ) -> models.GlobalOncallReminderRulesCreateGlobalOncallReminderRulesResponse:
         r"""Create Global Oncall Reminder Rules
 
         :param is_enabled:
@@ -831,6 +836,7 @@ class GlobalOncallReminderRulesSDK(BaseSDK):
                 "json",
                 models.V3GlobalOncallReminderRulesCreateGlobalOncallReminderRulesRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -946,7 +952,7 @@ class GlobalOncallReminderRulesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3GlobalOncallReminderRulesGlobalOncallReminderRuleResponse:
+    ) -> models.GlobalOncallReminderRulesUpdateGlobalOncallReminderRulesResponse:
         r"""Update Global Oncall Reminder Rules
 
         Update Global Oncall Reminder Rules
@@ -999,6 +1005,7 @@ class GlobalOncallReminderRulesSDK(BaseSDK):
                 "json",
                 models.V3GlobalOncallReminderRulesUpdateGlobalOncallReminderRulesRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1114,7 +1121,7 @@ class GlobalOncallReminderRulesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3GlobalOncallReminderRulesGlobalOncallReminderRuleResponse:
+    ) -> models.GlobalOncallReminderRulesUpdateGlobalOncallReminderRulesResponse:
         r"""Update Global Oncall Reminder Rules
 
         Update Global Oncall Reminder Rules
@@ -1167,6 +1174,7 @@ class GlobalOncallReminderRulesSDK(BaseSDK):
                 "json",
                 models.V3GlobalOncallReminderRulesUpdateGlobalOncallReminderRulesRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

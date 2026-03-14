@@ -18,7 +18,7 @@ class CommunicationCard(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3IncidentsCommunicationCardsCommunicationCardResponse:
+    ) -> models.CommunicationCardsCreateSlackChannelInCommunicationCardResponse:
         r"""Create Slack Channel in Communication Card
 
         :param channel_name:
@@ -63,6 +63,7 @@ class CommunicationCard(BaseSDK):
                 "json",
                 models.V3IncidentsCommunicationCardsCreateSlackChannelRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -174,7 +175,7 @@ class CommunicationCard(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3IncidentsCommunicationCardsCommunicationCardResponse:
+    ) -> models.CommunicationCardsCreateSlackChannelInCommunicationCardResponse:
         r"""Create Slack Channel in Communication Card
 
         :param channel_name:
@@ -219,6 +220,7 @@ class CommunicationCard(BaseSDK):
                 "json",
                 models.V3IncidentsCommunicationCardsCreateSlackChannelRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -329,7 +331,7 @@ class CommunicationCard(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3IncidentsCommunicationCardsCommunicationCardResponse:
+    ) -> models.CommunicationCardsArchiveSlackChannelResponse:
         r"""Archive Slack Channel
 
         :param slack_channel_id:
@@ -372,6 +374,7 @@ class CommunicationCard(BaseSDK):
                 "json",
                 models.V3IncidentsCommunicationCardsArchiveSlackChannelRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -481,7 +484,7 @@ class CommunicationCard(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3IncidentsCommunicationCardsCommunicationCardResponse:
+    ) -> models.CommunicationCardsArchiveSlackChannelResponse:
         r"""Archive Slack Channel
 
         :param slack_channel_id:
@@ -524,6 +527,7 @@ class CommunicationCard(BaseSDK):
                 "json",
                 models.V3IncidentsCommunicationCardsArchiveSlackChannelRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

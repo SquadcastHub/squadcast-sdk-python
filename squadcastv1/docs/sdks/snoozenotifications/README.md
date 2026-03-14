@@ -1,5 +1,4 @@
 # SnoozeNotifications
-(*snooze_notifications*)
 
 ## Overview
 

@@ -5,7 +5,7 @@ from squadcast_sdk import errors, models, utils
 from squadcast_sdk._hooks import HookContext
 from squadcast_sdk.types import OptionalNullable, UNSET
 from squadcast_sdk.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional
+from typing import Any, Mapping, Optional
 
 
 class CommunicationCards(BaseSDK):
@@ -17,7 +17,7 @@ class CommunicationCards(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3IncidentsCommunicationCardsCommunicationCardResponse]:
+    ) -> models.CommunicationCardsGetAllCommunicationCardResponse:
         r"""Get All Communication Card
 
         *   This endpoint is used to get all the communication card details for incidentId metioned in params.
@@ -56,6 +56,7 @@ class CommunicationCards(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -165,7 +166,7 @@ class CommunicationCards(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3IncidentsCommunicationCardsCommunicationCardResponse]:
+    ) -> models.CommunicationCardsGetAllCommunicationCardResponse:
         r"""Get All Communication Card
 
         *   This endpoint is used to get all the communication card details for incidentId metioned in params.
@@ -204,6 +205,7 @@ class CommunicationCards(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

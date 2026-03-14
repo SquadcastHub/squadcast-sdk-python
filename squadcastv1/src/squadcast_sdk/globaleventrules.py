@@ -84,6 +84,7 @@ class GlobalEventRules(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -271,6 +272,7 @@ class GlobalEventRules(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -414,7 +416,7 @@ class GlobalEventRules(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3GlobalEventRulesCreatedGlobalEventRuleResponse:
+    ) -> models.GlobalEventRulesCreateGlobalEventRuleResponse:
         r"""Create Global Event Rule
 
         Create a GER
@@ -467,6 +469,7 @@ class GlobalEventRules(BaseSDK):
                 "json",
                 models.V3GlobalEventRulesCreateGlobalEventRuleRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -582,7 +585,7 @@ class GlobalEventRules(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3GlobalEventRulesCreatedGlobalEventRuleResponse:
+    ) -> models.GlobalEventRulesCreateGlobalEventRuleResponse:
         r"""Create Global Event Rule
 
         Create a GER
@@ -635,6 +638,7 @@ class GlobalEventRules(BaseSDK):
                 "json",
                 models.V3GlobalEventRulesCreateGlobalEventRuleRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -782,6 +786,7 @@ class GlobalEventRules(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -928,6 +933,7 @@ class GlobalEventRules(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1036,7 +1042,7 @@ class GlobalEventRules(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3GlobalEventRulesGlobalEventRuleResponse:
+    ) -> models.GlobalEventRulesGetGlobalEventRuleByIDResponse:
         r"""Get Global Event Rule by ID
 
         Get a GER by its ID
@@ -1074,6 +1080,7 @@ class GlobalEventRules(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1183,7 +1190,7 @@ class GlobalEventRules(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3GlobalEventRulesGlobalEventRuleResponse:
+    ) -> models.GlobalEventRulesGetGlobalEventRuleByIDResponse:
         r"""Get Global Event Rule by ID
 
         Get a GER by its ID
@@ -1221,6 +1228,7 @@ class GlobalEventRules(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1338,7 +1346,7 @@ class GlobalEventRules(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3GlobalEventRulesGlobalEventRuleResponse:
+    ) -> models.GlobalEventRulesUpdateGlobalEventRuleByIDResponse:
         r"""Update Global Event Rule by ID
 
         Update a GER by its ID
@@ -1393,6 +1401,7 @@ class GlobalEventRules(BaseSDK):
                 "json",
                 models.V3GlobalEventRulesUpdateGlobalEventRuleRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1510,7 +1519,7 @@ class GlobalEventRules(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3GlobalEventRulesGlobalEventRuleResponse:
+    ) -> models.GlobalEventRulesUpdateGlobalEventRuleByIDResponse:
         r"""Update Global Event Rule by ID
 
         Update a GER by its ID
@@ -1565,6 +1574,7 @@ class GlobalEventRules(BaseSDK):
                 "json",
                 models.V3GlobalEventRulesUpdateGlobalEventRuleRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

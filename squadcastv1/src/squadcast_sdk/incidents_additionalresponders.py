@@ -17,7 +17,7 @@ class IncidentsAdditionalResponders(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3IncidentsAdditionalRespondersAdditionalResponderResponse:
+    ) -> models.AdditionalRespondersGetAdditionalRespondersResponse:
         r"""Get Additional Responders
 
         - This endpoint is used to get the incident additional responders.
@@ -57,6 +57,7 @@ class IncidentsAdditionalResponders(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -166,7 +167,7 @@ class IncidentsAdditionalResponders(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3IncidentsAdditionalRespondersAdditionalResponderResponse:
+    ) -> models.AdditionalRespondersGetAdditionalRespondersResponse:
         r"""Get Additional Responders
 
         - This endpoint is used to get the incident additional responders.
@@ -206,6 +207,7 @@ class IncidentsAdditionalResponders(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -318,7 +320,7 @@ class IncidentsAdditionalResponders(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3IncidentsAdditionalRespondersAdditionalResponderResponse:
+    ) -> models.AdditionalRespondersAddAdditionalRespondersResponse:
         r"""Add Additional Responders
 
         - This endpoint is used to add additional responders to an Incident.
@@ -371,6 +373,7 @@ class IncidentsAdditionalResponders(BaseSDK):
                 "json",
                 models.V3IncidentsAdditionalRespondersAddAdditionalRespondersRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -483,7 +486,7 @@ class IncidentsAdditionalResponders(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3IncidentsAdditionalRespondersAdditionalResponderResponse:
+    ) -> models.AdditionalRespondersAddAdditionalRespondersResponse:
         r"""Add Additional Responders
 
         - This endpoint is used to add additional responders to an Incident.
@@ -536,6 +539,7 @@ class IncidentsAdditionalResponders(BaseSDK):
                 "json",
                 models.V3IncidentsAdditionalRespondersAddAdditionalRespondersRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

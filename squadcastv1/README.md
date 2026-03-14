@@ -12,7 +12,58 @@ Developer-friendly & type-safe Python SDK specifically catered to leverage *open
 <!-- Start Summary [summary] -->
 ## Summary
 
+Squadcast: ## Overview
+The Squadcast API provides developers the capability to extend and utilize Squadcast in conjunction with other services. Our API has resource-oriented URLs, accepts JSON-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.
 
+> **Note:** Customers using the V2 version of the Squadcast API would need to migrate to Squadcast API V3, as the former would be deprecated shortly.
+
+### Service Regions
+
+Squadcast allows customers to choose the geographic region of the Squadcast data centers that host their account. When signing up, you can choose the service region. Currently, the available options are the United States (US) and Europe (EU).
+
+| Service Region | API Endpoints |
+|---|---|
+| US | Authentication: https://auth.squadcast.com · Other APIs: https://api.squadcast.com |
+| EU | Authentication: https://auth.eu.squadcast.com · Other APIs: https://api.eu.squadcast.com |
+
+### Authentication
+
+In order to access the API programmatically, HTTP bearer authentication needs to be used. HTTP bearer authentication must be constructed using an `access_token`, passed as the `Authorization` header for each request, for example `Authorization: Bearer eyJleHAiOjE2MzU1OTE1OTIsImp0aSI6Im`.
+
+Steps to procure the `access_token`:
+
+1. Generate a `refresh_token` (API Token) from the Squadcast web app. More details on how to get the `refresh_token` can be found in the Squadcast support documentation.
+2. Call the authentication API with the `refresh_token` to obtain an `access_token`.
+3. Use the `access_token` as a Bearer token in the `Authorization` header for all subsequent API requests.
+
+#### Example — Generating an Access Token
+
+```bash
+curl --location --request GET 'https://auth.squadcast.com/oauth/access-token' \
+--header 'X-Refresh-Token: 0d2a1a9a454dxxxxxxxxxxxx'
+```
+
+The API response will look similar to:
+
+```json
+{
+  "data": {
+    "access_token": "eyJhbGciOiJIUxxxxx.xxxxxxxxxxxxxxx.xxxxxxxxxxxxxxx",
+    "expires_at": 1587412870,
+    "issued_at": 1587240070,
+    "refresh_token": "0d2a1a9a454dxxxxxxxxxxxx",
+    "type": "bearer"
+  }
+}
+```
+
+### Access Control
+
+There are three different types of user roles in Squadcast: `account_owner`, `stakeholder`, and `user`. Refresh tokens upon creation are mapped with one of the mentioned user roles, and access to different resources is dependent on the permissions granted to these roles. For more information, please refer to the Squadcast support documentation.
+
+### Authorization
+
+The access token authorizes users the ability to access different APIs, based on the user roles described above. Pass the access token as a Bearer token in the `Authorization` header of every request.
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
@@ -85,7 +136,7 @@ It's also possible to write a standalone Python script without needing to set up
 ```python
 #!/usr/bin/env -S uv run --script
 # /// script
-# requires-python = ">=3.9"
+# requires-python = ">=3.10"
 # dependencies = [
 #     "squadcast_sdk",
 # ]
@@ -124,11 +175,9 @@ Generally, the SDK will work well with most IDEs out of the box. However, when u
 from squadcast_sdk import SquadcastSDK
 
 
-with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+with SquadcastSDK() as ss_client:
 
-    res = ss_client.analytics.get_org_analytics(from_="<value>", to="<value>")
+    res = ss_client.auth.auth_get_access_token(x_refresh_token="<value>")
 
     # Handle response
     print(res)
@@ -145,11 +194,9 @@ from squadcast_sdk import SquadcastSDK
 
 async def main():
 
-    async with SquadcastSDK(
-        bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-    ) as ss_client:
+    async with SquadcastSDK() as ss_client:
 
-        res = await ss_client.analytics.get_org_analytics_async(from_="<value>", to="<value>")
+        res = await ss_client.auth.auth_get_access_token_async(x_refresh_token="<value>")
 
         # Handle response
         print(res)
@@ -178,7 +225,7 @@ with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
 ) as ss_client:
 
-    res = ss_client.analytics.get_org_analytics(from_="<value>", to="<value>")
+    res = ss_client.auth.auth_get_access_token(x_refresh_token="<value>")
 
     # Handle response
     print(res)
@@ -192,16 +239,16 @@ with SquadcastSDK(
 <details open>
 <summary>Available methods</summary>
 
-### [additional_responders](docs/sdks/additionalresponders/README.md)
+### [AdditionalResponders](docs/sdks/additionalresponders/README.md)
 
 * [remove](docs/sdks/additionalresponders/README.md#remove) - Remove Additional Responders
 
-### [analytics](docs/sdks/analytics/README.md)
+### [Analytics](docs/sdks/analytics/README.md)
 
 * [get_org_analytics](docs/sdks/analytics/README.md#get_org_analytics) - Get Org level analytics
 * [get_team](docs/sdks/analytics/README.md#get_team) - Get Team level analytics
 
-### [audit_logs](docs/sdks/auditlogs/README.md)
+### [AuditLogs](docs/sdks/auditlogs/README.md)
 
 * [list](docs/sdks/auditlogs/README.md#list) - List all Audit Logs
 * [export](docs/sdks/auditlogs/README.md#export) - Initiate an asynchronous export of audit logs based on the provided filters. The export file will be generated and available for download. Use 'Get details of Audit Logs export history by ID' API to retrieve the download URL.
@@ -209,27 +256,31 @@ with SquadcastSDK(
 * [get_export_history_by_id](docs/sdks/auditlogs/README.md#get_export_history_by_id) - Get details of Audit Logs export history by ID
 * [get_by_id](docs/sdks/auditlogs/README.md#get_by_id) - Get audit log by ID
 
-### [communication_cards](docs/sdks/communicationcards/README.md)
+### [Auth](docs/sdks/auth/README.md)
+
+* [auth_get_access_token](docs/sdks/auth/README.md#auth_get_access_token) - Get Access Token
+
+### [CommunicationCards](docs/sdks/communicationcards/README.md)
 
 * [get_all](docs/sdks/communicationcards/README.md#get_all) - Get All Communication Card
 
-### [component_groups](docs/sdks/componentgroups/README.md)
+### [ComponentGroups](docs/sdks/componentgroups/README.md)
 
 * [create](docs/sdks/componentgroups/README.md#create) - Create Component Group
 
-### [components](docs/sdks/components/README.md)
+### [Components](docs/sdks/components/README.md)
 
 * [list](docs/sdks/components/README.md#list) - List Components
 * [create](docs/sdks/components/README.md#create) - Create Component
 * [get_by_id](docs/sdks/components/README.md#get_by_id) - Get Component By ID
 * [update_by_id](docs/sdks/components/README.md#update_by_id) - Update Component By ID
 
-### [dedup_keys](docs/sdks/dedupkeys/README.md)
+### [DedupKeys](docs/sdks/dedupkeys/README.md)
 
 * [list_by_service](docs/sdks/dedupkeys/README.md#list_by_service) - Get All Dedup Key Overlay by Service
 * [delete](docs/sdks/dedupkeys/README.md#delete) - Delete Dedup Key Overlay
 
-### [escalation_policies](docs/sdks/escalationpoliciessdk/README.md)
+### [EscalationPolicies](docs/sdks/escalationpoliciessdk/README.md)
 
 * [get_by_team](docs/sdks/escalationpoliciessdk/README.md#get_by_team) - Get Escalation Policy By team
 * [create](docs/sdks/escalationpoliciessdk/README.md#create) - Create Escalation Policies
@@ -237,27 +288,27 @@ with SquadcastSDK(
 * [get_by_id](docs/sdks/escalationpoliciessdk/README.md#get_by_id) - Get Escalation Policy By ID
 * [update](docs/sdks/escalationpoliciessdk/README.md#update) - Update Escalation Policy
 
-### [export_schedule](docs/sdks/exportschedule/README.md)
-
-* [refresh_ical_link](docs/sdks/exportschedule/README.md#refresh_ical_link) - Refresh Schedule ICal Link
-
-### [exports](docs/sdks/exports/README.md)
+### [Exports](docs/sdks/exports/README.md)
 
 * [get_details](docs/sdks/exports/README.md#get_details) - Get Export Details
 
-#### [extensions.ms_teams](docs/sdks/msteams1/README.md)
+### [ExportSchedule](docs/sdks/exportschedule/README.md)
 
-* [get_config](docs/sdks/msteams1/README.md#get_config) - Get MSTeams Config
+* [refresh_ical_link](docs/sdks/exportschedule/README.md#refresh_ical_link) - Refresh Schedule ICal Link
 
-#### [extensions.msteams](docs/sdks/msteams2/README.md)
+### [Extensions.Msteams](docs/sdks/msteams2/README.md)
 
 * [create_or_update_config](docs/sdks/msteams2/README.md#create_or_update_config) - Create Or Update MSTeams Configuration
 
-#### [extensions.webhooks](docs/sdks/extensionswebhooks/README.md)
+### [Extensions.MsTeams](docs/sdks/msteams1/README.md)
+
+* [get_config](docs/sdks/msteams1/README.md#get_config) - Get MSTeams Config
+
+### [Extensions.Webhooks](docs/sdks/extensionswebhooks/README.md)
 
 * [get_all](docs/sdks/extensionswebhooks/README.md#get_all) - Get All Webhooks
 
-### [global_event_rules](docs/sdks/globaleventrules/README.md)
+### [GlobalEventRules](docs/sdks/globaleventrules/README.md)
 
 * [list](docs/sdks/globaleventrules/README.md#list) - List Global Event Rules
 * [create_rule](docs/sdks/globaleventrules/README.md#create_rule) - Create Global Event Rule
@@ -265,14 +316,14 @@ with SquadcastSDK(
 * [get_by_id](docs/sdks/globaleventrules/README.md#get_by_id) - Get Global Event Rule by ID
 * [update_by_id](docs/sdks/globaleventrules/README.md#update_by_id) - Update Global Event Rule by ID
 
-#### [global_event_rules.rulesets](docs/sdks/globaleventrulesrulesets/README.md)
+#### [GlobalEventRules.Rulesets](docs/sdks/globaleventrulesrulesets/README.md)
 
 * [create](docs/sdks/globaleventrulesrulesets/README.md#create) - Create Ruleset
 * [delete](docs/sdks/globaleventrulesrulesets/README.md#delete) - Delete GER Ruleset
 * [get](docs/sdks/globaleventrulesrulesets/README.md#get) - Get Ruleset
 * [update](docs/sdks/globaleventrulesrulesets/README.md#update) - Update Ruleset
 
-#### [global_event_rules.rulesets.rules](docs/sdks/rulesetsrules/README.md)
+##### [GlobalEventRules.Rulesets.Rules](docs/sdks/rulesetsrules/README.md)
 
 * [list](docs/sdks/rulesetsrules/README.md#list) - List Ruleset Rules
 * [create](docs/sdks/rulesetsrules/README.md#create) - Create Rule
@@ -280,14 +331,14 @@ with SquadcastSDK(
 * [update_by_id](docs/sdks/rulesetsrules/README.md#update_by_id) - Update Rule by ID
 * [reorder](docs/sdks/rulesetsrules/README.md#reorder) - Reorder Ruleset By Index
 
-### [global_oncall_reminder_rules](docs/sdks/globaloncallreminderrulessdk/README.md)
+### [GlobalOncallReminderRules](docs/sdks/globaloncallreminderrulessdk/README.md)
 
 * [delete](docs/sdks/globaloncallreminderrulessdk/README.md#delete) - Delete Global Oncall Reminder Rules
 * [get](docs/sdks/globaloncallreminderrulessdk/README.md#get) - Get Global Oncall Reminder Rules
 * [create](docs/sdks/globaloncallreminderrulessdk/README.md#create) - Create Global Oncall Reminder Rules
 * [update](docs/sdks/globaloncallreminderrulessdk/README.md#update) - Update Global Oncall Reminder Rules
 
-### [incidents](docs/sdks/incidents/README.md)
+### [Incidents](docs/sdks/incidents/README.md)
 
 * [bulk_acknowledge](docs/sdks/incidents/README.md#bulk_acknowledge) - Bulk Acknowledge Incidents
 * [export_incidents](docs/sdks/incidents/README.md#export_incidents) - Incident Export
@@ -301,103 +352,103 @@ with SquadcastSDK(
 * [resolve](docs/sdks/incidents/README.md#resolve) - Resolve Incident
 * [get_status_by_request_ids](docs/sdks/incidents/README.md#get_status_by_request_ids) - Get Incidents Status By RequestIDs
 
-#### [incidents.actions](docs/sdks/incidentsactions/README.md)
+#### [Incidents.Actions](docs/sdks/incidentsactions/README.md)
 
 * [rebuild_circleci_project](docs/sdks/incidentsactions/README.md#rebuild_circleci_project) - Rebuild a Project In CircleCI
 
-#### [incidents.actions.jira](docs/sdks/jira/README.md)
+##### [Incidents.Actions.Jira](docs/sdks/jira/README.md)
 
 * [create_ticket](docs/sdks/jira/README.md#create_ticket) - Create a Ticket on Jira Cloud
 
-#### [incidents.actions.service_now](docs/sdks/servicenow/README.md)
+##### [Incidents.Actions.ServiceNow](docs/sdks/servicenow/README.md)
 
 * [create_incident](docs/sdks/servicenow/README.md#create_incident) - Create an Incident in ServiceNow
 
-#### [incidents.actions.webhook](docs/sdks/webhook/README.md)
+##### [Incidents.Actions.Webhook](docs/sdks/webhook/README.md)
 
 * [trigger](docs/sdks/webhook/README.md#trigger) - Trigger a Webhook Manually
 
-#### [incidents.additional_responders](docs/sdks/incidentsadditionalresponders/README.md)
+#### [Incidents.AdditionalResponders](docs/sdks/incidentsadditionalresponders/README.md)
 
 * [list](docs/sdks/incidentsadditionalresponders/README.md#list) - Get Additional Responders
 * [add](docs/sdks/incidentsadditionalresponders/README.md#add) - Add Additional Responders
 
-#### [incidents.auto_pause_transient_alerts](docs/sdks/autopausetransientalerts/README.md)
+#### [Incidents.AutoPauseTransientAlerts](docs/sdks/autopausetransientalerts/README.md)
 
 * [mark_as_not_transient](docs/sdks/autopausetransientalerts/README.md#mark_as_not_transient) - Mark as Not Transient
 * [mark_as_transient](docs/sdks/autopausetransientalerts/README.md#mark_as_transient) - Mark as Transient
 
-#### [incidents.communication_card](docs/sdks/communicationcard/README.md)
+#### [Incidents.CommunicationCard](docs/sdks/communicationcard/README.md)
 
 * [create_slack_channel](docs/sdks/communicationcard/README.md#create_slack_channel) - Create Slack Channel in Communication Card
 * [archive_slack_channel](docs/sdks/communicationcard/README.md#archive_slack_channel) - Archive Slack Channel
 
-#### [incidents.communication_cards](docs/sdks/incidentscommunicationcards/README.md)
+#### [Incidents.CommunicationCards](docs/sdks/incidentscommunicationcards/README.md)
 
 * [create](docs/sdks/incidentscommunicationcards/README.md#create) - Create Communication Card
 * [delete](docs/sdks/incidentscommunicationcards/README.md#delete) - Delete Communication Card
 * [update](docs/sdks/incidentscommunicationcards/README.md#update) - Update Communication Card
 
-#### [incidents.events](docs/sdks/events/README.md)
+#### [Incidents.Events](docs/sdks/events/README.md)
 
 * [get](docs/sdks/events/README.md#get) - Get Incident Events
 
-#### [incidents.export](docs/sdks/incidentsexport/README.md)
+#### [Incidents.Export](docs/sdks/incidentsexport/README.md)
 
 * [export_async](docs/sdks/incidentsexport/README.md#export_async) - Incident Export Async
 
-#### [incidents.incident_actions](docs/sdks/incidentactions/README.md)
+#### [Incidents.IncidentActions](docs/sdks/incidentactions/README.md)
 
 * [create_jira_ticket](docs/sdks/incidentactions/README.md#create_jira_ticket) - Create a Ticket on Jira Server
 
-#### [incidents.notes](docs/sdks/notes/README.md)
+#### [Incidents.Notes](docs/sdks/notes/README.md)
 
 * [create](docs/sdks/notes/README.md#create) - Create Notes
 * [list](docs/sdks/notes/README.md#list) - Get All Notes
 * [delete](docs/sdks/notes/README.md#delete) - Delete Note
 * [update](docs/sdks/notes/README.md#update) - Update Note
 
-#### [incidents.postmortems](docs/sdks/incidentspostmortems/README.md)
+#### [Incidents.Postmortems](docs/sdks/incidentspostmortems/README.md)
 
 * [remove](docs/sdks/incidentspostmortems/README.md#remove) - Delete Postmortem By Incident
 * [get_by_incident](docs/sdks/incidentspostmortems/README.md#get_by_incident) - Get Postmortem By Incident
 * [update_by_incident](docs/sdks/incidentspostmortems/README.md#update_by_incident) - Update Postmortem By Incident
 
-#### [incidents.snooze_notifications](docs/sdks/incidentssnoozenotifications/README.md)
+#### [Incidents.SnoozeNotifications](docs/sdks/incidentssnoozenotifications/README.md)
 
 * [unsnooze](docs/sdks/incidentssnoozenotifications/README.md#unsnooze) - Unsnooze Incident Notifications
 
-#### [incidents.tags](docs/sdks/incidentstags/README.md)
+#### [Incidents.Tags](docs/sdks/incidentstags/README.md)
 
 * [update](docs/sdks/incidentstags/README.md#update) - Update Tag
 * [append](docs/sdks/incidentstags/README.md#append) - Append Tag
 
-### [issues](docs/sdks/issues/README.md)
+### [Issues](docs/sdks/issues/README.md)
 
 * [delete_by_id](docs/sdks/issues/README.md#delete_by_id) - Delete Issue By ID
 * [update](docs/sdks/issues/README.md#update) - Update Issue
 * [list](docs/sdks/issues/README.md#list) - List Status Page Issue States
 
-### [maintenances](docs/sdks/maintenances/README.md)
+### [Maintenances](docs/sdks/maintenances/README.md)
 
 * [delete](docs/sdks/maintenances/README.md#delete) - Delete Maintenance By ID
 * [update_by_id](docs/sdks/maintenances/README.md#update_by_id) - Update Maintenance By ID
 
-#### [overlays.dedup_key](docs/sdks/dedupkey/README.md)
+### [Overlays.DedupKey](docs/sdks/dedupkey/README.md)
 
 * [get_for_alert_source](docs/sdks/dedupkey/README.md#get_for_alert_source) - Get Dedup Key Overlay for Alert Source
 
-### [overrides](docs/sdks/overrides/README.md)
+### [Overrides](docs/sdks/overrides/README.md)
 
 * [remove](docs/sdks/overrides/README.md#remove) - Delete Schedule Override
 * [get_by_id](docs/sdks/overrides/README.md#get_by_id) - Get Override by ID
 
-### [postmortems](docs/sdks/postmortemssdk/README.md)
+### [Postmortems](docs/sdks/postmortemssdk/README.md)
 
 * [get_all](docs/sdks/postmortemssdk/README.md#get_all) - Get All Postmortems
 * [create](docs/sdks/postmortemssdk/README.md#create) - Create Postmortem
 
-### [rotations](docs/sdks/rotations/README.md)
+### [Rotations](docs/sdks/rotations/README.md)
 
 * [list_by_schedule](docs/sdks/rotations/README.md#list_by_schedule) - List Schedule Rotations
 * [create](docs/sdks/rotations/README.md#create) - Create Rotation
@@ -407,15 +458,15 @@ with SquadcastSDK(
 * [get_participants](docs/sdks/rotations/README.md#get_participants) - Get Rotation Participants
 * [update_participants](docs/sdks/rotations/README.md#update_participants) - Update Rotation Participants
 
-### [rules](docs/sdks/rules/README.md)
+### [Rules](docs/sdks/rules/README.md)
 
 * [delete_by_id](docs/sdks/rules/README.md#delete_by_id) - Delete Rule by ID
 
-### [rulesets](docs/sdks/rulesets/README.md)
+### [Rulesets](docs/sdks/rulesets/README.md)
 
 * [reorder](docs/sdks/rulesets/README.md#reorder) - Reorder Ruleset
 
-### [runbooks](docs/sdks/runbookssdk/README.md)
+### [Runbooks](docs/sdks/runbookssdk/README.md)
 
 * [attach](docs/sdks/runbookssdk/README.md#attach) - Attach Runbooks
 * [get_all_by_team](docs/sdks/runbookssdk/README.md#get_all_by_team) - Get All Runbooks By Team
@@ -424,7 +475,7 @@ with SquadcastSDK(
 * [get_by_id](docs/sdks/runbookssdk/README.md#get_by_id) - Get Runbook By ID
 * [update](docs/sdks/runbookssdk/README.md#update) - Update Runbook
 
-### [schedules](docs/sdks/schedulessdk/README.md)
+### [Schedules](docs/sdks/schedulessdk/README.md)
 
 * [list](docs/sdks/schedulessdk/README.md#list) - List Schedules
 * [create](docs/sdks/schedulessdk/README.md#create) - Create Schedule
@@ -437,17 +488,17 @@ with SquadcastSDK(
 * [get_ical_link](docs/sdks/schedulessdk/README.md#get_ical_link) - Get Schedule ICal Link
 * [create_ical_link](docs/sdks/schedulessdk/README.md#create_ical_link) - Create Schedule ICal Link
 
-#### [schedules.export](docs/sdks/schedulesexport/README.md)
+#### [Schedules.Export](docs/sdks/schedulesexport/README.md)
 
 * [delete_ical_link](docs/sdks/schedulesexport/README.md#delete_ical_link) - Delete ICal Link
 
-#### [schedules.overrides](docs/sdks/schedulesoverrides/README.md)
+#### [Schedules.Overrides](docs/sdks/schedulesoverrides/README.md)
 
 * [list](docs/sdks/schedulesoverrides/README.md#list) - List Overrides
 * [create](docs/sdks/schedulesoverrides/README.md#create) - Create Schedule Override
 * [update](docs/sdks/schedulesoverrides/README.md#update) - Update Schedule Override
 
-### [services](docs/sdks/servicessdk/README.md)
+### [Services](docs/sdks/servicessdk/README.md)
 
 * [get_all](docs/sdks/servicessdk/README.md#get_all) - Get All Services
 * [create](docs/sdks/servicessdk/README.md#create) - Create Service
@@ -459,67 +510,67 @@ with SquadcastSDK(
 * [create_or_update_iag_config](docs/sdks/servicessdk/README.md#create_or_update_iag_config) - Intelligent Alert Grouping (IAG)
 * [update_notification_delay_config](docs/sdks/servicessdk/README.md#update_notification_delay_config) - Delayed Notification Config
 
-#### [services.deduplication_rules](docs/sdks/deduplicationrules/README.md)
+### [Services.DeduplicationRules](docs/sdks/deduplicationrules/README.md)
 
 * [get](docs/sdks/deduplicationrules/README.md#get) - Get Deduplication Rules
 * [create_or_update](docs/sdks/deduplicationrules/README.md#create_or_update) - Create or Update Deduplication Rules
 
-#### [services.dependencies](docs/sdks/dependencies/README.md)
+### [Services.Dependencies](docs/sdks/dependencies/README.md)
 
 * [create_or_update](docs/sdks/dependencies/README.md#create_or_update) - Create or Update Dependencies
 
-#### [services.extensions](docs/sdks/servicesextensions/README.md)
+### [Services.Extensions](docs/sdks/servicesextensions/README.md)
 
 * [update](docs/sdks/servicesextensions/README.md#update) - Update Slack Extension
 
-#### [services.maintenance](docs/sdks/maintenance/README.md)
+### [Services.Maintenance](docs/sdks/maintenance/README.md)
 
 * [create_or_update](docs/sdks/maintenance/README.md#create_or_update) - Create or Update Maintenance Mode
 
-#### [services.maintenance_mode](docs/sdks/maintenancemode/README.md)
+### [Services.MaintenanceMode](docs/sdks/maintenancemode/README.md)
 
 * [get](docs/sdks/maintenancemode/README.md#get) - Get Maintenance Mode
 
-#### [services.overlay](docs/sdks/overlay/README.md)
+### [Services.Overlay](docs/sdks/overlay/README.md)
 
 * [get_optin_for_key_based_deduplication](docs/sdks/overlay/README.md#get_optin_for_key_based_deduplication) - Get Opt-in for Key Based Deduplication for a service
 * [optin_for_key_based_deduplication](docs/sdks/overlay/README.md#optin_for_key_based_deduplication) - Opt-in for Key Based Deduplication for a service
 
-#### [services.overlay.custom_content_templates](docs/sdks/overlaycustomcontenttemplates/README.md)
+#### [Services.Overlay.CustomContentTemplates](docs/sdks/overlaycustomcontenttemplates/README.md)
 
 * [get_all](docs/sdks/overlaycustomcontenttemplates/README.md#get_all) - Get All Custom Content Template Overlay by Service
 * [create_or_update](docs/sdks/overlaycustomcontenttemplates/README.md#create_or_update) - Create or Update Notification Template Overlay
 
-#### [services.overlays](docs/sdks/servicesoverlays/README.md)
+### [Services.Overlays](docs/sdks/servicesoverlays/README.md)
 
 * [render_dedup_key](docs/sdks/servicesoverlays/README.md#render_dedup_key) - Render Dedup Key template
 
-#### [services.overlays.custom_content_templates](docs/sdks/overlayscustomcontenttemplates/README.md)
+#### [Services.Overlays.CustomContentTemplates](docs/sdks/overlayscustomcontenttemplates/README.md)
 
 * [render](docs/sdks/overlayscustomcontenttemplates/README.md#render) - Render Custom Content Overlay
 * [delete](docs/sdks/overlayscustomcontenttemplates/README.md#delete) - Delete Notification Template Overlay
 * [get](docs/sdks/overlayscustomcontenttemplates/README.md#get) - Get Custom Content Template Overlay
 
-#### [services.overlays.dedup_key](docs/sdks/servicesdedupkey/README.md)
+#### [Services.Overlays.DedupKey](docs/sdks/servicesdedupkey/README.md)
 
 * [update](docs/sdks/servicesdedupkey/README.md#update) - Update Dedup Key Overlay
 
-#### [services.routing_rules](docs/sdks/routingrules/README.md)
+### [Services.RoutingRules](docs/sdks/routingrules/README.md)
 
 * [get](docs/sdks/routingrules/README.md#get) - Get Routing Rules
 * [create_or_update](docs/sdks/routingrules/README.md#create_or_update) - Create or Update Routing Rules
 
-#### [services.suppression_rules](docs/sdks/suppressionrules/README.md)
+### [Services.SuppressionRules](docs/sdks/suppressionrules/README.md)
 
 * [get](docs/sdks/suppressionrules/README.md#get) - Get Suppression Rules
 * [create_or_update](docs/sdks/suppressionrules/README.md#create_or_update) - Create or Update Suppression Rules
 
-#### [services.tagging_rules](docs/sdks/taggingrules/README.md)
+### [Services.TaggingRules](docs/sdks/taggingrules/README.md)
 
 * [get](docs/sdks/taggingrules/README.md#get) - Get Tagging Rules
 * [create_or_update](docs/sdks/taggingrules/README.md#create_or_update) - Create or Update Tagging Rules
 
-### [slos](docs/sdks/slossdk/README.md)
+### [Slos](docs/sdks/slossdk/README.md)
 
 * [list_all](docs/sdks/slossdk/README.md#list_all) - Get All SLOs
 * [create](docs/sdks/slossdk/README.md#create) - Create SLO
@@ -528,15 +579,15 @@ with SquadcastSDK(
 * [get](docs/sdks/slossdk/README.md#get) - Get SLO By ID
 * [mark_affected](docs/sdks/slossdk/README.md#mark_affected) - Mark SLO Affected
 
-#### [slos.false_positive](docs/sdks/falsepositive/README.md)
+#### [Slos.FalsePositive](docs/sdks/falsepositive/README.md)
 
 * [mark](docs/sdks/falsepositive/README.md#mark) - Mark SLO False Positive
 
-### [snooze_notifications](docs/sdks/snoozenotifications/README.md)
+### [SnoozeNotifications](docs/sdks/snoozenotifications/README.md)
 
 * [snooze](docs/sdks/snoozenotifications/README.md#snooze) - Snooze Incident Notifications
 
-### [squads](docs/sdks/squadssdk/README.md)
+### [Squads](docs/sdks/squadssdk/README.md)
 
 * [list](docs/sdks/squadssdk/README.md#list) - Get All Squads
 * [get_by_id](docs/sdks/squadssdk/README.md#get_by_id) - Get Squad By ID
@@ -544,16 +595,20 @@ with SquadcastSDK(
 * [remove_member](docs/sdks/squadssdk/README.md#remove_member) - Remove Squad Member
 * [delete](docs/sdks/squadssdk/README.md#delete) - Delete Squad
 
-#### [squads.members](docs/sdks/squadsmembers/README.md)
+#### [Squads.Members](docs/sdks/squadsmembers/README.md)
 
 * [update](docs/sdks/squadsmembers/README.md#update) - Update Squad Member
 
-### [squads_v4](docs/sdks/squadsv4/README.md)
+### [SquadsV4](docs/sdks/squadsv4/README.md)
 
 * [create](docs/sdks/squadsv4/README.md#create) - Create Squad
 * [update_name](docs/sdks/squadsv4/README.md#update_name) - Update Squad Name
 
-### [status_pages](docs/sdks/statuspagessdk1/README.md)
+### [Statuspages.Maintenances](docs/sdks/statuspagesmaintenances2/README.md)
+
+* [get_by_id](docs/sdks/statuspagesmaintenances2/README.md#get_by_id) - Get Maintenance By ID
+
+### [StatusPages](docs/sdks/statuspagessdk1/README.md)
 
 * [list](docs/sdks/statuspagessdk1/README.md#list) - List Status Pages
 * [create](docs/sdks/statuspagessdk1/README.md#create) - Create Status Page
@@ -562,36 +617,32 @@ with SquadcastSDK(
 * [update](docs/sdks/statuspagessdk1/README.md#update) - Update Status Page By ID
 * [list_statuses](docs/sdks/statuspagessdk1/README.md#list_statuses) - List Status Page Statuses
 
-#### [status_pages.component_groups](docs/sdks/statuspagescomponentgroups/README.md)
+#### [StatusPages.ComponentGroups](docs/sdks/statuspagescomponentgroups/README.md)
 
 * [list](docs/sdks/statuspagescomponentgroups/README.md#list) - List Component Groups
 * [remove_by_id](docs/sdks/statuspagescomponentgroups/README.md#remove_by_id) - Delete Component Group By ID
 * [get_by_id](docs/sdks/statuspagescomponentgroups/README.md#get_by_id) - Get Component Group By ID
 
-#### [status_pages.components](docs/sdks/statuspagescomponents/README.md)
+#### [StatusPages.Components](docs/sdks/statuspagescomponents/README.md)
 
 * [delete_by_id](docs/sdks/statuspagescomponents/README.md#delete_by_id) - Delete Component By ID
 
-#### [status_pages.issues](docs/sdks/statuspagesissues/README.md)
+#### [StatusPages.Issues](docs/sdks/statuspagesissues/README.md)
 
 * [list](docs/sdks/statuspagesissues/README.md#list) - List Issues
 * [create](docs/sdks/statuspagesissues/README.md#create) - Create Issue
 * [get_by_id](docs/sdks/statuspagesissues/README.md#get_by_id) - Get Issue By ID
 
-#### [status_pages.maintenances](docs/sdks/statuspagesmaintenances1/README.md)
+#### [StatusPages.Maintenances](docs/sdks/statuspagesmaintenances1/README.md)
 
 * [list](docs/sdks/statuspagesmaintenances1/README.md#list) - List Maintenances
 * [create](docs/sdks/statuspagesmaintenances1/README.md#create) - Create Maintenance
 
-#### [statuspages.maintenances](docs/sdks/statuspagesmaintenances2/README.md)
-
-* [get_by_id](docs/sdks/statuspagesmaintenances2/README.md#get_by_id) - Get Maintenance By ID
-
-### [subscribers](docs/sdks/subscribers/README.md)
+### [Subscribers](docs/sdks/subscribers/README.md)
 
 * [list](docs/sdks/subscribers/README.md#list) - List Subscribers
 
-### [teams](docs/sdks/teams/README.md)
+### [Teams](docs/sdks/teams/README.md)
 
 * [get_all](docs/sdks/teams/README.md#get_all) - Get All Teams
 * [create](docs/sdks/teams/README.md#create) - Create Team
@@ -603,18 +654,18 @@ with SquadcastSDK(
 * [update_member](docs/sdks/teams/README.md#update_member) - Update Team Member
 * [remove_role](docs/sdks/teams/README.md#remove_role) - Remove Team Role
 
-#### [teams.members](docs/sdks/teamsmembers/README.md)
+### [Teams.Members](docs/sdks/teamsmembers/README.md)
 
 * [list](docs/sdks/teamsmembers/README.md#list) - Get All Team Members
 * [add](docs/sdks/teamsmembers/README.md#add) - Add Team Member
 
-#### [teams.roles](docs/sdks/roles/README.md)
+### [Teams.Roles](docs/sdks/roles/README.md)
 
 * [get_all](docs/sdks/roles/README.md#get_all) - Get All Team Roles
 * [create](docs/sdks/roles/README.md#create) - Create Team Role
 * [update](docs/sdks/roles/README.md#update) - Update Team Role
 
-### [users](docs/sdks/users/README.md)
+### [Users](docs/sdks/users/README.md)
 
 * [get_all](docs/sdks/users/README.md#get_all) - Get All Users
 * [add](docs/sdks/users/README.md#add) - Add User
@@ -625,16 +676,16 @@ with SquadcastSDK(
 * [get_by_id](docs/sdks/users/README.md#get_by_id) - Get User By ID
 * [update_by_id](docs/sdks/users/README.md#update_by_id) - Update User by userID
 
-#### [users.api_token](docs/sdks/apitoken/README.md)
+#### [Users.ApiToken](docs/sdks/apitoken/README.md)
 
 * [remove](docs/sdks/apitoken/README.md#remove) - Remove Token
 
-#### [users.api_tokens](docs/sdks/apitokens/README.md)
+#### [Users.ApiTokens](docs/sdks/apitokens/README.md)
 
 * [list](docs/sdks/apitokens/README.md#list) - Get All Tokens
 * [create](docs/sdks/apitokens/README.md#create) - Create Token
 
-### [webforms](docs/sdks/webformssdk/README.md)
+### [Webforms](docs/sdks/webformssdk/README.md)
 
 * [list](docs/sdks/webformssdk/README.md#list) - Get All Webforms
 * [create](docs/sdks/webformssdk/README.md#create) - Create Webform
@@ -642,14 +693,14 @@ with SquadcastSDK(
 * [remove](docs/sdks/webformssdk/README.md#remove) - Remove Webform
 * [get_by_id](docs/sdks/webformssdk/README.md#get_by_id) - Get Webform By ID
 
-### [webhooks](docs/sdks/webhooks/README.md)
+### [Webhooks](docs/sdks/webhooks/README.md)
 
 * [create](docs/sdks/webhooks/README.md#create) - Create Webhook
 * [delete](docs/sdks/webhooks/README.md#delete) - Delete Webhook
 * [get_by_id](docs/sdks/webhooks/README.md#get_by_id) - Get Webhook By ID
 * [update](docs/sdks/webhooks/README.md#update) - Update Webhook
 
-### [workflows](docs/sdks/workflowssdk/README.md)
+### [Workflows](docs/sdks/workflowssdk/README.md)
 
 * [list](docs/sdks/workflowssdk/README.md#list) - List Workflows
 * [create](docs/sdks/workflowssdk/README.md#create) - Create Workflow
@@ -662,12 +713,12 @@ with SquadcastSDK(
 * [update_action](docs/sdks/workflowssdk/README.md#update_action) - Update Workflow Action
 * [enable_disable](docs/sdks/workflowssdk/README.md#enable_disable) - Enable/Disable Workflow
 
-#### [workflows.actions](docs/sdks/workflowsactions/README.md)
+### [Workflows.Actions](docs/sdks/workflowsactions/README.md)
 
 * [create](docs/sdks/workflowsactions/README.md#create) - Create Action
 * [get_by_id](docs/sdks/workflowsactions/README.md#get_by_id) - Get Workflow Action By ID
 
-#### [workflows.logs](docs/sdks/logs/README.md)
+### [Workflows.Logs](docs/sdks/logs/README.md)
 
 * [get](docs/sdks/logs/README.md#get) - Get Workflow Logs
 
@@ -738,11 +789,9 @@ from squadcast_sdk import SquadcastSDK
 from squadcast_sdk.utils import BackoffStrategy, RetryConfig
 
 
-with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+with SquadcastSDK() as ss_client:
 
-    res = ss_client.analytics.get_org_analytics(from_="<value>", to="<value>",
+    res = ss_client.auth.auth_get_access_token(x_refresh_token="<value>",
         RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
     # Handle response
@@ -758,10 +807,9 @@ from squadcast_sdk.utils import BackoffStrategy, RetryConfig
 
 with SquadcastSDK(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
 ) as ss_client:
 
-    res = ss_client.analytics.get_org_analytics(from_="<value>", to="<value>")
+    res = ss_client.auth.auth_get_access_token(x_refresh_token="<value>")
 
     # Handle response
     print(res)
@@ -788,13 +836,11 @@ with SquadcastSDK(
 from squadcast_sdk import SquadcastSDK, errors
 
 
-with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+with SquadcastSDK() as ss_client:
     res = None
     try:
 
-        res = ss_client.analytics.get_org_analytics(from_="<value>", to="<value>")
+        res = ss_client.auth.auth_get_access_token(x_refresh_token="<value>")
 
         # Handle response
         print(res)
@@ -839,9 +885,9 @@ with SquadcastSDK(
 
 
 **Inherit from [`SquadcastSDKError`](./src/squadcast_sdk/errors/squadcastsdkerror.py)**:
-* [`CommonV4Error`](./src/squadcast_sdk/errors/commonv4error.py): The server could not understand the request due to invalid syntax. Applicable to 32 of 230 methods.*
-* [`ResponseBodyError1`](./src/squadcast_sdk/errors/responsebodyerror1.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 230 methods.*
-* [`ResponseBodyError2`](./src/squadcast_sdk/errors/responsebodyerror2.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 230 methods.*
+* [`CommonV4Error`](./src/squadcast_sdk/errors/commonv4error.py): The server could not understand the request due to invalid syntax. Applicable to 32 of 231 methods.*
+* [`ResponseBodyError1`](./src/squadcast_sdk/errors/responsebodyerror1.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 231 methods.*
+* [`ResponseBodyError2`](./src/squadcast_sdk/errors/responsebodyerror2.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 231 methods.*
 * [`ResponseValidationError`](./src/squadcast_sdk/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>
@@ -852,9 +898,36 @@ with SquadcastSDK(
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
+### Select Server by Index
+
+You can override the default server globally by passing a server index to the `server_idx: int` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| #   | Server                         | Description       |
+| --- | ------------------------------ | ----------------- |
+| 0   | `https://api.eu.squadcast.com` | production EU env |
+| 1   | `https://api.squadcast.com`    | production US env |
+
+#### Example
+
+```python
+from squadcast_sdk import SquadcastSDK
+
+
+with SquadcastSDK(
+    server_idx=0,
+    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+) as ss_client:
+
+    res = ss_client.analytics.get_org_analytics(from_="<value>", to="<value>")
+
+    # Handle response
+    print(res)
+
+```
+
 ### Override Server URL Per-Client
 
-The default server can be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
+The default server can also be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
 ```python
 from squadcast_sdk import SquadcastSDK
 
@@ -865,6 +938,22 @@ with SquadcastSDK(
 ) as ss_client:
 
     res = ss_client.analytics.get_org_analytics(from_="<value>", to="<value>")
+
+    # Handle response
+    print(res)
+
+```
+
+### Override Server URL Per-Operation
+
+The server URL can also be overridden on a per-operation basis, provided a server list was specified for the operation. For example:
+```python
+from squadcast_sdk import SquadcastSDK
+
+
+with SquadcastSDK() as ss_client:
+
+    res = ss_client.auth.auth_get_access_token(x_refresh_token="<value>", server_url="https://auth.eu.squadcast.com")
 
     # Handle response
     print(res)
@@ -964,18 +1053,14 @@ The `SquadcastSDK` class implements the context manager protocol and registers a
 from squadcast_sdk import SquadcastSDK
 def main():
 
-    with SquadcastSDK(
-        bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-    ) as ss_client:
+    with SquadcastSDK() as ss_client:
         # Rest of application here...
 
 
 # Or when using async:
 async def amain():
 
-    async with SquadcastSDK(
-        bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-    ) as ss_client:
+    async with SquadcastSDK() as ss_client:
         # Rest of application here...
 ```
 <!-- End Resource Management [resource-management] -->

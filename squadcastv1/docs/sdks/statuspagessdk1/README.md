@@ -1,5 +1,4 @@
-# StatusPagesSDK1
-(*status_pages*)
+# StatusPages
 
 ## Overview
 

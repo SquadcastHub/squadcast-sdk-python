@@ -1,5 +1,4 @@
-# WebformsSDK
-(*webforms*)
+# Webforms
 
 ## Overview
 

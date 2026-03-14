@@ -1,5 +1,4 @@
-# StatusPagesIssues
-(*status_pages.issues*)
+# StatusPages.Issues
 
 ## Overview
 

@@ -31,7 +31,7 @@ class SquadsSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V4SquadsSquadResponse]:
+    ) -> models.SquadsGetAllSquadsResponse:
         r"""Get All Squads
 
         This endpoint is used to get all the squads details of your organization.
@@ -70,6 +70,7 @@ class SquadsSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -140,7 +141,7 @@ class SquadsSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V4SquadsSquadResponse]:
+    ) -> models.SquadsGetAllSquadsResponse:
         r"""Get All Squads
 
         This endpoint is used to get all the squads details of your organization.
@@ -179,6 +180,7 @@ class SquadsSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -249,7 +251,7 @@ class SquadsSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4SquadsSquadResponse:
+    ) -> models.SquadsGetSquadByIDResponse:
         r"""Get Squad By ID
 
         This endpoint is used to get the squads details by id.
@@ -288,6 +290,7 @@ class SquadsSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -358,7 +361,7 @@ class SquadsSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4SquadsSquadResponse:
+    ) -> models.SquadsGetSquadByIDResponse:
         r"""Get Squad By ID
 
         This endpoint is used to get the squads details by id.
@@ -397,6 +400,7 @@ class SquadsSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -474,7 +478,7 @@ class SquadsSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4SquadsSquadResponse:
+    ) -> models.SquadsUpdateSquadResponse:
         r"""Update Squad
 
         This endpoint is used to update squad.
@@ -530,6 +534,7 @@ class SquadsSDK(BaseSDK):
                 "json",
                 models.V4SquadsUpdateSquadRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -607,7 +612,7 @@ class SquadsSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4SquadsSquadResponse:
+    ) -> models.SquadsUpdateSquadResponse:
         r"""Update Squad
 
         This endpoint is used to update squad.
@@ -663,6 +668,7 @@ class SquadsSDK(BaseSDK):
                 "json",
                 models.V4SquadsUpdateSquadRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -781,6 +787,7 @@ class SquadsSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -901,6 +908,7 @@ class SquadsSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1012,6 +1020,7 @@ class SquadsSDK(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1122,6 +1131,7 @@ class SquadsSDK(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

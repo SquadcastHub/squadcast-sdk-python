@@ -12,7 +12,8 @@ from .v3_services_servicemaintainer import (
     V3ServicesServiceMaintainerTypedDict,
 )
 from .v3_services_servicetag import V3ServicesServiceTag, V3ServicesServiceTagTypedDict
-from squadcast_sdk.types import BaseModel
+from pydantic import model_serializer
+from squadcast_sdk.types import BaseModel, UNSET_SENTINEL
 from typing import List, Optional
 from typing_extensions import NotRequired, TypedDict
 
@@ -49,3 +50,31 @@ class V3ServicesUpdateServiceRequest(BaseModel):
     intelligent_alerts_grouping_config: Optional[V3ServicesIAGConfig] = None
 
     delay_notification_config: Optional[V3ServicesNotificationDelayConfigRequest] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "name",
+                "escalation_policy_id",
+                "description",
+                "email_prefix",
+                "maintainer",
+                "tags",
+                "auto_pause_transient_alerts_config",
+                "intelligent_alerts_grouping_config",
+                "delay_notification_config",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

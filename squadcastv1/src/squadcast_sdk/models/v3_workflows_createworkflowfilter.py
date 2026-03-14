@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 import pydantic
-from squadcast_sdk.types import BaseModel
+from pydantic import model_serializer
+from squadcast_sdk.types import BaseModel, UNSET_SENTINEL
 from typing import Any, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -42,3 +43,36 @@ class V3WorkflowsCreateWorkflowFilter(BaseModel):
     entity: Optional[Entity] = None
 
     filter_type: Annotated[Optional[str], pydantic.Field(alias="filterType")] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "type",
+                "key",
+                "value",
+                "fields",
+                "children",
+                "label",
+                "entity",
+                "filterType",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
+
+try:
+    V3WorkflowsCreateWorkflowFilter.model_rebuild()
+except NameError:
+    pass

@@ -75,6 +75,7 @@ class ServicesDedupKey(BaseSDK):
                 "json",
                 models.V3ServicesOverlayUpdateDedupKeyOverlayRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -242,6 +243,7 @@ class ServicesDedupKey(BaseSDK):
                 "json",
                 models.V3ServicesOverlayUpdateDedupKeyOverlayRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

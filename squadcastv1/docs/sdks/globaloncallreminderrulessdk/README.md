@@ -1,5 +1,4 @@
-# GlobalOncallReminderRulesSDK
-(*global_oncall_reminder_rules*)
+# GlobalOncallReminderRules
 
 ## Overview
 

@@ -43,7 +43,7 @@ class IncidentsActions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3IncidentsIncidentActionsCircleCIRebuildResponse:
+    ) -> models.IncidentActionsRebuildAProjectInCircleciResponse:
         r"""Rebuild a Project In CircleCI
 
         :param incident_id:
@@ -96,6 +96,7 @@ class IncidentsActions(BaseSDK):
                 "json",
                 models.V3IncidentsIncidentActionsRebuildCircleCIProjectRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -207,7 +208,7 @@ class IncidentsActions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3IncidentsIncidentActionsCircleCIRebuildResponse:
+    ) -> models.IncidentActionsRebuildAProjectInCircleciResponse:
         r"""Rebuild a Project In CircleCI
 
         :param incident_id:
@@ -260,6 +261,7 @@ class IncidentsActions(BaseSDK):
                 "json",
                 models.V3IncidentsIncidentActionsRebuildCircleCIProjectRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 import pydantic
-from squadcast_sdk.types import BaseModel
+from pydantic import model_serializer
+from squadcast_sdk.types import BaseModel, UNSET_SENTINEL
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -31,6 +32,29 @@ class EscalationPolicies(BaseModel):
         Optional[bool], pydantic.Field(alias="delete-escalation-policies")
     ] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "create-escalation-policies",
+                "read-escalation-policies",
+                "update-escalation-policies",
+                "delete-escalation-policies",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class SchedulesTypedDict(TypedDict):
     create_schedules: NotRequired[bool]
@@ -55,6 +79,29 @@ class Schedules(BaseModel):
     delete_schedules: Annotated[
         Optional[bool], pydantic.Field(alias="delete-schedules")
     ] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "create-schedules",
+                "read-schedules",
+                "update-schedules",
+                "delete-schedules",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class ServicesTypedDict(TypedDict):
@@ -81,6 +128,24 @@ class Services(BaseModel):
         Optional[bool], pydantic.Field(alias="delete-services")
     ] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            ["create-services", "read-services", "update-services", "delete-services"]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class SquadsTypedDict(TypedDict):
     create_squads: NotRequired[bool]
@@ -103,6 +168,24 @@ class Squads(BaseModel):
     delete_squads: Annotated[Optional[bool], pydantic.Field(alias="delete-squads")] = (
         None
     )
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            ["create-squads", "read-squads", "update-squads", "delete-squads"]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class StakeholderGroupsTypedDict(TypedDict):
@@ -129,6 +212,29 @@ class StakeholderGroups(BaseModel):
         Optional[bool], pydantic.Field(alias="delete-stakeholder-groups")
     ] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "create-stakeholder-groups",
+                "read-stakeholder-groups",
+                "update-stakeholder-groups",
+                "delete-stakeholder-groups",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class RunbooksTypedDict(TypedDict):
     create_runbooks: NotRequired[bool]
@@ -153,6 +259,24 @@ class Runbooks(BaseModel):
     delete_runbooks: Annotated[
         Optional[bool], pydantic.Field(alias="delete-runbooks")
     ] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            ["create-runbooks", "read-runbooks", "update-runbooks", "delete-runbooks"]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class PostmortemsTypedDict(TypedDict):
@@ -179,6 +303,29 @@ class Postmortems(BaseModel):
         Optional[bool], pydantic.Field(alias="delete-postmortems")
     ] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "create-postmortems",
+                "read-postmortems",
+                "update-postmortems",
+                "delete-postmortems",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class StatusPagesTypedDict(TypedDict):
     create_status_pages: NotRequired[bool]
@@ -204,6 +351,29 @@ class StatusPages(BaseModel):
         Optional[bool], pydantic.Field(alias="delete-status-pages")
     ] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "create-status-pages",
+                "read-status-pages",
+                "update-status-pages",
+                "delete-status-pages",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class TeamAnalyticsTypedDict(TypedDict):
     read_team_analytics: NotRequired[bool]
@@ -213,6 +383,22 @@ class TeamAnalytics(BaseModel):
     read_team_analytics: Annotated[
         Optional[bool], pydantic.Field(alias="read-team-analytics")
     ] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["read-team-analytics"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class SlosTypedDict(TypedDict):
@@ -230,6 +416,24 @@ class Slos(BaseModel):
     update_slos: Annotated[Optional[bool], pydantic.Field(alias="update-slos")] = None
 
     delete_slos: Annotated[Optional[bool], pydantic.Field(alias="delete-slos")] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            ["create-slos", "read-slos", "update-slos", "delete-slos"]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class WebformsTypedDict(TypedDict):
@@ -256,6 +460,24 @@ class Webforms(BaseModel):
         Optional[bool], pydantic.Field(alias="delete-webforms")
     ] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            ["create-webforms", "read-webforms", "update-webforms", "delete-webforms"]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class WorkflowsTypedDict(TypedDict):
     create_workflows: NotRequired[bool]
@@ -281,6 +503,29 @@ class Workflows(BaseModel):
         Optional[bool], pydantic.Field(alias="delete-workflows")
     ] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "create-workflows",
+                "read-workflows",
+                "update-workflows",
+                "delete-workflows",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class GerTypedDict(TypedDict):
     create_ger: NotRequired[bool]
@@ -297,6 +542,22 @@ class Ger(BaseModel):
     update_ger: Annotated[Optional[bool], pydantic.Field(alias="update-ger")] = None
 
     delete_ger: Annotated[Optional[bool], pydantic.Field(alias="delete-ger")] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["create-ger", "read-ger", "update-ger", "delete-ger"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class RoutingNumbersTypedDict(TypedDict):
@@ -323,6 +584,29 @@ class RoutingNumbers(BaseModel):
         Optional[bool], pydantic.Field(alias="delete-routing-numbers")
     ] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "create-routing-numbers",
+                "read-routing-numbers",
+                "update-routing-numbers",
+                "delete-routing-numbers",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class GlobalOncallReminderRulesTypedDict(TypedDict):
     create_global_oncall_reminder_rules: NotRequired[bool]
@@ -347,6 +631,29 @@ class GlobalOncallReminderRules(BaseModel):
     delete_global_oncall_reminder_rules: Annotated[
         Optional[bool], pydantic.Field(alias="delete-global-oncall-reminder-rules")
     ] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "create-global-oncall-reminder-rules",
+                "read-global-oncall-reminder-rules",
+                "update-global-oncall-reminder-rules",
+                "delete-global-oncall-reminder-rules",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class V3TeamsAbilitiesTypedDict(TypedDict):
@@ -397,3 +704,99 @@ class V3TeamsAbilities(BaseModel):
     routing_numbers: Optional[RoutingNumbers] = None
 
     global_oncall_reminder_rules: Optional[GlobalOncallReminderRules] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "escalation_policies",
+                "schedules",
+                "services",
+                "squads",
+                "stakeholder_groups",
+                "runbooks",
+                "postmortems",
+                "status_pages",
+                "team_analytics",
+                "slos",
+                "webforms",
+                "workflows",
+                "ger",
+                "routing_numbers",
+                "global_oncall_reminder_rules",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
+
+try:
+    EscalationPolicies.model_rebuild()
+except NameError:
+    pass
+try:
+    Schedules.model_rebuild()
+except NameError:
+    pass
+try:
+    Services.model_rebuild()
+except NameError:
+    pass
+try:
+    Squads.model_rebuild()
+except NameError:
+    pass
+try:
+    StakeholderGroups.model_rebuild()
+except NameError:
+    pass
+try:
+    Runbooks.model_rebuild()
+except NameError:
+    pass
+try:
+    Postmortems.model_rebuild()
+except NameError:
+    pass
+try:
+    StatusPages.model_rebuild()
+except NameError:
+    pass
+try:
+    TeamAnalytics.model_rebuild()
+except NameError:
+    pass
+try:
+    Slos.model_rebuild()
+except NameError:
+    pass
+try:
+    Webforms.model_rebuild()
+except NameError:
+    pass
+try:
+    Workflows.model_rebuild()
+except NameError:
+    pass
+try:
+    Ger.model_rebuild()
+except NameError:
+    pass
+try:
+    RoutingNumbers.model_rebuild()
+except NameError:
+    pass
+try:
+    GlobalOncallReminderRules.model_rebuild()
+except NameError:
+    pass

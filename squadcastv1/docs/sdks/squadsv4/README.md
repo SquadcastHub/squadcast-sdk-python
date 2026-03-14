@@ -1,5 +1,4 @@
 # SquadsV4
-(*squads_v4*)
 
 ## Overview
 

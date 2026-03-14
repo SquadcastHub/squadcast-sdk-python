@@ -1,5 +1,4 @@
-# SuppressionRules
-(*services.suppression_rules*)
+# Services.SuppressionRules
 
 ## Overview
 

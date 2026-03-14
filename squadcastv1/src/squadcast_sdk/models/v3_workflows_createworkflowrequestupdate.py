@@ -15,7 +15,8 @@ from .v3_workflows_entityownerupdate import (
 )
 from .v3_workflows_tag import V3WorkflowsTag, V3WorkflowsTagTypedDict
 from .v3_workflows_workflowtrigger import V3WorkflowsWorkflowTrigger
-from squadcast_sdk.types import BaseModel
+from pydantic import model_serializer
+from squadcast_sdk.types import BaseModel, UNSET_SENTINEL
 from typing import List, Literal, Optional
 from typing_extensions import NotRequired, TypedDict
 
@@ -59,3 +60,32 @@ class V3WorkflowsCreateWorkflowRequestUpdate(BaseModel):
     actions: Optional[List[V3WorkflowsActionRequest]] = None
 
     enabled: Optional[bool] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "title",
+                "description",
+                "owner_id",
+                "owner_type",
+                "entity_owner",
+                "tags",
+                "trigger",
+                "filters",
+                "actions",
+                "enabled",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

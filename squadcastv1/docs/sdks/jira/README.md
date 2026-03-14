@@ -1,5 +1,4 @@
-# Jira
-(*incidents.actions.jira*)
+# Incidents.Actions.Jira
 
 ## Overview
 

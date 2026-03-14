@@ -1,5 +1,4 @@
 # AdditionalResponders
-(*additional_responders*)
 
 ## Overview
 

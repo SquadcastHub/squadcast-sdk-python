@@ -18,7 +18,7 @@ class Dependencies(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.DependenciesCreateOrUpdateDependenciesData:
+    ) -> models.DependenciesCreateOrUpdateDependenciesResponse:
         r"""Create or Update Dependencies
 
         :param service_id:
@@ -65,6 +65,7 @@ class Dependencies(BaseSDK):
                 "json",
                 models.V3ServicesDependenciesCreateOrUpdateDependenciesRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -175,7 +176,7 @@ class Dependencies(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.DependenciesCreateOrUpdateDependenciesData:
+    ) -> models.DependenciesCreateOrUpdateDependenciesResponse:
         r"""Create or Update Dependencies
 
         :param service_id:
@@ -222,6 +223,7 @@ class Dependencies(BaseSDK):
                 "json",
                 models.V3ServicesDependenciesCreateOrUpdateDependenciesRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

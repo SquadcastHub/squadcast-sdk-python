@@ -5,7 +5,8 @@ from .v3_globaleventrules_ruleactionupdate import (
     V3GlobalEventRulesRuleActionUpdate,
     V3GlobalEventRulesRuleActionUpdateTypedDict,
 )
-from squadcast_sdk.types import BaseModel
+from pydantic import model_serializer
+from squadcast_sdk.types import BaseModel, UNSET_SENTINEL
 from typing import Optional
 from typing_extensions import NotRequired, TypedDict
 
@@ -16,3 +17,19 @@ class V3GlobalEventRulesUpdateRulesetRequestTypedDict(TypedDict):
 
 class V3GlobalEventRulesUpdateRulesetRequest(BaseModel):
     catch_all_action: Optional[V3GlobalEventRulesRuleActionUpdate] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["catch_all_action"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

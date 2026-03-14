@@ -1,5 +1,4 @@
-# MaintenanceMode
-(*services.maintenance_mode*)
+# Services.MaintenanceMode
 
 ## Overview
 

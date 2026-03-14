@@ -20,7 +20,7 @@ class Analytics(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3AnalyticsAnalyticsResponse:
+    ) -> models.AnalyticsGetOrgAnalyticsResponse:
         r"""Get Org level analytics
 
         Get Org level analytics
@@ -64,6 +64,7 @@ class Analytics(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -176,7 +177,7 @@ class Analytics(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3AnalyticsAnalyticsResponse:
+    ) -> models.AnalyticsGetOrgAnalyticsResponse:
         r"""Get Org level analytics
 
         Get Org level analytics
@@ -220,6 +221,7 @@ class Analytics(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -333,7 +335,7 @@ class Analytics(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3AnalyticsAnalyticsResponse:
+    ) -> models.AnalyticsGetTeamAnalyticsResponse:
         r"""Get Team level analytics
 
         Get Team level analytics
@@ -379,6 +381,7 @@ class Analytics(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -492,7 +495,7 @@ class Analytics(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3AnalyticsAnalyticsResponse:
+    ) -> models.AnalyticsGetTeamAnalyticsResponse:
         r"""Get Team level analytics
 
         Get Team level analytics
@@ -538,6 +541,7 @@ class Analytics(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

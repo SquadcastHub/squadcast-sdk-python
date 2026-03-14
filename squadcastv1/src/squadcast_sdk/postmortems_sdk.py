@@ -20,7 +20,7 @@ class PostmortemsSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.PostmortemsGetAllPostmortemsData]:
+    ) -> models.PostmortemsGetAllPostmortemsResponse:
         r"""Get All Postmortems
 
         *   This endpoint is used to get all postmortems.
@@ -65,6 +65,7 @@ class PostmortemsSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -177,7 +178,7 @@ class PostmortemsSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.PostmortemsGetAllPostmortemsData]:
+    ) -> models.PostmortemsGetAllPostmortemsResponse:
         r"""Get All Postmortems
 
         *   This endpoint is used to get all postmortems.
@@ -222,6 +223,7 @@ class PostmortemsSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -408,6 +410,7 @@ class PostmortemsSDK(BaseSDK):
                 "json",
                 models.V3IncidentsPostmortemsCreatePostmortemRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -594,6 +597,7 @@ class PostmortemsSDK(BaseSDK):
                 "json",
                 models.V3IncidentsPostmortemsCreatePostmortemRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

@@ -6,7 +6,8 @@ from .v4_changetimezoneresponse import (
     V4ChangeTimezoneResponseTypedDict,
 )
 import pydantic
-from squadcast_sdk.types import BaseModel
+from pydantic import model_serializer
+from squadcast_sdk.types import BaseModel, UNSET_SENTINEL
 from squadcast_sdk.utils import FieldMetadata, PathParamMetadata, RequestMetadata
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
@@ -18,6 +19,22 @@ class SchedulesChangeTimezoneRequestBodyTypedDict(TypedDict):
 
 class SchedulesChangeTimezoneRequestBody(BaseModel):
     time_zone: Annotated[Optional[str], pydantic.Field(alias="timeZone")] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["timeZone"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class SchedulesChangeTimezoneRequestTypedDict(TypedDict):
@@ -48,3 +65,9 @@ class SchedulesChangeTimezoneResponse(BaseModel):
     r"""The request has succeeded."""
 
     data: V4ChangeTimezoneResponse
+
+
+try:
+    SchedulesChangeTimezoneRequestBody.model_rebuild()
+except NameError:
+    pass

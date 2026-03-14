@@ -20,7 +20,7 @@ class WorkflowsActions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3WorkflowsActionResponse:
+    ) -> models.WorkflowsCreateActionResponse:
         r"""Create Action
 
         Create an Action for a workflow
@@ -69,6 +69,7 @@ class WorkflowsActions(BaseSDK):
                 "json",
                 models.V3WorkflowsActionRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -181,7 +182,7 @@ class WorkflowsActions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3WorkflowsActionResponse:
+    ) -> models.WorkflowsCreateActionResponse:
         r"""Create Action
 
         Create an Action for a workflow
@@ -230,6 +231,7 @@ class WorkflowsActions(BaseSDK):
                 "json",
                 models.V3WorkflowsActionRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -340,7 +342,7 @@ class WorkflowsActions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3WorkflowsGetWorkflowActionByIDResponse:
+    ) -> models.WorkflowsGetWorkflowActionByIDResponse:
         r"""Get Workflow Action By ID
 
         Get workflow action by ID
@@ -380,6 +382,7 @@ class WorkflowsActions(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -490,7 +493,7 @@ class WorkflowsActions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3WorkflowsGetWorkflowActionByIDResponse:
+    ) -> models.WorkflowsGetWorkflowActionByIDResponse:
         r"""Get Workflow Action By ID
 
         Get workflow action by ID
@@ -530,6 +533,7 @@ class WorkflowsActions(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

@@ -111,6 +111,7 @@ class SchedulesSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -292,6 +293,7 @@ class SchedulesSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -407,7 +409,7 @@ class SchedulesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4ScheduleResponse:
+    ) -> models.SchedulesCreateScheduleResponse:
         r"""Create Schedule
 
         :param name:
@@ -458,6 +460,7 @@ class SchedulesSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.V4CreateScheduleRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -536,7 +539,7 @@ class SchedulesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4ScheduleResponse:
+    ) -> models.SchedulesCreateScheduleResponse:
         r"""Create Schedule
 
         :param name:
@@ -587,6 +590,7 @@ class SchedulesSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.V4CreateScheduleRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -695,6 +699,7 @@ class SchedulesSDK(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -802,6 +807,7 @@ class SchedulesSDK(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -873,7 +879,7 @@ class SchedulesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4ScheduleResponse:
+    ) -> models.SchedulesGetScheduleByIDResponse:
         r"""Get Schedule by ID
 
         :param schedule_id:
@@ -909,6 +915,7 @@ class SchedulesSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -981,7 +988,7 @@ class SchedulesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4ScheduleResponse:
+    ) -> models.SchedulesGetScheduleByIDResponse:
         r"""Get Schedule by ID
 
         :param schedule_id:
@@ -1017,6 +1024,7 @@ class SchedulesSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1094,7 +1102,7 @@ class SchedulesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4ScheduleResponse:
+    ) -> models.SchedulesUpdateScheduleResponse:
         r"""Update Schedule
 
         :param schedule_id:
@@ -1149,6 +1157,7 @@ class SchedulesSDK(BaseSDK):
                 "json",
                 models.V4UpdateScheduleRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1226,7 +1235,7 @@ class SchedulesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4ScheduleResponse:
+    ) -> models.SchedulesUpdateScheduleResponse:
         r"""Update Schedule
 
         :param schedule_id:
@@ -1281,6 +1290,7 @@ class SchedulesSDK(BaseSDK):
                 "json",
                 models.V4UpdateScheduleRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1354,7 +1364,7 @@ class SchedulesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4PauseResumeScheduleResponse:
+    ) -> models.SchedulesPauseresumeScheduleResponse:
         r"""Pause/Resume Schedule
 
         :param schedule_id:
@@ -1401,6 +1411,7 @@ class SchedulesSDK(BaseSDK):
                 "json",
                 models.SchedulesPauseresumeScheduleRequestBody,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1474,7 +1485,7 @@ class SchedulesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4PauseResumeScheduleResponse:
+    ) -> models.SchedulesPauseresumeScheduleResponse:
         r"""Pause/Resume Schedule
 
         :param schedule_id:
@@ -1521,6 +1532,7 @@ class SchedulesSDK(BaseSDK):
                 "json",
                 models.SchedulesPauseresumeScheduleRequestBody,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1594,7 +1606,7 @@ class SchedulesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4ChangeTimezoneResponse:
+    ) -> models.SchedulesChangeTimezoneResponse:
         r"""Change Timezone
 
         :param schedule_id:
@@ -1641,6 +1653,7 @@ class SchedulesSDK(BaseSDK):
                 "json",
                 models.SchedulesChangeTimezoneRequestBody,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1714,7 +1727,7 @@ class SchedulesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4ChangeTimezoneResponse:
+    ) -> models.SchedulesChangeTimezoneResponse:
         r"""Change Timezone
 
         :param schedule_id:
@@ -1761,6 +1774,7 @@ class SchedulesSDK(BaseSDK):
                 "json",
                 models.SchedulesChangeTimezoneRequestBody,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1837,7 +1851,7 @@ class SchedulesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4ScheduleResponse:
+    ) -> models.SchedulesCloneScheduleResponse:
         r"""Clone Schedule
 
         :param schedule_id:
@@ -1884,6 +1898,7 @@ class SchedulesSDK(BaseSDK):
                 "json",
                 models.SchedulesCloneScheduleRequestBody,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1960,7 +1975,7 @@ class SchedulesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4ScheduleResponse:
+    ) -> models.SchedulesCloneScheduleResponse:
         r"""Clone Schedule
 
         :param schedule_id:
@@ -2007,6 +2022,7 @@ class SchedulesSDK(BaseSDK):
                 "json",
                 models.SchedulesCloneScheduleRequestBody,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2080,7 +2096,7 @@ class SchedulesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4ICalLinkResponse:
+    ) -> models.ExportGetScheduleIcalLinkResponse:
         r"""Get Schedule ICal Link
 
         :param schedule_id:
@@ -2118,6 +2134,7 @@ class SchedulesSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2191,7 +2208,7 @@ class SchedulesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4ICalLinkResponse:
+    ) -> models.ExportGetScheduleIcalLinkResponse:
         r"""Get Schedule ICal Link
 
         :param schedule_id:
@@ -2229,6 +2246,7 @@ class SchedulesSDK(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2306,7 +2324,7 @@ class SchedulesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4ICalLinkResponse:
+    ) -> models.ExportCreateScheduleIcalLinkResponse:
         r"""Create Schedule ICal Link
 
         :param schedule_id:
@@ -2355,6 +2373,7 @@ class SchedulesSDK(BaseSDK):
                 "json",
                 models.ExportCreateScheduleIcalLinkRequestBody,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2432,7 +2451,7 @@ class SchedulesSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4ICalLinkResponse:
+    ) -> models.ExportCreateScheduleIcalLinkResponse:
         r"""Create Schedule ICal Link
 
         :param schedule_id:
@@ -2481,6 +2500,7 @@ class SchedulesSDK(BaseSDK):
                 "json",
                 models.ExportCreateScheduleIcalLinkRequestBody,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

@@ -5,7 +5,7 @@ from squadcast_sdk import errors, models, utils
 from squadcast_sdk._hooks import HookContext
 from squadcast_sdk.types import OptionalNullable, UNSET
 from squadcast_sdk.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional, Union
+from typing import Any, Mapping, Optional, Union
 
 
 class Roles(BaseSDK):
@@ -17,7 +17,7 @@ class Roles(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3TeamsTeamRoleResponse]:
+    ) -> models.TeamsGetAllTeamRolesResponse:
         r"""Get All Team Roles
 
         Returns all the roles of the teamId mentioned in params.
@@ -56,6 +56,7 @@ class Roles(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -165,7 +166,7 @@ class Roles(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3TeamsTeamRoleResponse]:
+    ) -> models.TeamsGetAllTeamRolesResponse:
         r"""Get All Team Roles
 
         Returns all the roles of the teamId mentioned in params.
@@ -204,6 +205,7 @@ class Roles(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -315,7 +317,7 @@ class Roles(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3TeamsTeamBaseResponse:
+    ) -> models.TeamsCreateTeamRoleResponse:
         r"""Create Team Role
 
         Add team's role to the team with given ability if not exists. Returns the role object in response.
@@ -367,6 +369,7 @@ class Roles(BaseSDK):
                 "json",
                 models.V3TeamsCreateTeamRoleRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -476,7 +479,7 @@ class Roles(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3TeamsTeamBaseResponse:
+    ) -> models.TeamsCreateTeamRoleResponse:
         r"""Create Team Role
 
         Add team's role to the team with given ability if not exists. Returns the role object in response.
@@ -528,6 +531,7 @@ class Roles(BaseSDK):
                 "json",
                 models.V3TeamsCreateTeamRoleRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -640,7 +644,7 @@ class Roles(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3TeamsTeamBaseResponse:
+    ) -> models.TeamsUpdateTeamRoleResponse:
         r"""Update Team Role
 
         Update team's role abilities and name.
@@ -696,6 +700,7 @@ class Roles(BaseSDK):
                 "json",
                 models.V3TeamsUpdateTeamRoleRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -808,7 +813,7 @@ class Roles(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3TeamsTeamBaseResponse:
+    ) -> models.TeamsUpdateTeamRoleResponse:
         r"""Update Team Role
 
         Update team's role abilities and name.
@@ -864,6 +869,7 @@ class Roles(BaseSDK):
                 "json",
                 models.V3TeamsUpdateTeamRoleRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

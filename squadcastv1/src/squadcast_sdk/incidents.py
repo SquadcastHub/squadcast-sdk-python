@@ -83,10 +83,10 @@ class Incidents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> str:
+    ) -> models.IncidentsBulkAcknowledgeIncidentsResponse:
         r"""Bulk Acknowledge Incidents
 
-        - This endpoint is used to bulk acknowledge the incident by IDs.
+        - This endpoint is used to bulk acknowledge the incident by IDs. The API can handle a maximum of 100 incident IDs in a single request with 10 such calls per minute.\"
         - Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header.
 
         :param incident_ids:
@@ -125,6 +125,7 @@ class Incidents(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.V3IncidentsBulkIncidentIDsRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -234,10 +235,10 @@ class Incidents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> str:
+    ) -> models.IncidentsBulkAcknowledgeIncidentsResponse:
         r"""Bulk Acknowledge Incidents
 
-        - This endpoint is used to bulk acknowledge the incident by IDs.
+        - This endpoint is used to bulk acknowledge the incident by IDs. The API can handle a maximum of 100 incident IDs in a single request with 10 such calls per minute.\"
         - Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header.
 
         :param incident_ids:
@@ -276,6 +277,7 @@ class Incidents(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.V3IncidentsBulkIncidentIDsRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -500,6 +502,7 @@ class Incidents(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -712,6 +715,7 @@ class Incidents(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -859,6 +863,7 @@ class Incidents(BaseSDK):
                 "json",
                 models.V3IncidentsBulkIncidentsPriorityUpdateRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1017,6 +1022,7 @@ class Incidents(BaseSDK):
                 "json",
                 models.V3IncidentsBulkIncidentsPriorityUpdateRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1125,10 +1131,10 @@ class Incidents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> str:
+    ) -> models.IncidentsBulkResolveIncidentsResponse:
         r"""Bulk Resolve Incidents
 
-        - This endpoint is used to bulk resolve the incident by IDs.
+        - This endpoint is used to bulk resolve the incident by IDs. The API can handle a maximum of 100 incident IDs in a single request with 10 such calls per minute.\"
         - Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header.
 
         :param incident_ids:
@@ -1167,6 +1173,7 @@ class Incidents(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.V3IncidentsBulkIncidentIDsRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1276,10 +1283,10 @@ class Incidents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> str:
+    ) -> models.IncidentsBulkResolveIncidentsResponse:
         r"""Bulk Resolve Incidents
 
-        - This endpoint is used to bulk resolve the incident by IDs.
+        - This endpoint is used to bulk resolve the incident by IDs. The API can handle a maximum of 100 incident IDs in a single request with 10 such calls per minute.\"
         - Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header.
 
         :param incident_ids:
@@ -1318,6 +1325,7 @@ class Incidents(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.V3IncidentsBulkIncidentIDsRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1427,7 +1435,7 @@ class Incidents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3IncidentsIncidentResponse:
+    ) -> models.IncidentsGetIncidentByIDResponse:
         r"""Get Incident by ID
 
         - This endpoint is used to get the incident details by ID.
@@ -1466,6 +1474,7 @@ class Incidents(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1575,7 +1584,7 @@ class Incidents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3IncidentsIncidentResponse:
+    ) -> models.IncidentsGetIncidentByIDResponse:
         r"""Get Incident by ID
 
         - This endpoint is used to get the incident details by ID.
@@ -1614,6 +1623,7 @@ class Incidents(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1723,7 +1733,7 @@ class Incidents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> str:
+    ) -> models.IncidentsAcknowledgeIncidentResponse:
         r"""Acknowledge Incident
 
         - This endpoint is used to acknowledge the incident by ID.
@@ -1762,6 +1772,7 @@ class Incidents(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1871,7 +1882,7 @@ class Incidents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> str:
+    ) -> models.IncidentsAcknowledgeIncidentResponse:
         r"""Acknowledge Incident
 
         - This endpoint is used to acknowledge the incident by ID.
@@ -1910,6 +1921,7 @@ class Incidents(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2062,6 +2074,7 @@ class Incidents(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2214,6 +2227,7 @@ class Incidents(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2324,7 +2338,7 @@ class Incidents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3IncidentsIncidentPriorityUpdateResponse:
+    ) -> models.IncidentsIncidentPriorityUpdateResponse:
         r"""Incident Priority Update
 
         - This endpoint is used to update incident priority by ID.
@@ -2375,6 +2389,7 @@ class Incidents(BaseSDK):
                 "json",
                 models.V3IncidentsIncidentPriorityUpdateRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2485,7 +2500,7 @@ class Incidents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3IncidentsIncidentPriorityUpdateResponse:
+    ) -> models.IncidentsIncidentPriorityUpdateResponse:
         r"""Incident Priority Update
 
         - This endpoint is used to update incident priority by ID.
@@ -2536,6 +2551,7 @@ class Incidents(BaseSDK):
                 "json",
                 models.V3IncidentsIncidentPriorityUpdateRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2646,7 +2662,7 @@ class Incidents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> str:
+    ) -> models.IncidentsReassignIncidentResponse:
         r"""Reassign Incident
 
         - This endpoint is used to reassign the unresolved incident to any user or escalation policy or squads by ID.
@@ -2697,6 +2713,7 @@ class Incidents(BaseSDK):
                 "json",
                 models.V3IncidentsReassignIncidentRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2807,7 +2824,7 @@ class Incidents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> str:
+    ) -> models.IncidentsReassignIncidentResponse:
         r"""Reassign Incident
 
         - This endpoint is used to reassign the unresolved incident to any user or escalation policy or squads by ID.
@@ -2858,6 +2875,7 @@ class Incidents(BaseSDK):
                 "json",
                 models.V3IncidentsReassignIncidentRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2970,7 +2988,7 @@ class Incidents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> str:
+    ) -> models.IncidentsResolveIncidentResponse:
         r"""Resolve Incident
 
         - This endpoint is used to resolve the incident by ID.
@@ -3025,6 +3043,7 @@ class Incidents(BaseSDK):
                 "json",
                 models.V3IncidentsResolveIncidentRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3137,7 +3156,7 @@ class Incidents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> str:
+    ) -> models.IncidentsResolveIncidentResponse:
         r"""Resolve Incident
 
         - This endpoint is used to resolve the incident by ID.
@@ -3192,6 +3211,7 @@ class Incidents(BaseSDK):
                 "json",
                 models.V3IncidentsResolveIncidentRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3352,6 +3372,7 @@ class Incidents(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.V3IncidentsIngestionStatusRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3512,6 +3533,7 @@ class Incidents(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.V3IncidentsIngestionStatusRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

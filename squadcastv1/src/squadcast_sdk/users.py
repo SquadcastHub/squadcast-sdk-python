@@ -33,7 +33,7 @@ class Users(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3UsersUserResponse]:
+    ) -> models.UsersGetAllUsersResponse:
         r"""Get All Users
 
         Returns all the users of the organization.
@@ -66,6 +66,7 @@ class Users(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -172,7 +173,7 @@ class Users(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3UsersUserResponse]:
+    ) -> models.UsersGetAllUsersResponse:
         r"""Get All Users
 
         Returns all the users of the organization.
@@ -205,6 +206,7 @@ class Users(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -315,7 +317,7 @@ class Users(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3UsersUserResponse:
+    ) -> models.UsersAddUserResponse:
         r"""Add User
 
         Add user to the organization with given role if not exists. Returns the user object in response.
@@ -363,6 +365,7 @@ class Users(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.V3UsersAddUserRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -473,7 +476,7 @@ class Users(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3UsersUserResponse:
+    ) -> models.UsersAddUserResponse:
         r"""Add User
 
         Add user to the organization with given role if not exists. Returns the user object in response.
@@ -521,6 +524,7 @@ class Users(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.V3UsersAddUserRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -631,7 +635,7 @@ class Users(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> str:
+    ) -> models.UsersUpdateOrgLevelPermissionsResponse:
         r"""Update Org Level Permissions
 
         :param data:
@@ -672,6 +676,7 @@ class Users(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.V3UsersUpdateUserAbilitiesRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -784,7 +789,7 @@ class Users(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> str:
+    ) -> models.UsersUpdateOrgLevelPermissionsResponse:
         r"""Update Org Level Permissions
 
         :param data:
@@ -825,6 +830,7 @@ class Users(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.V3UsersUpdateUserAbilitiesRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -937,7 +943,7 @@ class Users(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.UsersDeleteUserData:
+    ) -> models.UsersDeleteUserResponse:
         r"""Delete User
 
         This API replaces the swap_user for all the entities in Squadcast with user_id provided and deletes the user.
@@ -984,6 +990,7 @@ class Users(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.UsersDeleteUserRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1094,7 +1101,7 @@ class Users(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.UsersDeleteUserData:
+    ) -> models.UsersDeleteUserResponse:
         r"""Delete User
 
         This API replaces the swap_user for all the entities in Squadcast with user_id provided and deletes the user.
@@ -1141,6 +1148,7 @@ class Users(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.UsersDeleteUserRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1247,7 +1255,7 @@ class Users(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3UsersUserRoleResponse]:
+    ) -> models.UsersGetUserRolesResponse:
         r"""Get User Roles
 
         Returns all available user roles.
@@ -1280,6 +1288,7 @@ class Users(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1386,7 +1395,7 @@ class Users(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3UsersUserRoleResponse]:
+    ) -> models.UsersGetUserRolesResponse:
         r"""Get User Roles
 
         Returns all available user roles.
@@ -1419,6 +1428,7 @@ class Users(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1565,6 +1575,7 @@ class Users(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1712,6 +1723,7 @@ class Users(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1820,7 +1832,7 @@ class Users(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3UsersUserResponse:
+    ) -> models.UsersGetUserByIDResponse:
         r"""Get User By ID
 
         Returns a users details of the given `userID` in the request param.
@@ -1859,6 +1871,7 @@ class Users(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1966,7 +1979,7 @@ class Users(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3UsersUserResponse:
+    ) -> models.UsersGetUserByIDResponse:
         r"""Get User By ID
 
         Returns a users details of the given `userID` in the request param.
@@ -2005,6 +2018,7 @@ class Users(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2113,7 +2127,7 @@ class Users(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3UsersUserResponse:
+    ) -> models.UsersUpdateUserByIDResponse:
         r"""Update User by userID
 
         Update User by userID.
@@ -2163,6 +2177,7 @@ class Users(BaseSDK):
                 "json",
                 models.V3UsersUpdateUserRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2271,7 +2286,7 @@ class Users(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3UsersUserResponse:
+    ) -> models.UsersUpdateUserByIDResponse:
         r"""Update User by userID
 
         Update User by userID.
@@ -2321,6 +2336,7 @@ class Users(BaseSDK):
                 "json",
                 models.V3UsersUpdateUserRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

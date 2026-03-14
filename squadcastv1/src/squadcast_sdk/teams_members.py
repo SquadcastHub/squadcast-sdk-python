@@ -17,7 +17,7 @@ class TeamsMembers(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3TeamsTeamMemberResponse]:
+    ) -> models.TeamsGetAllTeamMembersResponse:
         r"""Get All Team Members
 
         Returns all the team members of the organization.
@@ -56,6 +56,7 @@ class TeamsMembers(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -165,7 +166,7 @@ class TeamsMembers(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V3TeamsTeamMemberResponse]:
+    ) -> models.TeamsGetAllTeamMembersResponse:
         r"""Get All Team Members
 
         Returns all the team members of the organization.
@@ -204,6 +205,7 @@ class TeamsMembers(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -316,7 +318,7 @@ class TeamsMembers(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3TeamsTeamMemberResponse:
+    ) -> models.TeamsAddTeamMemberResponse:
         r"""Add Team Member
 
         Add team member to the team.
@@ -370,6 +372,7 @@ class TeamsMembers(BaseSDK):
                 "json",
                 models.V3TeamsAddTeamMemberRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -480,7 +483,7 @@ class TeamsMembers(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3TeamsTeamMemberResponse:
+    ) -> models.TeamsAddTeamMemberResponse:
         r"""Add Team Member
 
         Add team member to the team.
@@ -534,6 +537,7 @@ class TeamsMembers(BaseSDK):
                 "json",
                 models.V3TeamsAddTeamMemberRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

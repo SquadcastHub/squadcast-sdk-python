@@ -1,5 +1,4 @@
 # ComponentGroups
-(*component_groups*)
 
 ## Overview
 

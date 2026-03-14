@@ -3,7 +3,8 @@
 from __future__ import annotations
 from datetime import date
 import pydantic
-from squadcast_sdk.types import BaseModel
+from pydantic import model_serializer
+from squadcast_sdk.types import BaseModel, UNSET_SENTINEL
 from typing import List, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -33,6 +34,22 @@ class Filters(BaseModel):
 
     client: Optional[List[str]] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["resource", "action", "actor", "team", "client"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 ExportType = Literal[
     "csv",
@@ -59,3 +76,29 @@ class V3AuditLogsExportAuditLogsRequest(BaseModel):
     export_type: Annotated[ExportType, pydantic.Field(alias="exportType")]
 
     description: Optional[str] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["description"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
+
+try:
+    Filters.model_rebuild()
+except NameError:
+    pass
+try:
+    V3AuditLogsExportAuditLogsRequest.model_rebuild()
+except NameError:
+    pass

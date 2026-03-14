@@ -3,7 +3,8 @@
 from __future__ import annotations
 from datetime import datetime
 import pydantic
-from squadcast_sdk.types import BaseModel
+from pydantic import model_serializer
+from squadcast_sdk.types import BaseModel, UNSET_SENTINEL
 from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -18,6 +19,22 @@ class V4StatusPagesIssuesCreateIssueRequestComponent(BaseModel):
 
     status_id: Annotated[Optional[int], pydantic.Field(alias="statusID")] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["id", "statusID"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class V4StatusPagesIssuesCreateIssueRequestStateMessageTypedDict(TypedDict):
     text: NotRequired[str]
@@ -28,6 +45,22 @@ class V4StatusPagesIssuesCreateIssueRequestStateMessage(BaseModel):
     text: Optional[str] = None
 
     timestamp: Optional[datetime] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["text", "timestamp"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class V4StatusPagesIssuesCreateIssueRequestIssueTypedDict(TypedDict):
@@ -45,6 +78,22 @@ class V4StatusPagesIssuesCreateIssueRequestIssue(BaseModel):
         pydantic.Field(alias="stateMessages"),
     ] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["stateID", "stateMessages"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class V4StatusPagesIssuesCreateIssueRequestTypedDict(TypedDict):
     title: str
@@ -61,3 +110,33 @@ class V4StatusPagesIssuesCreateIssueRequest(BaseModel):
     issues: List[V4StatusPagesIssuesCreateIssueRequestIssue]
 
     status_id: Annotated[Optional[int], pydantic.Field(alias="statusID")] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["statusID"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
+
+try:
+    V4StatusPagesIssuesCreateIssueRequestComponent.model_rebuild()
+except NameError:
+    pass
+try:
+    V4StatusPagesIssuesCreateIssueRequestIssue.model_rebuild()
+except NameError:
+    pass
+try:
+    V4StatusPagesIssuesCreateIssueRequest.model_rebuild()
+except NameError:
+    pass

@@ -21,7 +21,7 @@ class IncidentsTags(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3IncidentsTagsIncidentForTagsResponse:
+    ) -> models.TagsUpdateTagResponse:
         r"""Update Tag
 
         :param incident_id:
@@ -70,6 +70,7 @@ class IncidentsTags(BaseSDK):
                 "json",
                 models.V3IncidentsTagsUpdateTagRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -181,7 +182,7 @@ class IncidentsTags(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3IncidentsTagsIncidentForTagsResponse:
+    ) -> models.TagsUpdateTagResponse:
         r"""Update Tag
 
         :param incident_id:
@@ -230,6 +231,7 @@ class IncidentsTags(BaseSDK):
                 "json",
                 models.V3IncidentsTagsUpdateTagRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -343,7 +345,7 @@ class IncidentsTags(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3IncidentsTagsIncidentForTagsResponse:
+    ) -> models.TagsAppendTagResponse:
         r"""Append Tag
 
         :param incident_id:
@@ -392,6 +394,7 @@ class IncidentsTags(BaseSDK):
                 "json",
                 models.V3IncidentsTagsAppendTagRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -505,7 +508,7 @@ class IncidentsTags(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3IncidentsTagsIncidentForTagsResponse:
+    ) -> models.TagsAppendTagResponse:
         r"""Append Tag
 
         :param incident_id:
@@ -554,6 +557,7 @@ class IncidentsTags(BaseSDK):
                 "json",
                 models.V3IncidentsTagsAppendTagRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

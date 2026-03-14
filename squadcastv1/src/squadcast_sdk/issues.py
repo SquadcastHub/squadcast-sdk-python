@@ -18,7 +18,7 @@ class Issues(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesIssuesDeleteIssueByIDResponse:
+    ) -> models.IssuesDeleteIssueByIDResponse:
         r"""Delete Issue By ID
 
         :param statuspage_id:
@@ -56,6 +56,7 @@ class Issues(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -166,7 +167,7 @@ class Issues(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesIssuesDeleteIssueByIDResponse:
+    ) -> models.IssuesDeleteIssueByIDResponse:
         r"""Delete Issue By ID
 
         :param statuspage_id:
@@ -204,6 +205,7 @@ class Issues(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -324,7 +326,7 @@ class Issues(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesIssuesUpdateIssueResponse:
+    ) -> models.IssuesUpdateIssueResponse:
         r"""Update Issue
 
         :param statuspage_id:
@@ -384,6 +386,7 @@ class Issues(BaseSDK):
                 "json",
                 models.V4StatusPagesIssuesUpdateIssueRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -502,7 +505,7 @@ class Issues(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4StatusPagesIssuesUpdateIssueResponse:
+    ) -> models.IssuesUpdateIssueResponse:
         r"""Update Issue
 
         :param statuspage_id:
@@ -562,6 +565,7 @@ class Issues(BaseSDK):
                 "json",
                 models.V4StatusPagesIssuesUpdateIssueRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -669,7 +673,7 @@ class Issues(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V4StatusPagesIssuesListStatusPageIssueStatesResponse]:
+    ) -> models.IssuesListStatusPageIssueStatesResponse:
         r"""List Status Page Issue States
 
         :param statuspage_id:
@@ -705,6 +709,7 @@ class Issues(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -814,7 +819,7 @@ class Issues(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.V4StatusPagesIssuesListStatusPageIssueStatesResponse]:
+    ) -> models.IssuesListStatusPageIssueStatesResponse:
         r"""List Status Page Issue States
 
         :param statuspage_id:
@@ -850,6 +855,7 @@ class Issues(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

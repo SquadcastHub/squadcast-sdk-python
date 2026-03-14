@@ -18,7 +18,7 @@ class ServicesExtensions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3ServicesExtensionsSlackExtensionResponse:
+    ) -> models.ExtensionsUpdateSlackExtensionResponse:
         r"""Update Slack Extension
 
         :param service_id:
@@ -65,6 +65,7 @@ class ServicesExtensions(BaseSDK):
                 "json",
                 models.V3ServicesExtensionsUpdateSlackExtensionRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -175,7 +176,7 @@ class ServicesExtensions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V3ServicesExtensionsSlackExtensionResponse:
+    ) -> models.ExtensionsUpdateSlackExtensionResponse:
         r"""Update Slack Extension
 
         :param service_id:
@@ -222,6 +223,7 @@ class ServicesExtensions(BaseSDK):
                 "json",
                 models.V3ServicesExtensionsUpdateSlackExtensionRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

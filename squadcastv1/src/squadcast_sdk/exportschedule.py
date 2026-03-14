@@ -22,7 +22,7 @@ class ExportSchedule(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4ICalLinkResponse:
+    ) -> models.ExportRefreshScheduleIcalLinkResponse:
         r"""Refresh Schedule ICal Link
 
         :param schedule_id:
@@ -71,6 +71,7 @@ class ExportSchedule(BaseSDK):
                 "json",
                 models.ExportRefreshScheduleIcalLinkRequestBody,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -148,7 +149,7 @@ class ExportSchedule(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.V4ICalLinkResponse:
+    ) -> models.ExportRefreshScheduleIcalLinkResponse:
         r"""Refresh Schedule ICal Link
 
         :param schedule_id:
@@ -197,6 +198,7 @@ class ExportSchedule(BaseSDK):
                 "json",
                 models.ExportRefreshScheduleIcalLinkRequestBody,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
